@@ -1,24 +1,35 @@
 """Hyperparameter tuning for the intent LSTM (fixed 4x64 ReLU head), optimizing macro F1.
 
+Training data (--train-on, default synthetic): see train_intent_lstm.py. Word2Vec and
+the vocab are refit on the training rows inside every fold, so with the default they
+are trained on the synthetic text.
+
 Search:
   * Optuna TPE sampler over learning rate, batch size, dropout, LSTM units,
     bidirectionality, Word2Vec dimension and embedding freezing.
-  * Each trial is scored by stratified 3-fold cross-validated **macro F1** on the
-    train + val portion of the fixed split (the test split is never touched).
-    Word2Vec and the vocab are refit inside every fold, so there is no leakage.
-    CV is used instead of the single val split because several classes have only
-    3-6 val examples, making a single-split F1 too noisy to rank trials.
+  * Each trial is scored by 3-fold cross-validated **macro F1 on REAL messages**: the
+    real train + val messages are split into 3 stratified folds; for each fold the model
+    trains on the synthetic rewrites of the OTHER folds' seeds (early stopping on a
+    seed-grouped synthetic hold-out) and is scored on the real messages of this fold.
+    No fold ever trains on a rewrite of a message it is scored on, and the real test
+    split is never touched. CV (not the single val split) because several classes have
+    only 3-6 val examples, making a single-split F1 too noisy to rank trials.
   * A median pruner stops clearly bad trials after their first fold(s).
   * Trials are stored in SQLite, so the study can be resumed or run by several
     processes in parallel (each pointing at the same --study-dir).
 
 Final model (after the search, unless --skip-final):
-  * Retrain the best params on the train split (early stopping on val) with
-    --final-seeds seeds, report test metrics as mean ± std, and save the seed
-    with the best *val* macro F1 to models/intent_lstm_tuned/.
+  * Retrain the best params on all training data (early stopping on the synthetic
+    hold-out) with --final-seeds seeds, report real test metrics as mean ± std, and save
+    the seed with the best real *val* macro F1 to models/intent_lstm_tuned/ (the model
+    classify.py uses).
+
+Each --train-on value has its own study (models/intent_lstm_tuning_<train_on>/), since
+the CV scores are not comparable across training sources.
 
 Usage:
     python tune_intent_lstm.py --n-trials 30
+    python tune_intent_lstm.py --n-trials 30 --train-on real    # original real-data setup
     # parallel: run N workers with --skip-final, then once with --n-trials 0
     python tune_intent_lstm.py --n-trials 10 --skip-final &   (x3)
     python tune_intent_lstm.py --n-trials 0
@@ -34,14 +45,17 @@ from pathlib import Path
 import numpy as np
 import optuna
 from sklearn.metrics import f1_score
-from sklearn.model_selection import StratifiedKFold
 
 # Importing train_intent_lstm first applies its Keras backend / TensorFlow workaround.
-from train_intent_lstm import ROOT, SEED, evaluate, fit, prepare_data, save, split_indices
+from train_intent_lstm import ROOT, SEED, TRAIN_SOURCES, Dataset, evaluate, fit, prepare_dataset, save
 
-STUDY_DIR = ROOT / "models" / "intent_lstm_tuning"
 FINAL_DIR = ROOT / "models" / "intent_lstm_tuned"
 STUDY_NAME = "intent_lstm_4x64_macro_f1"
+
+
+def default_study_dir(train_on: str) -> Path:
+    # The original real-data study lives in models/intent_lstm_tuning/.
+    return ROOT / "models" / ("intent_lstm_tuning" if train_on == "real" else f"intent_lstm_tuning_{train_on}")
 CV_FOLDS = 3
 FIXED = dict(hidden_layers=4, hidden_units=64, epochs=100, patience=10, w2v_init=True)
 
@@ -60,16 +74,17 @@ def suggest(trial: optuna.Trial) -> dict:
     )
 
 
-def make_objective(tokens, y, idx_dev, n_classes):
-    folds = list(StratifiedKFold(CV_FOLDS, shuffle=True, random_state=SEED).split(idx_dev, y[idx_dev]))
+def make_objective(ds: Dataset):
+    folds = ds.cv_folds(CV_FOLDS)
+    log.info("CV folds (train / early-stop / real eval): %s", [(len(a), len(b), len(c)) for a, b, c in folds])
 
     def objective(trial: optuna.Trial) -> float:
         params = {**FIXED, **suggest(trial)}
         scores, epochs = [], []
-        for k, (tr, va) in enumerate(folds):
-            fitted = fit(tokens, y, idx_dev[tr], idx_dev[va], n_classes, seed=SEED, verbose=0, **params)
-            pred = fitted["model"].predict(fitted["X"][idx_dev[va]], verbose=0).argmax(axis=1)
-            scores.append(f1_score(y[idx_dev[va]], pred, average="macro"))
+        for k, (tr, stop, ev) in enumerate(folds):
+            fitted = fit(ds.tokens, ds.y, tr, stop, ds.n_classes, seed=SEED, verbose=0, **params)
+            pred = fitted["model"].predict(fitted["X"][ev], verbose=0).argmax(axis=1)
+            scores.append(f1_score(ds.y[ev], pred, average="macro"))
             epochs.append(fitted["best_epoch"])
             trial.report(float(np.mean(scores)), step=k)
             if trial.should_prune():
@@ -94,17 +109,17 @@ def load_study(study_dir: Path) -> optuna.Study:
     )
 
 
-def train_final(study: optuna.Study, tokens, y, encoder, seeds: list[int], out: Path) -> None:
+def train_final(study: optuna.Study, ds: Dataset, seeds: list[int], out: Path) -> None:
     best = {**FIXED, **study.best_params}
     log.info("Best CV macro F1 %.4f (trial %d) with params: %s",
              study.best_value, study.best_trial.number, study.best_params)
 
-    idx_train, idx_val, idx_test = split_indices(y)
-    n_classes = len(encoder.classes_)
+    splits = ds.splits()
+    log.info("Final training on %s | split sizes: %s", ds.train_on, {k: len(v) for k, v in splits.items()})
     runs = []
     for seed in seeds:
-        fitted = fit(tokens, y, idx_train, idx_val, n_classes, seed=seed, verbose=0, **best)
-        metrics = evaluate(fitted, y, {"train": idx_train, "val": idx_val, "test": idx_test})
+        fitted = fit(ds.tokens, ds.y, splits["train"], splits["stop"], ds.n_classes, seed=seed, verbose=0, **best)
+        metrics = evaluate(fitted, ds.y, splits)
         log.info("Final seed %d: %s", seed, metrics)
         runs.append((fitted, metrics))
 
@@ -116,9 +131,10 @@ def train_final(study: optuna.Study, tokens, y, encoder, seeds: list[int], out: 
 
     # Choose which seed to keep by val F1, never by test F1.
     fitted, metrics = max(runs, key=lambda r: r[1]["val_macro_f1"])
-    extra = {"cv_macro_f1": round(study.best_value, 4), "best_trial": study.best_trial.number,
+    extra = {"train_on": ds.train_on, "split_sizes": {k: len(v) for k, v in splits.items()},
+             "cv_macro_f1": round(study.best_value, 4), "best_trial": study.best_trial.number,
              "seeds_summary": summary, "seeds": seeds}
-    report = save(fitted, encoder, y, idx_test, metrics, out, extra=extra)
+    report = save(fitted, ds.encoder, ds.y, splits["test"], metrics, out, extra=extra)
     log.info("Kept seed %d. Test classification report:\n%s", fitted["seed"], report)
     log.info("Saved tuned model to %s", out)
 
@@ -126,7 +142,8 @@ def train_final(study: optuna.Study, tokens, y, encoder, seeds: list[int], out: 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--n-trials", type=int, default=30)
-    parser.add_argument("--study-dir", type=Path, default=STUDY_DIR)
+    parser.add_argument("--train-on", choices=TRAIN_SOURCES, default="synthetic")
+    parser.add_argument("--study-dir", type=Path, default=None, help="Default: models/intent_lstm_tuning_<train_on>")
     parser.add_argument("--out-dir", type=Path, default=FINAL_DIR)
     parser.add_argument("--skip-final", action="store_true", help="Only run trials")
     parser.add_argument("--final-seeds", type=int, nargs="+", default=[42, 7, 123])
@@ -136,13 +153,13 @@ def main() -> None:
     logging.getLogger("gensim").setLevel(logging.WARNING)
     logging.getLogger("healthcare_ingestion").setLevel(logging.WARNING)
 
-    df, tokens, y, encoder = prepare_data()
-    idx_train, idx_val, _ = split_indices(y)
-    idx_dev = np.concatenate([idx_train, idx_val])
+    logging.getLogger("generate_synthetic").setLevel(logging.WARNING)
+    args.study_dir = args.study_dir or default_study_dir(args.train_on)
 
+    ds = prepare_dataset(args.train_on)
     study = load_study(args.study_dir)
     if args.n_trials > 0:
-        study.optimize(make_objective(tokens, y, idx_dev, len(encoder.classes_)), n_trials=args.n_trials)
+        study.optimize(make_objective(ds), n_trials=args.n_trials)
 
     trials = study.trials_dataframe(attrs=("number", "value", "state", "params", "user_attrs", "duration"))
     trials.sort_values("value", ascending=False).to_csv(args.study_dir / "trials.csv", index=False)
@@ -151,9 +168,10 @@ def main() -> None:
              done.sort_values("value", ascending=False).head(5).to_string(index=False))
 
     if not args.skip_final:
-        train_final(study, tokens, y, encoder, args.final_seeds, args.out_dir)
-        (args.study_dir / "best_params.json").write_text(
-            json.dumps({"cv_macro_f1": study.best_value, "params": study.best_params, "fixed": FIXED}, indent=2))
+        train_final(study, ds, args.final_seeds, args.out_dir)
+        (args.study_dir / "best_params.json").write_text(json.dumps(
+            {"train_on": args.train_on, "cv_macro_f1": study.best_value, "params": study.best_params,
+             "fixed": FIXED}, indent=2))
 
 
 if __name__ == "__main__":

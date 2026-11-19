@@ -5,12 +5,34 @@ them to a platform **action** (book an appointment, send a payment link, route t
 human, emergency escalation, ...).
 
 ```
-patient message ─┬─ intent LSTM (Word2Vec embeddings, 4x64 ReLU)  ── 17 intents ──┐
-                 └─ sentiment head (frozen Hospital_Reviews BERT) ── neg/neu/pos ─┴─► action_policy ─► action
+patient message ─┬─ intent LSTM (Word2Vec embeddings, 4x64 ReLU) ──── intent probs (17) ─────┐
+                 ├─ sentiment head (frozen Hospital_Reviews BERT) ─── sentiment probs (3) ───┤
+                 └─ Embedding (intent model's Word2Vec) ─ avg pool ── text embedding ────────┴─► action DNN (5x64 ReLU, softmax) ─► action
 ```
+
+All three models are **trained on the Claude-generated synthetic healthcare messages**
+(`llm_intent` / `llm_sentiment` / policy action, overridden by human review) and **tested
+on real patient messages** from the healthcare chatbot dataset. The rule-based routing
+table in `action_policy.py` is kept as a baseline.
 
 This guide runs everything end to end: environment → data ingestion → synthetic data
 generation → training → classification and evaluation.
+
+**One command:** `./run_all.sh` runs every step below in order (calling `./setup.sh` first
+if `.venv` is missing), logs each step to `logs/<step>.log`, stops at the first failure, and
+prints the real test-set metrics at the end. Synthetic generation is skipped when
+`data/synthetic/healthcare_synthetic.csv` already exists.
+
+```bash
+./run_all.sh                                # everything (~1.5–3 h on CPU, mostly intent tuning)
+./run_all.sh --trials 40 --tune-workers 4   # parallel intent search
+./run_all.sh --from sentiment               # resume from a step: ingest, generate, intent,
+                                            #   sentiment, policy, action, evaluate
+./run_all.sh --help                         # all options (--oof-folds, --generate, ...)
+```
+
+Each Optuna run adds trials to the existing study; `--trials 0` just retrains the best
+parameters found so far.
 
 ---
 
@@ -36,8 +58,9 @@ Notes:
   `KERAS_BACKEND=torch` and blocks the TensorFlow import.
 - **`brotli>=1.2` is required** for Hugging Face downloads (pinned in `requirements.txt`).
   Older Brotli fails with `TypeError: process() takes no keyword arguments`.
-- **Claude API access** (only for synthetic data generation): run `ant auth login`, or
-  export `ANTHROPIC_API_KEY` in the shell you run the script from.
+- **Claude API access** (only for synthetic data generation): create a key at
+  <https://console.anthropic.com> and `export ANTHROPIC_API_KEY=sk-ant-...` in the shell you
+  run the script from (or add it to `~/.zshrc`). Never commit the key.
 - `data/` and `models/` are git-ignored; everything in them is produced by the steps below.
 
 ---
@@ -106,7 +129,10 @@ Outputs:
 
 **Human review:** open `healthcare_synthetic.csv`, filter `review_status == needs_review`,
 and fill in `reviewer_intent`, `reviewer_sentiment`, `reviewer_action`, `reviewer_notes`
-where the LLM label is wrong. Reviewer labels take precedence over LLM labels in training.
+where the LLM label is wrong. Reviewer labels take precedence over LLM labels in training;
+put `drop` in `reviewer_intent` or `reviewer_sentiment` to exclude a bad row. Re-running
+the script (including `--build-only`) keeps existing reviewer columns. After reviewing,
+retrain 3a and 3b.
 
 Repeatability: the job plan is fixed by `--seed` (default 42). LLM outputs are not
 bit-for-bit deterministic, so share `generations.jsonl` rather than re-generating.
@@ -115,19 +141,34 @@ bit-for-bit deterministic, so share `generations.jsonl` rather than re-generatin
 
 ## 3. Training
 
-Run in this order — later steps read earlier outputs.
+Run in this order — later steps read earlier outputs. Both models train on the synthetic
+data from step 2 by default (`--train-on synthetic`). The real healthcare messages are
+split 70/15/15 once (fixed seed): with synthetic training, the real **test** split (437
+messages, never used as generation seeds) is the honest score. Every split groups a seed
+message with its rewrites, so no model is ever scored on a message it saw a rewrite of.
 
 ### 3a. Intent model (Word2Vec + LSTM + 4x64 ReLU head)
 
-Hyperparameter search (Optuna, 3-fold CV macro F1 on train+val), then retrain the best
-settings with 3 seeds and evaluate once on the test split:
+Trains on the synthetic messages with their `llm_intent` labels. Word2Vec and the
+vocabulary are trained on the synthetic text. Hyperparameter search (Optuna), then
+retrain the best settings with 3 seeds and evaluate once on the real test split:
 
 ```bash
 python tune_intent_lstm.py --n-trials 30
 ```
 
-- ~1–2 min per trial on CPU. To parallelise, run several workers against the same study,
-  then the final retrain once:
+- **How trials are scored:** the real train+val messages are split into 3 folds. Each fold
+  trains on the synthetic rewrites of the *other* folds' seeds (early stopping on a 10%
+  seed-grouped synthetic hold-out) and is scored by macro F1 on the real messages in
+  that fold.
+- **Final model:** trained on all synthetic messages, saved to `models/intent_lstm_tuned/`
+  (overwrites the earlier real-data model — copy it first if you want to compare).
+  Real-val scores are optimistic here (val messages were seeds); judge on test.
+- `--train-on real` reproduces the original real-data setup; `--train-on both` trains on
+  synthetic + the real train split. Each source has its own study in
+  `models/intent_lstm_tuning_<source>/` (real: `models/intent_lstm_tuning/`).
+- ~3–5 min per trial on CPU (3× more training data than before). To parallelise, run
+  several workers against the same study, then the final retrain once:
   ```bash
   python tune_intent_lstm.py --n-trials 9 --skip-final &   # x4
   python tune_intent_lstm.py --n-trials 0                  # retrain best params only
@@ -137,12 +178,14 @@ python tune_intent_lstm.py --n-trials 30
   new labels (or a fresh search).
 
 Outputs: `models/intent_lstm_tuned/` (model, vocab, label encoder, Word2Vec, metrics,
-test report) and `models/intent_lstm_tuning/` (`study.db`, `trials.csv`, `best_params.json`).
+test report) and `models/intent_lstm_tuning_synthetic/` (`study.db`, `trials.csv`,
+`best_params.json`).
 
 Optional / baselines:
 
 ```bash
-python train_intent_lstm.py                  # single run with default params (4x64 head)
+python train_intent_lstm.py                  # single run with default params, synthetic training data
+python train_intent_lstm.py --train-on real  # same, trained on the real train split
 python train_intent_lstm.py --hidden-layers 4 --hidden-units 128 --seed 7 --out-dir models/x
 python train_intent_dnn.py                   # earlier averaged-Word2Vec DNN baseline
 ```
@@ -150,21 +193,30 @@ python train_intent_dnn.py                   # earlier averaged-Word2Vec DNN bas
 ### 3b. Sentiment model (frozen BERT + 2x64 head)
 
 Freezes [`brettclaus/Hospital_Reviews`](https://huggingface.co/brettclaus/Hospital_Reviews)
-(downloaded on first run, ~440 MB) and trains a 2x64 ReLU head on the customer-support
-sentiment labels, evaluated on template-disjoint splits. Then scores every healthcare
-message.
+(downloaded on first run, ~440 MB), embeds the synthetic messages with it, and trains a
+2x64 ReLU head on their `llm_sentiment` labels. Splits are grouped by seed message, so
+the negative / neutral / positive rewrites of one seed are never split across train and
+test. The customer-support data (never trained on) is reported as an out-of-domain
+check. Then scores every real healthcare message.
 
 ```bash
 python train_sentiment_head.py
+python train_sentiment_head.py --train-on support   # original customer-support setup
 ```
 
+- The first run encodes ~13,500 texts with BERT on CPU (~10 min); features are
+  cached in `data/processed/bert_features/`, so later runs take ~1–2 min.
+- The real healthcare messages have no human sentiment labels, so sentiment accuracy is
+  only measured on held-out synthetic seeds and the customer-support data.
+
 Outputs: `models/sentiment_head/` and `data/processed/healthcare_sentiment.csv`
-(per-message sentiment probabilities, joinable on `id`). Requires steps 1a and 1b.
+(per-message sentiment probabilities, joinable on `id`). Requires steps 1a, 1b and 2.
 
 ### 3c. Action labels for the real data
 
 Applies the action policy (intent × sentiment → action) to every healthcare message.
-This is the reference the classifier is evaluated against.
+This is the reference the classifier is evaluated against. Re-run it after 3b — the
+reference sentiment comes from the sentiment head.
 
 ```bash
 python action_policy.py
@@ -174,36 +226,67 @@ Output: `data/processed/healthcare_actions.csv` (adds `group` and `action`).
 Requires 3b. Fails with a "stale" error if `healthcare_sentiment.csv` doesn't match the
 current intent labels — re-run 3b.
 
-### 3d. Action classifier on synthetic data — *not yet implemented*
+### 3d. Action classifier (DNN, 5x64)
 
-Planned: a Dense(64)–Dense(64)–softmax model over intent probabilities, sentiment
-probabilities and BERT text features, trained on `healthcare_synthetic.csv`
-(reviewer labels where present) and tested on the real held-out messages.
+Input: the message's tokens through an **Embedding layer** (same vocabulary as the intent
+model, initialised from its fine-tuned Word2Vec weights, trainable, masked average pooling)
+concatenated with the **intent probabilities** (17) and **sentiment probabilities** (3).
+Then **5 hidden ReLU layers × 64 units** and a **softmax** over the 8 actions.
+
+```bash
+python classify.py --train
+```
+
+- **Labels:** `action_label` from `healthcare_synthetic.csv` — `reviewer_action` if filled,
+  otherwise the action policy on the final intent/sentiment labels, escalated to
+  `route_to_human_emergency` when the LLM flagged an emergency.
+- **No stacking leakage:** for the synthetic training rows, the intent and sentiment inputs
+  are out-of-fold predictions — 5 seed-grouped folds, each training a fresh intent LSTM
+  and sentiment head (same settings as the saved models) on the other folds. Otherwise the
+  DNN would learn from over-confident in-sample probabilities it never sees on new
+  messages. This takes the longest (~5 LSTM fits, ~15–30 min); results are cached in
+  `models/action_dnn/oof_features.npz` and reused until the data or models change.
+  `--oof-folds 0` skips it (quick experiments only).
+- **Splits:** synthetic data 70/15/15 grouped by seed message (train / early stopping and
+  seed choice / synthetic test), 3 seeds, best kept by val.
+- Options: `--hidden-layers`, `--hidden-units`, `--dropout`, `--lr`, `--epochs`,
+  `--freeze-embedding`, `--seeds`.
+
+Output: `models/action_dnn/` (`model.keras`, `preprocessing.joblib`, `metrics.json`,
+`synthetic_test_report.txt`, `oof_features.npz`). Requires 2, 3a and 3b. Retrain after
+retraining either upstream model (`classify.py` refuses a mismatched action model).
 
 ---
 
 ## 4. Classification and evaluation
 
-Classify messages with the trained models + action policy:
+Classify messages with the action DNN:
 
 ```bash
 python classify.py "I need to book a dental check-up next week" "What are the accepted payment methods?"
 ```
 
-Returns intent, intent confidence, emergency probability, sentiment, group, action and
-the decision reason (`table`, `emergency_override`, `low_confidence`).
+Returns intent, intent confidence, emergency probability, sentiment, the DNN's `action`
+and `action_confidence`, plus the routing table's `policy_action` and `policy_reason`
+(`table`, `emergency_override`, `low_confidence`) for comparison.
 
 Evaluate predicted actions on the 437 real test messages (macro F1, per-action report,
-confusion matrix, error list):
+confusion matrix, error list), with the routing table as a baseline:
 
 ```bash
 python classify.py --evaluate
 ```
 
 Output: `models/action_eval/` (`metrics.json`, `classification_report.txt`,
-`confusion_matrix.csv`, `errors.csv`). Requires 3a, 3b and 3c.
+`confusion_matrix.csv`, `errors.csv`, and `*_routing_table.*` baseline files).
+Requires 3a–3d.
 
-Safety rules applied at inference (constants in `action_policy.py`):
+The reference action for the real messages is the policy applied to the true intent and
+the sentiment head's sentiment (no human sentiment/action labels exist), which favours the
+routing table: it uses that same sentiment and the same rules. Read the comparison with
+that in mind.
+
+Routing-table safety rules (baseline only; constants in `action_policy.py`):
 
 - `EMERGENCY_THRESHOLD = 0.2` — if P(emergency) ≥ 0.2, route to `route_to_human_emergency`.
 - `LOW_CONFIDENCE_THRESHOLD = 0.5` — below this intent confidence, automated actions fall
@@ -218,10 +301,11 @@ Safety rules applied at inference (constants in `action_policy.py`):
 | 1a | `python data_ingestion.py` | internet | `data/processed/customer_support.csv` | seconds |
 | 1b | `python healthcare_ingestion.py` | raw healthcare CSV | `data/processed/healthcare_intents.csv` | seconds |
 | 2 | `python generate_synthetic.py` | 1b, Claude API | `data/synthetic/*` | ~10–15 min, ~$2 |
-| 3a | `python tune_intent_lstm.py --n-trials 30` | 1b | `models/intent_lstm_tuned/` | ~30–60 min |
-| 3b | `python train_sentiment_head.py` | 1a, 1b | `models/sentiment_head/`, `healthcare_sentiment.csv` | ~1–2 min |
+| 3a | `python tune_intent_lstm.py --n-trials 30` | 1b, 2 | `models/intent_lstm_tuned/` | ~1.5–2.5 h (parallelise) |
+| 3b | `python train_sentiment_head.py` | 1a, 1b, 2 | `models/sentiment_head/`, `healthcare_sentiment.csv` | ~10 min first run, then ~2 min |
 | 3c | `python action_policy.py` | 3b | `data/processed/healthcare_actions.csv` | seconds |
-| 4 | `python classify.py --evaluate` | 3a–3c | `models/action_eval/` | ~1 min |
+| 3d | `python classify.py --train` | 2, 3a, 3b | `models/action_dnn/` | ~15–30 min (OOF), then ~2 min |
+| 4 | `python classify.py --evaluate` | 3a–3d | `models/action_eval/` | ~1 min |
 
 ## Troubleshooting
 
@@ -231,5 +315,11 @@ Safety rules applied at inference (constants in `action_policy.py`):
 | `TypeError: process() takes no keyword arguments` during a Hugging Face download | `pip install -U "brotli>=1.2"` |
 | `... is stale; rerun ...` | An upstream step changed; re-run the step named in the message |
 | `Intents with no policy: [...]` | A new intent was added to `INTENT_RULES` without a row in `action_policy.POLICY` |
-| Authentication error in `generate_synthetic.py` | `ant auth login`, or export `ANTHROPIC_API_KEY` |
+| Authentication error in `generate_synthetic.py` | `export ANTHROPIC_API_KEY=sk-ant-...` |
+| `ModuleNotFoundError: No module named 'keras'` | The venv isn't active (prompt shows `(base)`): `source .venv/bin/activate` |
+| `No action model in models/action_dnn` | Run `python classify.py --train` |
+| `The action DNN was trained against different intent/sentiment models` | Retrained 3a or 3b; rerun `python classify.py --train` |
 | `Raw dataset not found` | Place the healthcare CSV in `data/raw/` (step 1b) |
+| `healthcare_synthetic.csv not found` | Run step 2 (or `--train-on real` / `--train-on support` for the old setups) |
+| `Synthetic intents not in the real label set` | `INTENT_RULES` changed after generation; regenerate, or map the old labels |
+| `Unknown labels in healthcare_synthetic.csv` | Typo in a `reviewer_intent` / `reviewer_sentiment` cell |

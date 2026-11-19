@@ -14,7 +14,8 @@ Approach (rewrite + pre-label, then human review):
      labeller flags as a medical emergency becomes route_to_human_emergency.
   5. Rows are flagged `needs_review` when the blind label disagrees with the target
      sentiment or the seed intent, or when an emergency is flagged. Human reviewers
-     fill reviewer_* columns; training uses reviewer labels where present.
+     fill reviewer_* columns; training uses reviewer labels where present (see
+     load_labelled; "drop" removes a row). Rebuilding the CSV keeps existing reviews.
 
 Repeatability: the job plan (which seeds, target counts, styles) is fully
 determined by --seed. Every API response is cached in a JSONL file keyed by job id,
@@ -27,7 +28,7 @@ Usage:
     python generate_synthetic.py                           # full run (~3,334 jobs -> 10,000 messages)
     python generate_synthetic.py --build-only              # rebuild the CSV from the cache
 
-Requires ANTHROPIC_API_KEY (or an `ant auth login` profile).
+Requires ANTHROPIC_API_KEY in the environment.
 """
 
 from __future__ import annotations
@@ -36,6 +37,7 @@ import argparse
 import json
 import logging
 import math
+import os
 import re
 import threading
 import zlib
@@ -360,9 +362,11 @@ def build_dataset(jobs: pd.DataFrame, test_texts: set[str]) -> pd.DataFrame:
     norm = df["text"].map(normalize)
     seed_norm = set(df["seed_text"].map(normalize))
     leak, copy_of_seed, dup = norm.isin(test_texts), norm.isin(seed_norm), norm.duplicated()
-    log.info("Dropping %d test-text matches, %d verbatim seed copies, %d duplicates",
-             leak.sum(), (copy_of_seed & ~leak).sum(), (dup & ~leak & ~copy_of_seed).sum())
-    df = df[~(leak | copy_of_seed | dup)].reset_index(drop=True)
+    empty = norm == ""
+    log.info("Dropping %d empty texts, %d test-text matches, %d verbatim seed copies, %d duplicates",
+             empty.sum(), (leak & ~empty).sum(), (copy_of_seed & ~leak & ~empty).sum(),
+             (dup & ~leak & ~copy_of_seed & ~empty).sum())
+    df = df[~(empty | leak | copy_of_seed | dup)].reset_index(drop=True)
 
     # Action from the policy on the blind labels; emergency flag escalates.
     df["action"] = [policy.table_action(i, s) for i, s in zip(df["llm_intent"], df["llm_sentiment"])]
@@ -378,9 +382,75 @@ def build_dataset(jobs: pd.DataFrame, test_texts: set[str]) -> pd.DataFrame:
     })
     df["review_reasons"] = reasons.apply(lambda r: ";".join(c for c in reasons.columns if r[c]), axis=1)
     df["review_status"] = np.where(df["review_reasons"] != "", "needs_review", "pending")
-    for col in ("reviewer_intent", "reviewer_sentiment", "reviewer_action", "reviewer_notes"):
+    for col in REVIEWER_COLS:
         df[col] = ""
     df.insert(0, "synthetic_id", [f"S{i:05d}" for i in range(len(df))])
+    return df
+
+
+REVIEWER_COLS = ["reviewer_intent", "reviewer_sentiment", "reviewer_action", "reviewer_notes"]
+DROP = "drop"  # reviewer_intent or reviewer_sentiment == "drop" excludes the row from training
+
+
+def keep_reviews(df: pd.DataFrame, path: Path = OUT_CSV) -> pd.DataFrame:
+    """Carry reviewer_* columns over from an existing CSV (matched on job_id + text) so a
+    rebuild never wipes human review."""
+    if not path.exists():
+        return df
+    old = pd.read_csv(path, dtype=str, keep_default_na=False)
+    if not set(REVIEWER_COLS) <= set(old.columns):
+        return df
+    old = old[["job_id", "text", *REVIEWER_COLS]].drop_duplicates(["job_id", "text"])
+    reviewed = (old[REVIEWER_COLS] != "").any(axis=1)
+    if not reviewed.any():
+        return df
+    merged = df.drop(columns=REVIEWER_COLS).merge(old, on=["job_id", "text"], how="left")
+    merged[REVIEWER_COLS] = merged[REVIEWER_COLS].fillna("")
+    log.info("Kept reviewer labels for %d rows from the existing %s", (merged[REVIEWER_COLS] != "").any(axis=1).sum(),
+             path.name)
+    lost = reviewed.sum() - (merged[REVIEWER_COLS] != "").any(axis=1).sum()
+    if lost:
+        log.warning("%d reviewed rows no longer exist in the rebuilt dataset", lost)
+    return merged[df.columns]
+
+
+def load_labelled(path: Path = OUT_CSV) -> pd.DataFrame:
+    """Synthetic messages with final training labels in `intent`, `sentiment` and `action_label`.
+
+    The reviewer label wins where it is filled in, otherwise the blind LLM label is used.
+    Rows a reviewer marked "drop" are removed. `label_source` says where each label came
+    from. `seed_id` is the id of the real message each row rewrites - use it to group
+    splits so the three tone variants of one seed never straddle train and test.
+    """
+    if not path.exists():
+        raise FileNotFoundError(f"{path} not found; run generate_synthetic.py first")
+    df = pd.read_csv(path, dtype={c: str for c in REVIEWER_COLS}, keep_default_na=False)
+    for col in ("intent", "sentiment"):
+        rev = df[f"reviewer_{col}"].str.strip().str.lower()
+        df[col] = np.where(rev != "", rev, df[f"llm_{col}"])
+    dropped = (df["intent"] == DROP) | (df["sentiment"] == DROP) | (df["text"].map(normalize) == "")
+    df = df[~dropped].reset_index(drop=True)
+    df["label_source"] = np.where((df["reviewer_intent"].str.strip() != "") |
+                                  (df["reviewer_sentiment"].str.strip() != ""), "reviewer", "llm")
+
+    bad_intent = set(df["intent"]) - set(INTENTS)
+    bad_sentiment = set(df["sentiment"]) - set(SENTIMENTS)
+    if bad_intent or bad_sentiment:
+        raise ValueError(f"Unknown labels in {path.name}: intents {sorted(bad_intent)}, "
+                         f"sentiments {sorted(bad_sentiment)} (typo in a reviewer_* column?)")
+
+    # Action label: reviewer_action if given; otherwise the policy on the final labels, with
+    # the LLM emergency flag escalating (unless a reviewer re-labelled the row).
+    action = pd.Series([policy.table_action(i, s) for i, s in zip(df["intent"], df["sentiment"])], index=df.index)
+    flagged = df["llm_is_emergency"].astype(str).str.lower().eq("true") & (df["label_source"] == "llm")
+    action[flagged] = policy.ROUTE_EMERGENCY
+    rev_action = df["reviewer_action"].str.strip().str.lower()
+    df["action_label"] = np.where(rev_action != "", rev_action, action)
+    bad_action = set(df["action_label"]) - set(policy.ACTIONS)
+    if bad_action:
+        raise ValueError(f"Unknown reviewer_action values in {path.name}: {sorted(bad_action)}")
+    log.info("Synthetic training data: %d rows (%d dropped: review or empty text, %d with reviewer labels)",
+             len(df), dropped.sum(), (df["label_source"] == "reviewer").sum())
     return df
 
 
@@ -411,12 +481,16 @@ def main() -> None:
         log.info("Dry run: %d jobs, estimated cost ~$%.2f with %s", len(run_set), est, MODEL)
         return
     if not args.build_only:
+        if not os.environ.get("ANTHROPIC_API_KEY"):
+            raise SystemExit("ANTHROPIC_API_KEY is not set: export ANTHROPIC_API_KEY=sk-ant-... "
+                             "(key from https://console.anthropic.com), or use --dry-run / --build-only")
         run_jobs(run_set, args.workers)
 
     df = build_dataset(run_set, test_texts)
     if df.empty:
         log.warning("No generations cached yet.")
         return
+    df = keep_reviews(df)
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(OUT_CSV, index=False)
     log.info("Synthetic messages: %d | needs_review: %d (%.0f%%)", len(df),

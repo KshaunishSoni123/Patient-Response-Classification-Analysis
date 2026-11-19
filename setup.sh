@@ -65,15 +65,16 @@ if [[ -f data/raw/healthcare-chatbot-intent-dataset-10k-rows.csv ]]; then
 else
     echo "    TODO place the healthcare dataset at data/raw/healthcare-chatbot-intent-dataset-10k-rows.csv"
 fi
-if [[ -n "${ANTHROPIC_API_KEY:-}" ]] || { command -v ant >/dev/null 2>&1 && ant auth status >/dev/null 2>&1; }; then
+if [[ -n "${ANTHROPIC_API_KEY:-}" ]]; then
     echo "    ok   Claude API credentials found"
 else
-    echo "    TODO for synthetic data: 'ant auth login' or export ANTHROPIC_API_KEY"
+    echo "    TODO for synthetic data: export ANTHROPIC_API_KEY=... (key from https://console.anthropic.com)"
 fi
 
 cat <<'EOF'
 
-Setup complete. Activate the environment, then follow README.md:
+Setup complete. Activate the environment in EVERY new terminal (otherwise
+Anaconda's python runs and you get "No module named 'keras'"), then follow README.md:
 
     source .venv/bin/activate
     python data_ingestion.py

@@ -1,30 +1,38 @@
 """Sentiment classifier: frozen `brettclaus/Hospital_Reviews` BERT -> 2x64 ReLU head -> softmax.
 
 The pretrained BERT encoder (12 layers, 110M params) is frozen; only a small Keras
-head is trained, on the customer-support sentiment labels (negative / neutral /
-positive).
+head (the additional layers) is trained, on negative / neutral / positive labels.
+
+Training data (--train-on):
+  synthetic (default)  the Claude-generated healthcare messages
+                       (generate_synthetic.load_labelled: label = llm_sentiment unless a
+                       reviewer overrode it). Splits are grouped by seed message, so the
+                       negative / neutral / positive rewrites of one seed always land on
+                       the same side: the head is tested on unseen seeds and must learn
+                       tone rather than memorise topics.
+  support              the Kaggle customer-support messages (the original setup), one row
+                       per unique text. They come from ~150 sentence templates (each with a
+                       single sentiment), so splits are grouped by template.
 
 Pipeline:
-  1. Load customer-support messages, one row per unique text (702 of 800 rows;
-     duplicates never disagree on sentiment). The dataset is synthetic: the 702
-     texts come from ~150 sentence templates with product names / numbers swapped,
-     and each template has a single sentiment. Random splits therefore put
-     near-copies in train and test (even bag-of-words scores 100%), so ALL splits
-     here are grouped by template: the model is always tested on unseen templates.
+  1. Load the training data (above) and the out-of-domain evaluation set (the other one).
   2. Encode every text once with the frozen BERT. Features are the pooled [CLS]
      vector (768-d) that the model's own Negative/Mixed/Positive classifier reads
      (--pooling mean uses masked mean of the last hidden layer instead).
-     Because the encoder is frozen, features are computed once and reused.
-  3. 5-fold template-grouped CV: train the head (early stopping on an inner val split)
+     Because the encoder is frozen, features are computed once and cached in
+     data/processed/bert_features/ (keyed by texts, model revision and pooling).
+  3. 5-fold grouped CV: train the head (early stopping on an inner val split)
      and, as a baseline, logistic regression on the model's original 3 output
      probabilities. Reports accuracy / macro F1 for both.
-  4. Final head: fixed template-grouped ~70/15/15 split, trained with several seeds; keep the seed
+  4. Final head: fixed grouped ~70/15/15 split, trained with several seeds; keep the seed
      with the best val macro F1, report test metrics, save to models/sentiment_head/.
-  5. Score the healthcare patient messages -> data/processed/healthcare_sentiment.csv
-     (joinable on `id`) for the final classifier.
+     Also reports the kept head on the out-of-domain set (never trained on).
+  5. Score the real healthcare patient messages -> data/processed/healthcare_sentiment.csv
+     (joinable on `id`) for the final classifier. These have no human sentiment labels.
 
 Usage:
-    python train_sentiment_head.py
+    python train_sentiment_head.py                       # train on synthetic healthcare data
+    python train_sentiment_head.py --train-on support    # original customer-support setup
     python train_sentiment_head.py --hidden-units 128 --dropout 0.3 --pooling mean
 """
 
@@ -38,6 +46,7 @@ os.environ.setdefault("KERAS_BACKEND", "torch")
 sys.modules.setdefault("tensorflow", None)
 
 import argparse
+import hashlib
 import json
 import logging
 import re
@@ -62,6 +71,7 @@ ROOT = Path(__file__).resolve().parent
 MODEL_ID = "brettclaus/Hospital_Reviews"
 SUPPORT_CSV = ROOT / "data" / "processed" / "customer_support.csv"
 OUT_CSV = ROOT / "data" / "processed" / "healthcare_sentiment.csv"
+FEATURE_CACHE = ROOT / "data" / "processed" / "bert_features"
 MODEL_DIR = ROOT / "models" / "sentiment_head"
 CLASSES = ["negative", "neutral", "positive"]
 MAX_LENGTH = 128
@@ -117,6 +127,40 @@ class FrozenEncoder:
         return np.concatenate(feats).astype(np.float32), np.concatenate(probs)
 
 
+def encode_cached(enc: FrozenEncoder, texts: list[str], pooling: str) -> tuple[np.ndarray, np.ndarray]:
+    """FrozenEncoder.encode with an on-disk cache (the encoder is frozen, so features never change)."""
+    key = hashlib.sha256("\n".join([MODEL_ID, str(enc.revision), pooling, str(MAX_LENGTH), *texts]).encode())
+    path = FEATURE_CACHE / f"{pooling}_{key.hexdigest()[:16]}.npz"
+    if path.exists():
+        cached = np.load(path)
+        return cached["features"], cached["probs"]
+    log.info("Encoding %d texts with the frozen encoder (cached afterwards)...", len(texts))
+    feats, probs = enc.encode(texts, pooling=pooling)
+    FEATURE_CACHE.mkdir(parents=True, exist_ok=True)
+    np.savez(path, features=feats, probs=probs)
+    return feats, probs
+
+
+# --------------------------------------------------------------------------- #
+# Training data
+# --------------------------------------------------------------------------- #
+def load_support() -> tuple[pd.DataFrame, np.ndarray]:
+    """Customer-support messages (unique texts) and their template groups."""
+    df = pd.read_csv(SUPPORT_CSV).drop_duplicates("text").reset_index(drop=True)
+    return df[["text", "sentiment"]], df["text"].map(template_of).to_numpy()
+
+
+def load_synthetic() -> tuple[pd.DataFrame, np.ndarray]:
+    """Synthetic healthcare messages (final labels) and their seed-message groups."""
+    from generate_synthetic import load_labelled  # local import: only needed for synthetic data
+
+    df = load_labelled()
+    return df[["text", "sentiment"]], df["seed_id"].astype(str).to_numpy()
+
+
+LOADERS = {"synthetic": load_synthetic, "support": load_support}
+
+
 # --------------------------------------------------------------------------- #
 # Head
 # --------------------------------------------------------------------------- #
@@ -163,6 +207,8 @@ def scores(y_true, y_pred) -> dict:
 # --------------------------------------------------------------------------- #
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--train-on", choices=sorted(LOADERS), default="synthetic",
+                        help="Training data; the other dataset is used as an out-of-domain check")
     parser.add_argument("--pooling", choices=["cls", "mean"], default="cls")
     parser.add_argument("--hidden-layers", type=int, default=2)
     parser.add_argument("--hidden-units", type=int, default=64)
@@ -176,19 +222,25 @@ def main() -> None:
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s | %(message)s")
-    for noisy in ("healthcare_ingestion", "httpx", "huggingface_hub"):
+    for noisy in ("healthcare_ingestion", "httpx", "huggingface_hub", "generate_synthetic"):
         logging.getLogger(noisy).setLevel(logging.WARNING)
 
     # 1. Data ------------------------------------------------------------- #
-    df = pd.read_csv(SUPPORT_CSV).drop_duplicates("text").reset_index(drop=True)
-    y = df["sentiment"].map({c: i for i, c in enumerate(CLASSES)}).to_numpy()
-    groups = df["text"].map(template_of).to_numpy()
-    log.info("Customer-support texts: %d | templates: %d | %s",
+    label_id = {c: i for i, c in enumerate(CLASSES)}
+    df, groups = LOADERS[args.train_on]()
+    y = df["sentiment"].map(label_id).to_numpy()
+    log.info("Training data (%s): %d texts | %d groups | %s", args.train_on,
              len(df), len(set(groups)), df["sentiment"].value_counts().to_dict())
+    ood_name = next(k for k in LOADERS if k != args.train_on)
+    try:
+        ood_df, _ = LOADERS[ood_name]()
+    except FileNotFoundError as e:
+        log.warning("Skipping out-of-domain check: %s", e)
+        ood_df = None
 
     # 2. Frozen features ------------------------------------------------- #
     enc = FrozenEncoder()
-    X, base_probs = enc.encode(df["text"].tolist(), pooling=args.pooling)
+    X, base_probs = encode_cached(enc, df["text"].tolist(), args.pooling)
     log.info("Encoded with frozen %s (revision %s): features %s, pooling=%s",
              MODEL_ID, enc.revision, X.shape, args.pooling)
 
@@ -204,14 +256,14 @@ def main() -> None:
                         **{f"baseline_{m}": v for m, v in scores(y[te], lr.predict(base_probs[te])).items()}})
     cv = pd.DataFrame(cv_rows)
     cv_summary = cv.drop(columns="fold").agg(["mean", "std"]).round(4)
-    log.info("5-fold template-grouped CV (frozen BERT + %dx%d head vs. LR on original 3 outputs):\n%s",
-             args.hidden_layers, args.hidden_units, cv_summary.to_string())
+    log.info("5-fold grouped CV on %s (frozen BERT + %dx%d head vs. LR on original 3 outputs):\n%s",
+             args.train_on, args.hidden_layers, args.hidden_units, cv_summary.to_string())
 
     # 4. Final head on a fixed 70/15/15 split ----------------------------- #
     idx = np.arange(len(y))
     idx_rest, idx_test = group_split(idx, y, groups, n_splits=7, seed=SEED)   # ~15% test
     idx_train, idx_val = group_split(idx_rest, y, groups, n_splits=6, seed=SEED)  # ~15% val
-    log.info("Final split (template-disjoint): train=%d val=%d test=%d", len(idx_train), len(idx_val), len(idx_test))
+    log.info("Final split (group-disjoint): train=%d val=%d test=%d", len(idx_train), len(idx_val), len(idx_test))
     runs = []
     for seed in args.seeds:
         model, scaler, best_epoch = fit_head(X, y, idx_train, idx_val, args, seed)
@@ -225,9 +277,18 @@ def main() -> None:
     log.info("Kept seed %d. Test report:\n%s\nconfusion (rows=true %s):\n%s", best["seed"], report, CLASSES,
              confusion_matrix(y[idx_test], test_pred))
 
+    ood = None
+    if ood_df is not None:  # never trained on: a check of how well the head transfers
+        oX, _ = encode_cached(enc, ood_df["text"].tolist(), args.pooling)
+        oy = ood_df["sentiment"].map(label_id).to_numpy()
+        o_pred = predict(best["model"], best["scaler"], oX).argmax(1)
+        ood = {"dataset": ood_name, "n": len(oy), **scores(oy, o_pred)}
+        log.info("Out-of-domain check on %s (%d texts, never trained on): %s\nconfusion (rows=true %s):\n%s",
+                 ood_name, len(oy), ood, CLASSES, confusion_matrix(oy, o_pred))
+
     # 5. Score healthcare messages ----------------------------------------- #
     hc = healthcare_ingestion.load_data()
-    hX, h_base = enc.encode(hc["text"].tolist(), pooling=args.pooling)
+    hX, h_base = encode_cached(enc, hc["text"].tolist(), args.pooling)
     hp = predict(best["model"], best["scaler"], hX)
     out = hc[["id", "text", "intent_label"]].copy()
     for i, c in enumerate(CLASSES):
@@ -252,6 +313,7 @@ def main() -> None:
                      for split in ("val", "test") for m in ("accuracy", "macro_f1")}
     (out_dir / "metrics.json").write_text(json.dumps({
         "encoder": MODEL_ID, "encoder_revision": enc.revision, "args": vars(args),
+        "train_on": args.train_on, "n_train_texts": len(df), "out_of_domain": ood,
         "cv": {c: cv_summary[c].to_dict() for c in cv_summary.columns},
         "final_seed": best["seed"], "final_val": best["val"], "final_test": best["test"],
         "seeds_summary": seeds_summary,
