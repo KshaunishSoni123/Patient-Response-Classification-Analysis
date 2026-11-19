@@ -65,10 +65,11 @@ EXPECTED_COLUMNS = [
 
 # Ordered (canonical_intent, regex) rules applied to the normalized raw label.
 # First match wins, so more specific rules come first (e.g. an insurance
-# question about a medication is "insurance_billing", not "medication_info").
+# question about a medication is "insurance", not "medication_info").
 INTENT_RULES: list[tuple[str, str]] = [
     ("emergency", r"emergency|urgent|critical|check_urgency"),
-    ("insurance_billing", r"insur|bill|claim|copay|co_pay|deductible|cost|price|payment|coverage|benefit|eligib|policy|plan"),
+    ("insurance", r"insur|claim|copay|co_pay|coverage|benefit|eligib|policy|plan|deductible"),
+    ("payment", r"bill|cost|price|payment"),
     ("cancel_appointment", r"cancel"),
     ("reschedule_appointment", r"reschedul"),
     ("prescription_refill", r"refill|renew|prescription|order_medication|medication_pickup|pickup"),
@@ -77,9 +78,10 @@ INTENT_RULES: list[tuple[str, str]] = [
     ("medical_records", r"record|medical_history"),
     ("medication_info", r"medicat|drug|side_effect|dosage|adverse_reaction|interaction"),
     ("symptom_check", r"symptom|pain|health_concern|confirm_symptom|inform_duration"),
+    # All remaining appointment intents (booking, confirming, checking, giving a
+    # preferred time) are one scheduling class; cancel / reschedule match earlier.
     ("book_appointment", r"book|schedule|request_appointment|appointment_request|find_appointment"
-                         r"|availability|consultation|telehealth|request_doctor|follow_up"),
-    ("appointment_inquiry", r"appointment"),
+                         r"|availability|consultation|telehealth|request_doctor|follow_up|appointment"),
     ("find_provider", r"find_|provider|specialist|doctor|pharmacy|locat|facility|optometrist"),
     ("clinic_info", r"clinic|hospital|hours|portal"),
     ("account_update", r"update|profile|account|contact_info|personal_info"),
