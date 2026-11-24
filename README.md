@@ -5,29 +5,52 @@ them to a platform **action** (book an appointment, send a payment link, route t
 human, emergency escalation, ...).
 
 ```
-patient message ─┬─ intent LSTM (Word2Vec embeddings, 4x64 ReLU) ──── intent probs (17) ─────┐
-                 ├─ sentiment head (frozen Hospital_Reviews BERT) ─── sentiment probs (3) ───┤
-                 └─ Embedding (intent model's Word2Vec) ─ avg pool ── text embedding ────────┴─► action DNN (5x64 ReLU, softmax) ─► action
+patient message ─┬─ intent LSTM (Word2Vec embeddings, 4x64 ReLU) ─┬── intent probs (17) ──────┐
+                 │                                                 └── LSTM hidden state (64) ──┤
+                 └─ sentiment head (frozen Hospital_Reviews BERT) ──── sentiment probs (3) ─────┴─► action DNN (1x64 ReLU, softmax) ─► action
 ```
 
-All three models are **trained on the Claude-generated synthetic healthcare messages**
-(`llm_intent` / `llm_sentiment` / policy action, overridden by human review) and **tested
-on real patient messages** from the healthcare chatbot dataset. The rule-based routing
-table in `action_policy.py` is kept as a baseline.
+**Data per model.** The intent LSTM trains on the **real healthcare intent data** (real train
+split, early-stopped on real val). The sentiment head and the action DNN train on the
+**Claude-generated synthetic healthcare messages** (`llm_sentiment` / policy action, overridden
+by human review), using one **shared synthetic train / val / test split** (`synthetic_splits.py`):
+
+| Synthetic split | Messages | Rewrites of | Used for |
+|---|---|---|---|
+| train | 8,206 | real **train** messages | intent + sentiment + action training |
+| val | 844 | half of the real **val** messages (by seed) | early stopping, seed choice (all three models) |
+| test | 896 | the other half of the real **val** messages | per-model and **end-to-end** test |
+
+Because synthetic val/test only rewrite messages the intent model never trained on, all three
+models (and the full pipeline) are scored on the same held-out synthetic messages without
+leakage. The **437 real test messages** (never used as generation seeds) remain the final
+external test, with hand-labelled sentiment in `labels/`. The rule-based routing table in
+`action_policy.py` is the baseline.
+
+**Model history.** v1: intent on synthetic data only, action DNN with an averaged trainable
+embedding and 5x64 layers. v2: intent on synthetic + real train, action DNN on the intent LSTM
+state with 1x64 (`experiments.py`, 120 runs: real-test action macro F1 0.736 -> 0.806).
+v3: intent on the real data, the shared synthetic split for sentiment and action. **Final (v4):**
+all three models trained on synthetic train, early-stopped on synthetic val. Earlier models are kept
+in `models/intent_lstm_tuned_v1_synthetic/`, `models/action_dnn_v1_avgpool/` and
+`models/archive/<intent train_on>/`; `reports/` holds the final (v4) results only.
 
 This guide runs everything end to end: environment → data ingestion → synthetic data
 generation → training → classification and evaluation.
 
 **One command:** `./run_all.sh` runs every step below in order (calling `./setup.sh` first
-if `.venv` is missing), logs each step to `logs/<step>.log`, stops at the first failure, and
-prints the real test-set metrics at the end. Synthetic generation is skipped when
-`data/synthetic/healthcare_synthetic.csv` already exists.
+if `.venv` is missing), logs each step to `logs/<step>.log`, stops at the first failure,
+prints the real test-set metrics, and writes the report tables and figures (`reports/`).
+Synthetic generation is skipped when `data/synthetic/healthcare_synthetic.csv` already exists,
+and the sentiment head is reused when it is already trained on the current shared split
+(`--retrain-sentiment` to force). To retrain everything on existing data without re-ingesting:
+`./run_all.sh --from split`.
 
 ```bash
 ./run_all.sh                                # everything (~1.5–3 h on CPU, mostly intent tuning)
 ./run_all.sh --trials 40 --tune-workers 4   # parallel intent search
-./run_all.sh --from sentiment               # resume from a step: ingest, generate, intent,
-                                            #   sentiment, policy, action, evaluate
+./run_all.sh --from sentiment               # resume from a step: ingest, generate, split, intent,
+                                            #   sentiment, policy, action, evaluate, report
 ./run_all.sh --help                         # all options (--oof-folds, --generate, ...)
 ```
 
@@ -98,6 +121,11 @@ duplicate texts (majority label) so identical messages can't leak across splits.
 
 Output: `data/processed/healthcare_intents.csv` (2,907 unique patient messages)
 
+**This snapshot is what every later step reads** (`healthcare_ingestion.load_snapshot()`), not
+the raw CSV. Splits, synthetic seeds and hand labels are keyed to its rows, so replacing the raw
+file has no effect until you re-run this step - and after re-running it you must regenerate the
+synthetic data and the labels too.
+
 Options: `--include-bot` (keep bot messages), `--keep-duplicates`.
 
 ---
@@ -139,34 +167,45 @@ bit-for-bit deterministic, so share `generations.jsonl` rather than re-generatin
 
 ---
 
+## 2b. Shared synthetic split
+
+```bash
+python synthetic_splits.py      # also built automatically on first use
+```
+
+Writes `data/processed/synthetic_splits.csv` (+ `.meta`): every synthetic row's split. Train =
+rewrites of real train messages; val / test = rewrites of real val messages, divided by seed
+(a seed's rewrites stay together). Whole seeds can't be stratified finely, so 200 candidate
+divisions are tried and the one with the most even intent + action counts is kept (labels only,
+never model outputs). Classes with very few val seeds stay lopsided (e.g. `other` has one seed,
+all in val). Rebuilt automatically if the synthetic data changes.
+
+---
+
 ## 3. Training
 
-Run in this order — later steps read earlier outputs. Both models train on the synthetic
-data from step 2 by default (`--train-on synthetic`). The real healthcare messages are
-split 70/15/15 once (fixed seed): with synthetic training, the real **test** split (437
-messages, never used as generation seeds) is the honest score. Every split groups a seed
-message with its rewrites, so no model is ever scored on a message it saw a rewrite of.
+Run in this order — later steps read earlier outputs. The real healthcare messages are split
+70/15/15 once (fixed seed); the real **test** split (437 messages, never used as generation
+seeds) is the final external test. Every split groups a seed message with its rewrites.
 
 ### 3a. Intent model (Word2Vec + LSTM + 4x64 ReLU head)
 
-Trains on the synthetic messages with their `llm_intent` labels. Word2Vec and the
-vocabulary are trained on the synthetic text. Hyperparameter search (Optuna), then
-retrain the best settings with 3 seeds and evaluate once on the real test split:
+**Pipeline default:** synthetic train, early stopping and seed choice on synthetic val (the shared
+split), with the best params of the real-data Optuna study (`models/intent_lstm_tuning/`) so the
+architecture is the same as v3 and only the training data changes; 3 seeds:
 
 ```bash
-python tune_intent_lstm.py --n-trials 30
+python tune_intent_lstm.py --train-on synthetic --params-from real
 ```
 
-- **How trials are scored:** the real train+val messages are split into 3 folds. Each fold
-  trains on the synthetic rewrites of the *other* folds' seeds (early stopping on a 10%
-  seed-grouped synthetic hold-out) and is scored by macro F1 on the real messages in
-  that fold.
-- **Final model:** trained on all synthetic messages, saved to `models/intent_lstm_tuned/`
-  (overwrites the earlier real-data model — copy it first if you want to compare).
-  Real-val scores are optimistic here (val messages were seeds); judge on test.
-- `--train-on real` reproduces the original real-data setup; `--train-on both` trains on
-  synthetic + the real train split. Each source has its own study in
-  `models/intent_lstm_tuning_<source>/` (real: `models/intent_lstm_tuning/`).
+Other training sources: `--train-on real` (real train, early-stop on real val; v3) or
+`--train-on both` (synthetic train + real train, early-stop on synthetic val). A fresh search: `python tune_intent_lstm.py --train-on real --n-trials 30`.
+
+- **How trials are scored:** 3-fold CV macro F1 on the real train+val messages (for synthetic
+  sources, each fold trains on the rewrites of the *other* folds' seeds).
+- Each source has its own study in `models/intent_lstm_tuning_<source>/` (real:
+  `models/intent_lstm_tuning/`). `run_all.sh` archives the current models to
+  `models/archive/<train_on>/` before switching sources.
 - ~3–5 min per trial on CPU (3× more training data than before). To parallelise, run
   several workers against the same study, then the final retrain once:
   ```bash
@@ -194,9 +233,9 @@ python train_intent_dnn.py                   # earlier averaged-Word2Vec DNN bas
 
 Freezes [`brettclaus/Hospital_Reviews`](https://huggingface.co/brettclaus/Hospital_Reviews)
 (downloaded on first run, ~440 MB), embeds the synthetic messages with it, and trains a
-2x64 ReLU head on their `llm_sentiment` labels. Splits are grouped by seed message, so
-the negative / neutral / positive rewrites of one seed are never split across train and
-test. The customer-support data (never trained on) is reported as an out-of-domain
+2x64 ReLU head on their `llm_sentiment` labels: **synthetic train**, early stopping on
+**synthetic val**, scored on **synthetic test** (the shared split). The 5-fold CV runs on
+train + val only. The customer-support data (never trained on) is reported as an out-of-domain
 check. Then scores every real healthcare message.
 
 ```bash
@@ -206,8 +245,7 @@ python train_sentiment_head.py --train-on support   # original customer-support 
 
 - The first run encodes ~13,500 texts with BERT on CPU (~10 min); features are
   cached in `data/processed/bert_features/`, so later runs take ~1–2 min.
-- The real healthcare messages have no human sentiment labels, so sentiment accuracy is
-  only measured on held-out synthetic seeds and the customer-support data.
+- Real-message sentiment accuracy comes from the hand labels (`labels/`, step 5).
 
 Outputs: `models/sentiment_head/` and `data/processed/healthcare_sentiment.csv`
 (per-message sentiment probabilities, joinable on `id`). Requires steps 1a, 1b and 2.
@@ -226,12 +264,13 @@ Output: `data/processed/healthcare_actions.csv` (adds `group` and `action`).
 Requires 3b. Fails with a "stale" error if `healthcare_sentiment.csv` doesn't match the
 current intent labels — re-run 3b.
 
-### 3d. Action classifier (DNN, 5x64)
+### 3d. Action classifier (DNN, 1x64)
 
-Input: the message's tokens through an **Embedding layer** (same vocabulary as the intent
-model, initialised from its fine-tuned Word2Vec weights, trainable, masked average pooling)
-concatenated with the **intent probabilities** (17) and **sentiment probabilities** (3).
-Then **5 hidden ReLU layers × 64 units** and a **softmax** over the 8 actions.
+Input: the **intent LSTM's final hidden state** (64; the intent model's reading of the
+message, frozen) concatenated with the **intent probabilities** (17) and **sentiment
+probabilities** (3). Then **1 hidden ReLU layer × 64 units** and a **softmax** over the 8 actions.
+`--text-input avg_pool --hidden-layers 5` restores v1 (trainable Embedding layer initialised
+from the intent model's Word2Vec, masked average pooling, 5 x 64).
 
 ```bash
 python classify.py --train
@@ -240,17 +279,22 @@ python classify.py --train
 - **Labels:** `action_label` from `healthcare_synthetic.csv` — `reviewer_action` if filled,
   otherwise the action policy on the final intent/sentiment labels, escalated to
   `route_to_human_emergency` when the LLM flagged an emergency.
-- **No stacking leakage:** for the synthetic training rows, the intent and sentiment inputs
-  are out-of-fold predictions — 5 seed-grouped folds, each training a fresh intent LSTM
-  and sentiment head (same settings as the saved models) on the other folds. Otherwise the
-  DNN would learn from over-confident in-sample probabilities it never sees on new
-  messages. This takes the longest (~5 LSTM fits, ~15–30 min); results are cached in
-  `models/action_dnn/oof_features.npz` and reused until the data or models change.
-  `--oof-folds 0` skips it (quick experiments only).
-- **Splits:** synthetic data 70/15/15 grouped by seed message (train / early stopping and
-  seed choice / synthetic test), 3 seeds, best kept by val.
-- Options: `--hidden-layers`, `--hidden-units`, `--dropout`, `--lr`, `--epochs`,
-  `--freeze-embedding`, `--seeds`.
+- **Inputs per split:** synthetic **val / test** rows get the **final** intent and sentiment
+  models' predictions — neither model has seen them or their seed — so val/test scores are
+  end-to-end pipeline scores. Synthetic **train** rows get **out-of-fold** predictions (5
+  seed-grouped folds over the train rows; a fresh intent LSTM and sentiment head are fit without
+  each fold, and the intent model also without the real messages that fold rewrites), so the DNN
+  learns from probabilities as noisy as the ones it gets on new messages. Cached in
+  `models/action_dnn/oof_features.npz`; `--oof-folds 0` skips it (quick experiments only).
+  All inputs are saved to `models/action_dnn/action_inputs.npz` for the reports.
+- **Splits:** the shared synthetic split (train / early stopping and seed choice / test),
+  3 seeds, best kept by val.
+- **LSTM state:** taken from the final intent model for every row (hidden states of different
+  fold models aren't in a common basis, so they can't be stacked out-of-fold). The intent model
+  trained on the real messages that the synthetic *train* rows rewrite, so those states are
+  closer to in-sample; synthetic val/test and real test are unseen.
+- Options: `--text-input`, `--hidden-layers`, `--hidden-units`, `--dropout`, `--lr`, `--epochs`,
+  `--freeze-embedding` (avg_pool), `--seeds`.
 
 Output: `models/action_dnn/` (`model.keras`, `preprocessing.joblib`, `metrics.json`,
 `synthetic_test_report.txt`, `oof_features.npz`). Requires 2, 3a and 3b. Retrain after
@@ -282,15 +326,43 @@ Output: `models/action_eval/` (`metrics.json`, `classification_report.txt`,
 Requires 3a–3d.
 
 The reference action for the real messages is the policy applied to the true intent and
-the sentiment head's sentiment (no human sentiment/action labels exist), which favours the
-routing table: it uses that same sentiment and the same rules. Read the comparison with
-that in mind.
+the sentiment head's sentiment, which favours the routing table: it uses that same sentiment
+and the same rules. Read the comparison with that in mind — or hand-label the sentiment (step 5).
 
 Routing-table safety rules (baseline only; constants in `action_policy.py`):
 
 - `EMERGENCY_THRESHOLD = 0.2` — if P(emergency) ≥ 0.2, route to `route_to_human_emergency`.
 - `LOW_CONFIDENCE_THRESHOLD = 0.5` — below this intent confidence, automated actions fall
   back to `route_to_human`.
+
+---
+
+## 5. Reports, hand labels and experiments
+
+```bash
+python evaluation_report.py      # reports/: summary + per-class metrics with 95% CIs, confusion matrices
+python hidden_layer_analysis.py  # reports/hidden_layers/: activation heatmaps, linear probes, node ablation
+python experiments.py            # reports/experiments/action_architecture/: v1 vs v2 architecture grid (~2 h)
+```
+
+**Hand-labelled sentiment for the real test messages** (removes the circular reference):
+
+```bash
+python label_sentiment.py --annotator <your-name>   # blind, resumable, one keypress per message
+```
+
+Read `labels/GUIDELINES.md` first. The existing labels use a **situation-based** scheme
+(positive = a request the practice can fulfil, negative = a health problem or unwanted
+situation, neutral = informational), not the tone-based sentiment the policy table was written
+for - so positive insurance questions map to `thank_you_message` in the human-sentiment reference
+(see the guidelines for the counts). Labels are saved to `labels/real_test_sentiment_<name>.csv`
+after every keypress (commit them). With labels present, `evaluation_report.py` adds:
+
+- `sentiment_head` on the real test messages against the human labels;
+- `action_dnn` and `routing_table` against a reference built from the true intent + the
+  **human** sentiment (`data = real (human-sentiment reference)`);
+- `reports/human_labels_info.json`: label counts, how many reference actions changed, and
+  Cohen's kappa when two or more annotators labelled (majority vote; ties are excluded).
 
 ---
 
@@ -301,11 +373,14 @@ Routing-table safety rules (baseline only; constants in `action_policy.py`):
 | 1a | `python data_ingestion.py` | internet | `data/processed/customer_support.csv` | seconds |
 | 1b | `python healthcare_ingestion.py` | raw healthcare CSV | `data/processed/healthcare_intents.csv` | seconds |
 | 2 | `python generate_synthetic.py` | 1b, Claude API | `data/synthetic/*` | ~10–15 min, ~$2 |
-| 3a | `python tune_intent_lstm.py --n-trials 30` | 1b, 2 | `models/intent_lstm_tuned/` | ~1.5–2.5 h (parallelise) |
-| 3b | `python train_sentiment_head.py` | 1a, 1b, 2 | `models/sentiment_head/`, `healthcare_sentiment.csv` | ~10 min first run, then ~2 min |
+| 2b | `python synthetic_splits.py` | 1b, 2 | `data/processed/synthetic_splits.csv` | seconds |
+| 3a | `python tune_intent_lstm.py --train-on synthetic --params-from real` | 1b, real study | `models/intent_lstm_tuned/` | ~5 min (a fresh search: ~1 h) |
+| 3b | `python train_sentiment_head.py` | 1a, 1b, 2, 2b | `models/sentiment_head/`, `healthcare_sentiment.csv` | ~10 min first run, then ~2 min |
 | 3c | `python action_policy.py` | 3b | `data/processed/healthcare_actions.csv` | seconds |
 | 3d | `python classify.py --train` | 2, 3a, 3b | `models/action_dnn/` | ~15–30 min (OOF), then ~2 min |
 | 4 | `python classify.py --evaluate` | 3a–3d | `models/action_eval/` | ~1 min |
+| 5 | `python evaluation_report.py`, `python hidden_layer_analysis.py` | 3a–3d (+ `labels/`) | `reports/` | ~2 min |
+| – | `python label_sentiment.py --annotator NAME` | 1b | `labels/` | ~20–30 min of labelling |
 
 ## Troubleshooting
 

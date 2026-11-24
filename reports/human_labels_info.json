@@ -1,0 +1,29 @@
+{
+  "annotators": [
+    "kshaunish"
+  ],
+  "n_files": 1,
+  "n_labelled": 25,
+  "n_disputed": 0,
+  "n_final": 25,
+  "distribution": {
+    "neutral": 25
+  },
+  "reference_actions_changed_vs_model_sentiment": 0,
+  "reference_action_counts": {
+    "human_sentiment": {
+      "route_to_human": 12,
+      "send_explanation_of_benefits": 8,
+      "reschedule_appt": 3,
+      "book_appt": 2
+    },
+    "model_sentiment": {
+      "route_to_human": 12,
+      "send_explanation_of_benefits": 8,
+      "reschedule_appt": 3,
+      "book_appt": 2
+    }
+  },
+  "sentiment_agreement_with_model": 1.0,
+  "labeling_scheme": "see labels/GUIDELINES.md"
+}

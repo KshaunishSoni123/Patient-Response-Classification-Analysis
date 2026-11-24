@@ -21,11 +21,13 @@ Pipeline:
      (--pooling mean uses masked mean of the last hidden layer instead).
      Because the encoder is frozen, features are computed once and cached in
      data/processed/bert_features/ (keyed by texts, model revision and pooling).
-  3. 5-fold grouped CV: train the head (early stopping on an inner val split)
-     and, as a baseline, logistic regression on the model's original 3 output
-     probabilities. Reports accuracy / macro F1 for both.
-  4. Final head: fixed grouped ~70/15/15 split, trained with several seeds; keep the seed
-     with the best val macro F1, report test metrics, save to models/sentiment_head/.
+  3. 5-fold grouped CV on the train + val rows (never the test rows): train the head (early
+     stopping on an inner val split) and, as a baseline, logistic regression on the model's
+     original 3 output probabilities. Reports accuracy / macro F1 for both.
+  4. Final head: on synthetic data, the SHARED synthetic split (synthetic_splits.py: train =
+     rewrites of real train messages, val / test = rewrites of real val messages) used by all
+     three models; on --train-on support, a grouped ~70/15/15 split. Several seeds; keep the
+     seed with the best val macro F1, report test metrics, save to models/sentiment_head/.
      Also reports the kept head on the out-of-domain set (never trained on).
   5. Score the real healthcare patient messages -> data/processed/healthcare_sentiment.csv
      (joinable on `id`) for the final classifier. These have no human sentiment labels.
@@ -245,9 +247,26 @@ def main() -> None:
              MODEL_ID, enc.revision, X.shape, args.pooling)
 
     # 3. 5-fold CV: head vs. logistic regression on the original 3 outputs -- #
+    # Final split: the shared synthetic split (synthetic_splits.py) when training on synthetic data,
+    # so the sentiment head, intent model and action DNN are all scored on the same test messages.
+    split_scheme = None
+    if args.train_on == "synthetic":
+        import synthetic_splits
+        from generate_synthetic import load_labelled
+
+        shared = synthetic_splits.split_indices(load_labelled())
+        idx_train, idx_val, idx_test = shared["train"], shared["val"], shared["test"]
+        split_scheme = synthetic_splits.SCHEME
+    else:
+        idx = np.arange(len(y))
+        idx_rest, idx_test = group_split(idx, y, groups, n_splits=7, seed=SEED)   # ~15% test
+        idx_train, idx_val = group_split(idx_rest, y, groups, n_splits=6, seed=SEED)  # ~15% val
+    dev = np.sort(np.concatenate([idx_train, idx_val]))  # CV never touches the test rows
+
     cv_rows = []
-    folds = StratifiedGroupKFold(5, shuffle=True, random_state=SEED).split(X, y, groups)
+    folds = StratifiedGroupKFold(5, shuffle=True, random_state=SEED).split(dev, y[dev], groups[dev])
     for k, (tr, te) in enumerate(folds):
+        tr, te = dev[tr], dev[te]
         tr, va = group_split(tr, y, groups, n_splits=6, seed=SEED)
         model, scaler, _ = fit_head(X, y, tr, va, args, SEED)
         head_pred = predict(model, scaler, X[te]).argmax(1)
@@ -259,11 +278,9 @@ def main() -> None:
     log.info("5-fold grouped CV on %s (frozen BERT + %dx%d head vs. LR on original 3 outputs):\n%s",
              args.train_on, args.hidden_layers, args.hidden_units, cv_summary.to_string())
 
-    # 4. Final head on a fixed 70/15/15 split ----------------------------- #
-    idx = np.arange(len(y))
-    idx_rest, idx_test = group_split(idx, y, groups, n_splits=7, seed=SEED)   # ~15% test
-    idx_train, idx_val = group_split(idx_rest, y, groups, n_splits=6, seed=SEED)  # ~15% val
-    log.info("Final split (group-disjoint): train=%d val=%d test=%d", len(idx_train), len(idx_val), len(idx_test))
+    # 4. Final head --------------------------------------------------------- #
+    log.info("Final split (%s): train=%d val=%d test=%d", split_scheme or "group-disjoint 70/15/15",
+             len(idx_train), len(idx_val), len(idx_test))
     runs = []
     for seed in args.seeds:
         model, scaler, best_epoch = fit_head(X, y, idx_train, idx_val, args, seed)
@@ -287,7 +304,7 @@ def main() -> None:
                  ood_name, len(oy), ood, CLASSES, confusion_matrix(oy, o_pred))
 
     # 5. Score healthcare messages ----------------------------------------- #
-    hc = healthcare_ingestion.load_data()
+    hc = healthcare_ingestion.load_snapshot()
     hX, h_base = encode_cached(enc, hc["text"].tolist(), args.pooling)
     hp = predict(best["model"], best["scaler"], hX)
     out = hc[["id", "text", "intent_label"]].copy()
@@ -313,7 +330,7 @@ def main() -> None:
                      for split in ("val", "test") for m in ("accuracy", "macro_f1")}
     (out_dir / "metrics.json").write_text(json.dumps({
         "encoder": MODEL_ID, "encoder_revision": enc.revision, "args": vars(args),
-        "train_on": args.train_on, "n_train_texts": len(df), "out_of_domain": ood,
+        "train_on": args.train_on, "split": split_scheme, "n_train_texts": len(df), "out_of_domain": ood,
         "cv": {c: cv_summary[c].to_dict() for c in cv_summary.columns},
         "final_seed": best["seed"], "final_val": best["val"], "final_test": best["test"],
         "seeds_summary": seeds_summary,

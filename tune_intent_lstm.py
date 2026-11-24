@@ -27,8 +27,15 @@ Final model (after the search, unless --skip-final):
 Each --train-on value has its own study (models/intent_lstm_tuning_<train_on>/), since
 the CV scores are not comparable across training sources.
 
+Reusing tuned settings on another training source (no search):
+    --params-from SOURCE takes the best params of SOURCE's study and runs only the final retrain
+    on --train-on data. The pipeline default is `--train-on both --params-from synthetic`: the
+    synthetic-tuned settings retrained on synthetic + the real train split (validated in
+    experiments.py: real-test intent macro F1 0.726 -> 0.767).
+
 Usage:
     python tune_intent_lstm.py --n-trials 30
+    python tune_intent_lstm.py --train-on both --params-from synthetic   # pipeline default
     python tune_intent_lstm.py --n-trials 30 --train-on real    # original real-data setup
     # parallel: run N workers with --skip-final, then once with --n-trials 0
     python tune_intent_lstm.py --n-trials 10 --skip-final &   (x3)
@@ -109,7 +116,8 @@ def load_study(study_dir: Path) -> optuna.Study:
     )
 
 
-def train_final(study: optuna.Study, ds: Dataset, seeds: list[int], out: Path) -> None:
+def train_final(study: optuna.Study, ds: Dataset, seeds: list[int], out: Path,
+                params_from: str | None = None) -> None:
     best = {**FIXED, **study.best_params}
     log.info("Best CV macro F1 %.4f (trial %d) with params: %s",
              study.best_value, study.best_trial.number, study.best_params)
@@ -133,7 +141,7 @@ def train_final(study: optuna.Study, ds: Dataset, seeds: list[int], out: Path) -
     fitted, metrics = max(runs, key=lambda r: r[1]["val_macro_f1"])
     extra = {"train_on": ds.train_on, "split_sizes": {k: len(v) for k, v in splits.items()},
              "cv_macro_f1": round(study.best_value, 4), "best_trial": study.best_trial.number,
-             "seeds_summary": summary, "seeds": seeds}
+             "params_from": params_from or ds.train_on, "seeds_summary": summary, "seeds": seeds}
     report = save(fitted, ds.encoder, ds.y, splits["test"], metrics, out, extra=extra)
     log.info("Kept seed %d. Test classification report:\n%s", fitted["seed"], report)
     log.info("Saved tuned model to %s", out)
@@ -146,6 +154,8 @@ def main() -> None:
     parser.add_argument("--study-dir", type=Path, default=None, help="Default: models/intent_lstm_tuning_<train_on>")
     parser.add_argument("--out-dir", type=Path, default=FINAL_DIR)
     parser.add_argument("--skip-final", action="store_true", help="Only run trials")
+    parser.add_argument("--params-from", choices=TRAIN_SOURCES, default=None,
+                        help="Skip the search; retrain with the best params of this source's study")
     parser.add_argument("--final-seeds", type=int, nargs="+", default=[42, 7, 123])
     args = parser.parse_args()
 
@@ -157,6 +167,17 @@ def main() -> None:
     args.study_dir = args.study_dir or default_study_dir(args.train_on)
 
     ds = prepare_dataset(args.train_on)
+    if args.params_from:
+        if args.skip_final:
+            parser.error("--params-from only runs the final retrain; drop --skip-final")
+        source_dir = default_study_dir(args.params_from)
+        if not (source_dir / "study.db").exists():
+            parser.error(f"No study in {source_dir}; run a search with --train-on {args.params_from} first")
+        study = load_study(source_dir)
+        log.info("Using the best params of the %s study (%s) - no search", args.params_from, source_dir)
+        train_final(study, ds, args.final_seeds, args.out_dir, params_from=args.params_from)
+        return
+
     study = load_study(args.study_dir)
     if args.n_trials > 0:
         study.optimize(make_objective(ds), n_trials=args.n_trials)

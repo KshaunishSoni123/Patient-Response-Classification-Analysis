@@ -247,6 +247,25 @@ def load_data(include_bot: bool = False, dedupe: bool = True) -> pd.DataFrame:
     return clean(load_raw(), include_bot=include_bot, dedupe=dedupe)
 
 
+def load_snapshot() -> pd.DataFrame:
+    """The cleaned messages every model and evaluation uses: the processed snapshot written by
+    `python healthcare_ingestion.py`, NOT a fresh read of the raw CSV.
+
+    Splits, synthetic seeds and hand labels are all keyed to these rows, so a changed raw file
+    must only take effect through an explicit re-ingestion (which then requires regenerating the
+    synthetic data and labels). Falls back to the raw file only when no snapshot exists yet.
+    """
+    if not PROCESSED_CSV.exists():
+        log.warning("%s not found; building from the raw CSV (run healthcare_ingestion.py to freeze it)",
+                    PROCESSED_CSV.name)
+        return load_data()
+    df = pd.read_csv(PROCESSED_CSV, dtype={"id": str})
+    missing = {"id", TEXT_COL, TARGET_COL} - set(df.columns)
+    if missing:
+        raise ValueError(f"{PROCESSED_CSV} is missing columns {sorted(missing)}; rerun healthcare_ingestion.py")
+    return df
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--include-bot", action="store_true", help="Keep bot messages as well as patient messages")

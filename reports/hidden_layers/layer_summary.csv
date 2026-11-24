@@ -1,0 +1,17 @@
+model,dataset,layer,units,activation,inactive_nodes,inactive_pct,mean_selectivity,median_specificity,specialist_nodes,classes_with_specialist,n_classes,probe_accuracy,probe_macro_f1
+intent_lstm,synthetic test,lstm,128,tanh (LSTM state),0,0.0,,0.432,4,2,17,0.9141,0.8455
+intent_lstm,synthetic test,hidden_1,64,relu,0,0.0,0.6538,0.5717,8,7,17,0.9107,0.8421
+intent_lstm,synthetic test,hidden_2,64,relu,3,0.0469,0.6095,0.5496,8,7,17,0.9096,0.8396
+intent_lstm,synthetic test,hidden_3,64,relu,10,0.1562,0.5871,0.5323,4,4,17,0.9085,0.836
+intent_lstm,synthetic test,hidden_4,64,relu,9,0.1406,0.5917,0.5382,6,4,17,0.9118,0.8435
+intent_lstm,real test,lstm,128,tanh (LSTM state),0,0.0,,0.4389,3,1,17,0.8741,0.7194
+intent_lstm,real test,hidden_1,64,relu,0,0.0,0.6258,0.5903,9,6,17,0.897,0.7571
+intent_lstm,real test,hidden_2,64,relu,3,0.0469,0.5766,0.5614,10,7,17,0.8947,0.7507
+intent_lstm,real test,hidden_3,64,relu,10,0.1562,0.5695,0.5791,6,5,17,0.897,0.7473
+intent_lstm,real test,hidden_4,64,relu,9,0.1406,0.5679,0.5751,3,2,17,0.8924,0.7439
+sentiment_head,synthetic test,hidden_1,64,relu,0,0.0,0.6559,0.9788,60,3,3,0.9431,0.943
+sentiment_head,synthetic test,hidden_2,64,relu,0,0.0,0.8311,0.9993,58,3,3,0.9464,0.9465
+sentiment_head,customer support (out-of-domain),hidden_1,64,relu,0,0.0,0.655,0.96,56,3,3,0.8746,0.8869
+sentiment_head,customer support (out-of-domain),hidden_2,64,relu,4,0.0625,0.8455,0.9994,54,3,3,0.8575,0.872
+action_dnn,synthetic test,hidden_1,64,relu,1,0.0156,0.5457,0.71,23,8,8,0.9196,0.8615
+action_dnn,real test,hidden_1,64,relu,0,0.0,0.5846,0.7069,26,7,8,0.913,0.8017

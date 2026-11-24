@@ -1,0 +1,18 @@
+,account_update,book_appointment,cancel_appointment,clinic_info,emergency,find_provider,general_health_info,insurance,lab_results,medication_info,other,payment,prescription_refill,provide_information,referral,reschedule_appointment,symptom_check
+true: account_update,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+true: book_appointment,0,74,0,0,0,2,1,0,0,0,1,0,0,0,0,0,0
+true: cancel_appointment,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+true: clinic_info,0,0,0,2,0,0,0,0,0,0,0,0,0,1,0,0,0
+true: emergency,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0
+true: find_provider,0,0,0,1,0,12,0,0,0,0,0,0,0,0,0,0,0
+true: general_health_info,0,0,0,0,0,1,3,0,0,1,0,0,0,0,0,0,1
+true: insurance,7,0,0,1,0,0,1,71,0,0,0,1,1,11,0,0,0
+true: lab_results,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0
+true: medication_info,0,0,0,0,0,0,1,0,0,35,0,0,3,1,0,0,1
+true: other,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+true: payment,1,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0
+true: prescription_refill,0,0,0,0,0,0,0,0,0,2,0,0,30,0,0,0,0
+true: provide_information,0,0,0,0,0,0,1,0,0,0,0,0,1,8,0,0,0
+true: referral,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0
+true: reschedule_appointment,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,15,0
+true: symptom_check,0,0,0,0,6,0,1,0,0,0,0,0,0,0,0,0,114

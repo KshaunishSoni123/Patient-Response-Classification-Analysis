@@ -1,0 +1,29 @@
+model,layer,dataset_role,dataset,probe_accuracy,macro_f1,dims
+intent_lstm,input,primary,synthetic test,0.9074,0.8358,200
+intent_lstm,input,secondary,real test,0.8741,0.7349,200
+intent_lstm,lstm,primary,synthetic test,0.9141,0.8455,128
+intent_lstm,lstm,secondary,real test,0.8741,0.7194,128
+intent_lstm,hidden_1,primary,synthetic test,0.9107,0.8421,64
+intent_lstm,hidden_1,secondary,real test,0.897,0.7571,64
+intent_lstm,hidden_2,primary,synthetic test,0.9096,0.8396,64
+intent_lstm,hidden_2,secondary,real test,0.8947,0.7507,64
+intent_lstm,hidden_3,primary,synthetic test,0.9085,0.836,64
+intent_lstm,hidden_3,secondary,real test,0.897,0.7473,64
+intent_lstm,hidden_4,primary,synthetic test,0.9118,0.8435,64
+intent_lstm,hidden_4,secondary,real test,0.8924,0.7439,64
+intent_lstm,model output,primary,synthetic test,0.9074,0.8358,17
+intent_lstm,model output,secondary,real test,0.8856,0.7396,17
+sentiment_head,input,primary,synthetic test,0.9442,0.9442,768
+sentiment_head,input,secondary,customer support (out-of-domain),0.8305,0.8499,768
+sentiment_head,hidden_1,primary,synthetic test,0.9431,0.943,64
+sentiment_head,hidden_1,secondary,customer support (out-of-domain),0.8746,0.8869,64
+sentiment_head,hidden_2,primary,synthetic test,0.9464,0.9465,64
+sentiment_head,hidden_2,secondary,customer support (out-of-domain),0.8575,0.872,64
+sentiment_head,model output,primary,synthetic test,0.942,0.942,3
+sentiment_head,model output,secondary,customer support (out-of-domain),0.8162,0.8335,3
+action_dnn,input,primary,synthetic test,0.9174,0.8583,148
+action_dnn,input,secondary,real test,0.9199,0.8102,148
+action_dnn,hidden_1,primary,synthetic test,0.9196,0.8615,64
+action_dnn,hidden_1,secondary,real test,0.913,0.8017,64
+action_dnn,model output,primary,synthetic test,0.923,0.8627,8
+action_dnn,model output,secondary,real test,0.9176,0.8303,8

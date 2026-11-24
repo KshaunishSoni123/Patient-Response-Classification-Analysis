@@ -1,0 +1,4 @@
+,negative,neutral,positive
+true: negative,0,0,0
+true: neutral,0,25,0
+true: positive,0,0,0

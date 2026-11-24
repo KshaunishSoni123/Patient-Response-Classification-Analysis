@@ -1,0 +1,9 @@
+,book_appt,get_practice_info,reschedule_appt,route_to_human,route_to_human_emergency,send_explanation_of_benefits,send_payment_link,thank_you_message
+true: book_appt,74,2,0,2,0,0,0,0
+true: get_practice_info,0,23,0,2,0,0,0,0
+true: reschedule_appt,0,0,20,0,0,0,0,0
+true: route_to_human,0,1,0,212,7,0,0,0
+true: route_to_human_emergency,0,0,0,0,3,0,0,0
+true: send_explanation_of_benefits,0,11,0,9,0,58,1,0
+true: send_payment_link,0,0,0,1,0,0,4,0
+true: thank_you_message,0,0,0,0,0,0,0,7

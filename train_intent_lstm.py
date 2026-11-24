@@ -64,7 +64,7 @@ from sklearn.model_selection import StratifiedGroupKFold, StratifiedKFold, train
 from sklearn.preprocessing import LabelEncoder
 from sklearn.utils.class_weight import compute_class_weight
 
-from healthcare_ingestion import TARGET_COL, TEXT_COL, load_data
+from healthcare_ingestion import TARGET_COL, TEXT_COL, load_snapshot
 
 ROOT = Path(__file__).resolve().parent
 MODEL_DIR = ROOT / "models" / "intent_lstm"
@@ -156,7 +156,7 @@ DEFAULT_PARAMS = dict(
 
 
 def prepare_data() -> tuple[pd.DataFrame, list[list[str]], np.ndarray, LabelEncoder]:
-    df = load_data()
+    df = load_snapshot()  # frozen processed snapshot, not the raw CSV
     encoder = LabelEncoder()
     y = encoder.fit_transform(df[TARGET_COL].astype(str))
     return df, tokenize(df[TEXT_COL]), y, encoder
@@ -208,14 +208,26 @@ class Dataset:
         return pool
 
     def splits(self) -> dict[str, np.ndarray]:
-        """train / stop (early stopping) / val (real) / test (real)."""
+        """train / stop (early stopping) / val (real) / test (real).
+
+        real:            train = real train, stop = real val.
+        synthetic, both: the shared synthetic split (synthetic_splits.py) - train = synthetic train
+                         (+ real train for `both`), stop = synthetic val. Synthetic val/test rewrite
+                         real val messages only, so no seed straddles train and stop/test.
+        """
         r_train, r_val, r_test = self.real_splits()
         if self.train_on == "real":
             return {"train": r_train, "stop": r_val, "val": r_val, "test": r_test}
-        # Exclude test groups explicitly (generation already did; this guards against a stale CSV).
-        pool = self.training_pool(exclude_groups=set(self.groups[r_test]), real_rows=r_train)
-        train, stop = group_split(pool, self.y, self.groups, STOP_SPLITS)
-        return {"train": train, "stop": stop, "val": r_val, "test": r_test}
+        import synthetic_splits  # local import: avoids a cycle (it imports this module)
+
+        syn_rows = np.arange(self.n_real, len(self.y))
+        syn = pd.DataFrame({"synthetic_id": self.df["id"].iloc[syn_rows].astype(str).to_numpy(),
+                            "seed_id": self.groups[syn_rows]})
+        shared = synthetic_splits.split_indices(syn)
+        train = syn_rows[shared["train"]]
+        if self.train_on == "both":
+            train = np.concatenate([train, r_train])
+        return {"train": train, "stop": syn_rows[shared["val"]], "val": r_val, "test": r_test}
 
     def cv_folds(self, n_folds: int) -> list[tuple[np.ndarray, np.ndarray, np.ndarray]]:
         """(train, stop, eval) folds for tuning, scored on REAL dev messages (train + val split).

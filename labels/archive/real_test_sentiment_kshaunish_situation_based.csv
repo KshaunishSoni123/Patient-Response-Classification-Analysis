@@ -1,0 +1,438 @@
+id,text,human_sentiment,annotator,labeled_at
+T1827,I have a question about my recent lab results. Can you explain what the elevated creatinine level means?,neutral,kshaunish,2026-11-23T17:14:54+00:00
+T9096,What are the recommended dosages for Ibuprofen for adults?,neutral,kshaunish,2026-11-23T17:14:56+00:00
+T10042,Can I reschedule my appointment with Dr. Lee for next Tuesday?,neutral,kshaunish,2026-11-23T17:14:58+00:00
+T1709,I'm feeling really anxious and can't sleep well.,negative,kshaunish,2026-11-23T17:15:01+00:00
+T4620,I'm having trouble getting pre-authorization for a procedure.,negative,kshaunish,2026-11-23T17:15:05+00:00
+T673,"I've been having a persistent cough for the past week, and I'm also experiencing shortness of breath.",neutral,kshaunish,2026-11-23T17:15:13+00:00
+T5449,"Tuesday afternoon, preferably around 2 PM.",neutral,kshaunish,2026-11-23T17:15:16+00:00
+T2856,My doctor recommended a physical therapy session.,neutral,kshaunish,2026-11-23T17:15:19+00:00
+T5829,Can you remind me to take my Metformin at 8 AM tomorrow?,positive,kshaunish,2026-11-23T17:15:22+00:00
+T10057,I need to get a prescription for allergy medication.,neutral,kshaunish,2026-11-23T17:15:26+00:00
+T1167,My insurance policy number is XZ987654321.,neutral,kshaunish,2026-11-23T17:15:29+00:00
+T1808,I have a sore throat and a headache. Should I be concerned?,positive,kshaunish,2026-11-23T17:15:42+00:00
+T3496,What are the interactions of Warfarin with Vitamin K?,neutral,kshaunish,2026-11-23T17:15:45+00:00
+T3616,I need to cancel my upcoming dermatology appointment.,neutral,kshaunish,2026-11-23T17:15:48+00:00
+T3723,I have a sore throat and a fever.,neutral,kshaunish,2026-11-23T17:15:53+00:00
+T9123,I want to book a dentist appointment for a cleaning next week.,positive,kshaunish,2026-11-23T17:15:55+00:00
+T633,"My provider is HealthFirst, and the policy number is HF987654321.",neutral,kshaunish,2026-11-23T17:15:59+00:00
+T6406,My insurance provider changed. How do I update my information?,positive,kshaunish,2026-11-23T17:16:03+00:00
+T3675,I've been having trouble sleeping lately.,negative,kshaunish,2026-11-23T17:16:05+00:00
+T7032,The claim number is INS789001.,neutral,kshaunish,2026-11-23T17:16:06+00:00
+T7065,I have a sharp pain in my left shoulder.,negative,kshaunish,2026-11-23T17:16:10+00:00
+T3340,Can you tell me about the deductible for my insurance plan?,positive,kshaunish,2026-11-23T17:16:13+00:00
+T4288,My insurance doesn't seem to cover my recent specialist visit.,negative,kshaunish,2026-11-23T17:16:15+00:00
+T4199,I need to cancel my appointment with Dr. Evans for tomorrow.,negative,kshaunish,2026-11-23T17:16:18+00:00
+T6593,How can I check my insurance coverage for a specific procedure?,positive,kshaunish,2026-11-23T17:16:32+00:00
+T7188,What is the dosage for this medication?,neutral,kshaunish,2026-11-23T17:16:34+00:00
+T6647,My insurance provider denied my claim for the physical therapy session.,negative,kshaunish,2026-11-23T17:16:37+00:00
+T4461,I need to book a dental appointment.,neutral,kshaunish,2026-11-23T17:16:39+00:00
+T3313,I want to book an annual physical exam.,positive,kshaunish,2026-11-23T17:16:41+00:00
+T4710,I want to book a routine check-up next month.,positive,kshaunish,2026-11-23T17:16:47+00:00
+T9224,I'm having severe chest pain and shortness of breath.,negative,kshaunish,2026-11-23T17:16:49+00:00
+T8771,I want to book an appointment with Dr. Smith.,positive,kshaunish,2026-11-23T17:16:51+00:00
+T989,I want to check my eligibility for the new wellness program.,positive,kshaunish,2026-11-23T17:16:52+00:00
+T8647,My insurance plan covers 80% of specialist visits.,neutral,kshaunish,2026-11-23T17:16:55+00:00
+T7766,How about next Tuesday morning? Around 10 AM?,positive,kshaunish,2026-11-23T17:16:56+00:00
+T6069,I'm experiencing severe abdominal pain and nausea. Should I go to the ER?,positive,kshaunish,2026-11-23T17:17:00+00:00
+T9731,I need to schedule a routine check-up with Dr. Garcia.,neutral,kshaunish,2026-11-23T17:17:08+00:00
+T2639,I want to book an appointment for a general check-up.,positive,kshaunish,2026-11-23T17:17:09+00:00
+T1304,My prescription for Metformin is running low. How do I refill it?,neutral,kshaunish,2026-11-23T17:17:14+00:00
+T3738,I need to find a new optometrist.,negative,kshaunish,2026-11-23T17:17:19+00:00
+T8235,I'm experiencing severe headaches and nausea. Should I be worried?,negative,kshaunish,2026-11-23T17:17:22+00:00
+T8019,I need to update my address on my account.,negative,kshaunish,2026-11-23T17:17:50+00:00
+T5967,I'm feeling very dizzy and nauseous.,neutral,kshaunish,2026-11-23T17:17:52+00:00
+T525,"My insurance card was lost, how can I get a new one?",positive,kshaunish,2026-11-23T17:18:01+00:00
+T573,I'm having trouble sleeping and feel very restless.,negative,kshaunish,2026-11-23T17:18:09+00:00
+T1565,"My insurance provider changed, how do I update my details?",positive,kshaunish,2026-11-23T17:18:16+00:00
+T867,What are the benefits of the new health insurance plan?,positive,kshaunish,2026-11-23T17:18:24+00:00
+T8788,What are the opening hours for the clinic on Christmas Eve?,neutral,kshaunish,2026-11-23T17:18:38+00:00
+T9347,My insurance provider is changing next month. How will this affect my coverage?,positive,kshaunish,2026-11-23T17:18:58+00:00
+T2351,"It's March 15, 1985.",neutral,kshaunish,2026-11-23T17:19:00+00:00
+T2677,Please refill my prescription for Atorvastatin.,positive,kshaunish,2026-11-23T17:19:06+00:00
+T2499,I have a sore throat and a mild fever. Should I see a doctor?,neutral,kshaunish,2026-11-23T17:19:09+00:00
+T4058,Can you tell me about the flu vaccine?,positive,kshaunish,2026-11-23T17:19:12+00:00
+T10073,I need to ask about the side effects of Lisinopril.,negative,kshaunish,2026-11-23T17:19:13+00:00
+T2783,I need to book a dental cleaning.,neutral,kshaunish,2026-11-23T17:19:19+00:00
+T345,Can you tell me about my insurance coverage for specialist visits?,positive,kshaunish,2026-11-23T17:19:21+00:00
+T5525,My insurance coverage for specialist visits seems unclear.,negative,kshaunish,2026-11-23T17:19:25+00:00
+T1017,"What is the dosage for my new medication, Atorvastatin?",neutral,kshaunish,2026-11-23T17:19:27+00:00
+T5547,I want to find a dermatologist near me.,positive,kshaunish,2026-11-23T17:19:29+00:00
+T4523,It's mostly on my right side and feels like a throbbing pain.,neutral,kshaunish,2026-11-23T17:19:31+00:00
+T5791,When is the earliest I can get a physical exam?,positive,kshaunish,2026-11-23T17:19:34+00:00
+T9244,My insurance coverage seems to have changed. Can you explain the new tier system?,positive,kshaunish,2026-11-23T17:19:39+00:00
+T8721,"I've been having a persistent cough for about a week now, it's dry and sometimes worse at night.",negative,kshaunish,2026-11-23T17:19:46+00:00
+T1355,I'm having severe headaches and nausea.,negative,kshaunish,2026-11-23T17:19:47+00:00
+T8619,I need to get a referral to a dermatologist.,neutral,kshaunish,2026-11-23T17:19:49+00:00
+T456,I need to cancel my appointment on Friday.,negative,kshaunish,2026-11-23T17:19:51+00:00
+T1229,My insurance coverage has changed. Can you provide information on my current plan?,positive,kshaunish,2026-11-23T17:20:00+00:00
+T1080,I have a sore throat and a headache that started yesterday.,neutral,kshaunish,2026-11-23T17:20:03+00:00
+T747,"Yes, please. I'd like to book an appointment for next week if possible.",positive,kshaunish,2026-11-23T17:20:07+00:00
+T3367,I'm feeling dizzy and have a headache.,neutral,kshaunish,2026-11-23T17:20:08+00:00
+T6521,I've been having a persistent cough and fever for the past three days.,negative,kshaunish,2026-11-23T17:20:10+00:00
+T1434,What is the dosage for Amoxicillin 500mg?,neutral,kshaunish,2026-11-23T17:20:13+00:00
+T5201,I've been experiencing a persistent cough and fatigue for the past week.,neutral,kshaunish,2026-11-23T17:20:17+00:00
+T5236,What are the recommended dosages for Amoxicillin 250mg?,neutral,kshaunish,2026-11-23T17:20:22+00:00
+T623,"No fever, but I do feel a bit breathless when I exert myself.",positive,kshaunish,2026-11-23T17:20:27+00:00
+T1639,Can I get a prescription for Ibuprofen?,positive,kshaunish,2026-11-23T17:20:33+00:00
+T9538,My back pain is unbearable.,negative,kshaunish,2026-11-23T17:20:35+00:00
+T8701,I've been experiencing a persistent cough and mild fever for the past three days. What could this be?,negative,kshaunish,2026-11-23T17:20:47+00:00
+T5654,I want to confirm my next appointment date.,positive,kshaunish,2026-11-23T17:20:51+00:00
+T3630,What is the status of my insurance claim?,neutral,kshaunish,2026-11-23T17:20:58+00:00
+T7883,It's about an 8. It's throbbing and mostly on the right side.,negative,kshaunish,2026-11-23T17:21:02+00:00
+T3467,I'd like to book a dental cleaning appointment.,positive,kshaunish,2026-11-23T17:21:17+00:00
+T5161,I've been experiencing persistent headaches and nausea for the past three days. What could be causing this?,negative,kshaunish,2026-11-23T17:21:22+00:00
+T6373,Does my plan cover physical therapy?,neutral,kshaunish,2026-11-23T17:21:26+00:00
+T881,I've been having a persistent cough and shortness of breath for the past week.,negative,kshaunish,2026-11-23T17:21:43+00:00
+T8419,What is the difference between ibuprofen and acetaminophen for pain relief?,neutral,kshaunish,2026-11-23T17:21:48+00:00
+T2978,"It's May 12th, 1985.",neutral,kshaunish,2026-11-23T17:21:49+00:00
+T8123,"It feels like a 4, quite uncomfortable. Also, my throat is sore.",neutral,kshaunish,2026-11-23T17:21:54+00:00
+T7127,I'm feeling very fatigued and have a mild headache.,negative,kshaunish,2026-11-23T17:21:56+00:00
+T7781,"I've been having a persistent cough for the past week, and I'm also experiencing some chest tightness.",negative,kshaunish,2026-11-23T17:21:58+00:00
+T7067,I want to book a follow-up appointment for my knee injury.,positive,kshaunish,2026-11-23T17:22:02+00:00
+T1440,I need to update my contact information on file.,neutral,kshaunish,2026-11-23T17:22:04+00:00
+T4451,I want to book an appointment for a dental check-up.,positive,kshaunish,2026-11-23T17:22:06+00:00
+T5511,Can I book an appointment with Dr. Evans next week?,positive,kshaunish,2026-11-23T17:22:07+00:00
+T5790,I have a sore throat and a persistent cough.,negative,kshaunish,2026-11-23T17:22:09+00:00
+T6583,"Yes, I have a slight fever, around 100.5°F, and I feel a bit breathless when I walk upstairs.",negative,kshaunish,2026-11-23T17:22:14+00:00
+T8339,I'm having severe abdominal pain.,negative,kshaunish,2026-11-23T17:22:17+00:00
+T2426,I missed my dose of Metformin this morning. What should I do?,negative,kshaunish,2026-11-23T17:22:31+00:00
+T7440,Can you remind me when my next medication refill is due?,positive,kshaunish,2026-11-23T17:22:38+00:00
+T3604,My insurance doesn't seem to cover this procedure. Can you check?,positive,kshaunish,2026-11-23T17:22:55+00:00
+T557,Can you tell me about the different types of health insurance plans?,positive,kshaunish,2026-11-23T17:23:06+00:00
+T104,My insurance policy doesn't seem to cover this procedure.,negative,kshaunish,2026-11-23T17:23:10+00:00
+T463,I need to schedule a follow-up appointment with Dr. Evans next week.,positive,kshaunish,2026-11-23T17:23:15+00:00
+T8467,My insurance policy details are not showing correctly in the portal.,negative,kshaunish,2026-11-23T17:27:18+00:00
+T7712,I'm feeling very fatigued and have a headache.,negative,kshaunish,2026-11-23T17:27:19+00:00
+T1909,My insurance coverage details seem to be outdated. Can you help me update them?,positive,kshaunish,2026-11-23T17:27:22+00:00
+T4831,Can I schedule a follow-up appointment for next Tuesday?,positive,kshaunish,2026-11-23T17:27:23+00:00
+T6100,How do I take my new medication?,neutral,kshaunish,2026-11-23T17:27:31+00:00
+T3678,What are the interactions between Warfarin and Aspirin?,neutral,kshaunish,2026-11-23T17:27:33+00:00
+T4901,I've been having a persistent cough and fever for three days now.,negative,kshaunish,2026-11-23T17:27:34+00:00
+T321,I've been experiencing persistent headaches for the past week.,negative,kshaunish,2026-11-23T17:27:36+00:00
+T8261,I have a terrible cough and fever.,negative,kshaunish,2026-11-23T17:27:36+00:00
+T8104,I want to schedule a dental cleaning next month.,positive,kshaunish,2026-11-23T17:27:41+00:00
+T4653,I want to confirm my appointment details for the upcoming dental cleaning.,positive,kshaunish,2026-11-23T17:27:43+00:00
+T8761,I have a persistent cough and a fever.,negative,kshaunish,2026-11-23T17:27:48+00:00
+T1955,I'm experiencing sharp chest pains.,negative,kshaunish,2026-11-23T17:27:49+00:00
+T5597,Can you recommend a good physical therapist near the city center?,positive,kshaunish,2026-11-23T17:27:51+00:00
+T3143,"They are mostly dull, but sometimes sharp. I also feel nauseous.",negative,kshaunish,2026-11-23T17:27:59+00:00
+T194,"Can you tell me more about the new medication, Xylofin?",neutral,kshaunish,2026-11-23T17:28:01+00:00
+T441,I've been having a persistent cough for about a week now.,negative,kshaunish,2026-11-23T17:28:04+00:00
+T457,What is the co-pay for specialist visits?,neutral,kshaunish,2026-11-23T17:28:24+00:00
+T8665,My insurance provider is Global Health Solutions. I need to check if my plan covers specialist visits.,positive,kshaunish,2026-11-23T17:29:17+00:00
+T1316,I have chest pain and shortness of breath.,negative,kshaunish,2026-11-23T17:29:19+00:00
+T2437,What is the typical dosage for Ibuprofen for adults?,neutral,kshaunish,2026-11-23T17:29:21+00:00
+T7885,"Yes, I've had some nausea, but no light sensitivity.",negative,kshaunish,2026-11-23T17:29:25+00:00
+T6591,I need to reschedule my cardiology appointment. The original date was November 1st.,neutral,kshaunish,2026-11-23T17:29:37+00:00
+T4396,I want to reschedule my dental cleaning.,positive,kshaunish,2026-11-23T17:29:39+00:00
+T3770,My insurance company denied my claim for the recent procedure. What should I do?,negative,kshaunish,2026-11-23T17:30:09+00:00
+T4599,That's great news. What about my insurance coverage for this medication?,positive,kshaunish,2026-11-23T17:30:12+00:00
+T7995,I need to request a refill for my Amoxicillin prescription.,neutral,kshaunish,2026-11-23T17:30:30+00:00
+T5327,My insurance plan has changed. Can you help me understand my new coverage for specialist visits?,positive,kshaunish,2026-11-23T17:30:33+00:00
+T9512,My member ID is INS987654321.,neutral,kshaunish,2026-11-23T17:30:34+00:00
+T4358,"Can you tell me about the new medication I was prescribed, Azithromycin?",positive,kshaunish,2026-11-23T17:30:42+00:00
+T2207,My insurance plan changed. Can you check if Dr. Smith is still in-network?,positive,kshaunish,2026-11-23T17:30:45+00:00
+T4411,I'm feeling a sharp pain in my lower back.,negative,kshaunish,2026-11-23T17:30:50+00:00
+T6695,I want to cancel my appointment with Dr. Evans scheduled for Friday.,positive,kshaunish,2026-11-23T17:30:54+00:00
+T4534,I want to reschedule my physical therapy appointment.,positive,kshaunish,2026-11-23T17:30:57+00:00
+T2308,"I've been having a persistent cough for two weeks, and it's getting worse.",negative,kshaunish,2026-11-23T17:30:58+00:00
+T7348,"No, any available dentist on a weekday morning would be fine.",neutral,kshaunish,2026-11-23T17:31:08+00:00
+T5543,I need to book a dental appointment for next week.,positive,kshaunish,2026-11-23T17:31:09+00:00
+T9629,My insurance plan changed. Can you tell me if my new plan is accepted at your clinic?,positive,kshaunish,2026-11-23T17:31:18+00:00
+T1492,I want to book an annual physical exam with Dr. Lee.,positive,kshaunish,2026-11-23T17:31:20+00:00
+T8016,I want to know my current deductible for my health plan.,positive,kshaunish,2026-11-23T17:31:42+00:00
+T3127,I have a fever and a cough.,negative,kshaunish,2026-11-23T17:31:44+00:00
+T2918,I'm experiencing dizziness and shortness of breath.,negative,kshaunish,2026-11-23T17:31:54+00:00
+T5427,I'm feeling dizzy and nauseous. Should I be worried?,negative,kshaunish,2026-11-23T17:31:59+00:00
+T6529,I think I have a urinary tract infection.,negative,kshaunish,2026-11-23T17:32:04+00:00
+T1079,My policy number is INS789012345.,neutral,kshaunish,2026-11-23T17:32:05+00:00
+T7803,"They are mostly dull, but sometimes feel sharp, especially when I move my head quickly.",negative,kshaunish,2026-11-23T17:32:13+00:00
+T1873,I want to inquire about my recent lab results.,positive,kshaunish,2026-11-23T17:32:15+00:00
+T8557,I've been feeling dizzy and nauseous.,negative,kshaunish,2026-11-23T17:32:18+00:00
+T2009,"Yes, I've been feeling quite dizzy lately.",negative,kshaunish,2026-11-23T17:32:25+00:00
+T796,I need to cancel my appointment on February 15th.,positive,kshaunish,2026-11-23T17:32:30+00:00
+T9606,"Afternoon would be great, around 2 PM.",positive,kshaunish,2026-11-23T17:32:32+00:00
+T863,My shoulder has been hurting for the past three days.,negative,kshaunish,2026-11-23T17:33:06+00:00
+T885,I'm experiencing severe abdominal pain and nausea.,negative,kshaunish,2026-11-23T17:33:08+00:00
+T4162,Can I book an appointment with Dr. Lee next Tuesday?,positive,kshaunish,2026-11-23T17:33:15+00:00
+T4893,"My date of birth is July 15, 1985.",neutral,kshaunish,2026-11-23T17:33:17+00:00
+T1776,Can you tell me about the generic alternative for Advil?,positive,kshaunish,2026-11-23T17:33:22+00:00
+T8599,My insurance claim for the recent procedure was denied.,negative,kshaunish,2026-11-23T17:33:44+00:00
+T450,I'm experiencing sharp chest pain.,negative,kshaunish,2026-11-23T17:33:45+00:00
+T8080,My deductible has not been met.,negative,kshaunish,2026-11-23T17:33:49+00:00
+T7387,My insurance plan changed. Can you check if my current medication is covered?,positive,kshaunish,2026-11-23T17:34:09+00:00
+T3114,My insurance card is missing. Can you provide the policy number?,positive,kshaunish,2026-11-23T17:34:12+00:00
+T3337,I need to know the dosage for Amoxicillin.,negative,kshaunish,2026-11-23T17:34:14+00:00
+T2796,I need to book a follow-up appointment with Dr. Evans for next Tuesday.,positive,kshaunish,2026-11-23T17:34:16+00:00
+T7989,I need to order a refill for my Atorvastatin prescription.,negative,kshaunish,2026-11-23T17:34:19+00:00
+T2135,I need to find a pediatrician for my child.,positive,kshaunish,2026-11-23T17:34:22+00:00
+T9028,What is the procedure for refilling a prescription online?,positive,kshaunish,2026-11-23T17:34:47+00:00
+T6044,I need to schedule a follow-up appointment for next Tuesday.,positive,kshaunish,2026-11-23T17:34:54+00:00
+T5139,I want to request a new prescription for amoxicillin.,positive,kshaunish,2026-11-23T17:34:59+00:00
+T6274,It started yesterday evening. Lifting heavy objects makes it worse.,negative,kshaunish,2026-11-23T17:35:06+00:00
+T686,My insurance card is lost. How can I get a replacement?,negative,kshaunish,2026-11-23T17:35:12+00:00
+T3233,My back pain is getting worse. I need to see a doctor.,negative,kshaunish,2026-11-23T17:35:24+00:00
+T4276,I need to ask a question about my recent bill.,positive,kshaunish,2026-11-23T17:35:26+00:00
+T7389,I think I might have a flu. I have a fever and a sore throat.,negative,kshaunish,2026-11-23T17:35:34+00:00
+T2452,My shoulder has been hurting for a week.,negative,kshaunish,2026-11-23T17:35:39+00:00
+T9220,My primary care physician's office is closed today.,neutral,kshaunish,2026-11-23T17:35:43+00:00
+T5588,I need to refill my prescription for Metformin. The current bottle is almost empty.,negative,kshaunish,2026-11-23T17:35:57+00:00
+T4440,I need to know if my insurance covers specialist visits.,negative,kshaunish,2026-11-23T17:36:04+00:00
+T2715,I'm experiencing nausea and vomiting.,negative,kshaunish,2026-11-23T17:36:06+00:00
+T6775,I am feeling very tired and have a headache. What could this be?,negative,kshaunish,2026-11-23T17:36:09+00:00
+T2676,I'm having trouble sleeping lately.,negative,kshaunish,2026-11-23T17:36:10+00:00
+T378,My back pain has worsened significantly.,negative,kshaunish,2026-11-23T17:36:12+00:00
+T8556,I want to check my coverage for physical therapy.,positive,kshaunish,2026-11-23T17:36:16+00:00
+T1257,Can you tell me about the medication Atorvastatin?,positive,kshaunish,2026-11-23T17:36:24+00:00
+T7665,My prescription for Metformin is running low. Can I request a refill?,positive,kshaunish,2026-11-23T17:36:38+00:00
+T3296,I have a sore throat and a runny nose. Is it a cold?,negative,kshaunish,2026-11-23T17:36:47+00:00
+T7806,June 5th at 2:30 PM works best for me.,positive,kshaunish,2026-11-23T17:36:57+00:00
+T3742,Can you help me find a dermatologist appointment near downtown?,positive,kshaunish,2026-11-23T17:37:07+00:00
+T6826,My insurance plan is PPO Gold tier.,neutral,kshaunish,2026-11-23T17:37:09+00:00
+T9317,I have a rash on my arm and it's very itchy.,negative,kshaunish,2026-11-23T17:37:11+00:00
+T9801,"I've been experiencing a persistent cough for the past week, and it's getting worse.",negative,kshaunish,2026-11-23T17:37:15+00:00
+T8953,I need to book a telehealth consultation for my migraine.,negative,kshaunish,2026-11-23T17:37:22+00:00
+T8519,My knee has been swollen and painful for a week.,negative,kshaunish,2026-11-23T17:37:25+00:00
+T4524,I need to book a dentist appointment for a cleaning.,positive,kshaunish,2026-11-23T17:37:29+00:00
+T7689,I missed my medication this morning. What should I do?,negative,kshaunish,2026-11-23T17:37:33+00:00
+T1999,What are the side effects of Atorvastatin?,neutral,kshaunish,2026-11-23T17:37:37+00:00
+T831,I need to refill my prescription for Metformin 500mg.,neutral,kshaunish,2026-11-23T17:37:41+00:00
+T2974,I need to book a follow-up appointment with Dr. Anya Sharma for my knee pain.,negative,kshaunish,2026-11-23T17:37:46+00:00
+T593,I am experiencing a persistent cough and fever.,negative,kshaunish,2026-11-23T17:37:47+00:00
+T4506,My insurance provider is BlueCross BlueShield. What is my coverage for specialist visits?,positive,kshaunish,2026-11-23T17:37:50+00:00
+T5082,Can you help me find a dermatologist appointment near me?,positive,kshaunish,2026-11-23T17:37:52+00:00
+T8618,I have a question about a previous consultation with Dr. Lee.,neutral,kshaunish,2026-11-23T17:37:57+00:00
+T423,I need to reschedule my appointment with Dr. Evans for next Tuesday.,neutral,kshaunish,2026-11-23T17:37:59+00:00
+T5295,Can you tell me about the dosage for Ibuprofen?,neutral,kshaunish,2026-11-23T17:38:01+00:00
+T3811,I need to change my appointment with Dr. Lee.,positive,kshaunish,2026-11-23T17:38:05+00:00
+T4367,"Yes, please. I'd like to schedule one for next week if possible.",positive,kshaunish,2026-11-23T17:38:11+00:00
+T891,My insurance coverage for physical therapy has changed.,positive,kshaunish,2026-11-23T17:38:44+00:00
+T5085,My knee has been hurting quite a bit lately.,negative,kshaunish,2026-11-23T17:38:55+00:00
+T792,My appointment with Dr. Lee is scheduled for next Tuesday.,positive,kshaunish,2026-11-23T17:38:57+00:00
+T3266,My insurance policy details are not clear.,negative,kshaunish,2026-11-23T17:38:59+00:00
+T5017,I've been feeling dizzy lately. Could it be from the Lisinopril?,negative,kshaunish,2026-11-23T17:39:00+00:00
+T3892,My insurance coverage for physical therapy has changed. Can you help me understand it?,positive,kshaunish,2026-11-23T17:39:04+00:00
+T3103,"It's been around 101.5°F, and I feel quite weak.",negative,kshaunish,2026-11-23T17:39:06+00:00
+T4393,Is my current medication covered under my new plan?,neutral,kshaunish,2026-11-23T17:39:08+00:00
+T4133,I want to book an appointment for a physical exam.,positive,kshaunish,2026-11-23T17:39:18+00:00
+T5788,My insurance coverage for this procedure seems unclear.,negative,kshaunish,2026-11-23T17:39:20+00:00
+T6059,I need to check my remaining deductible for this year.,neutral,kshaunish,2026-11-23T17:39:34+00:00
+T442,Can I schedule a follow-up appointment with Dr. Evans?,positive,kshaunish,2026-11-23T17:39:36+00:00
+T5377,I lost my prescription for Atorvastatin.,negative,kshaunish,2026-11-23T17:39:38+00:00
+T6897,My co-pay seems too high for this visit.,negative,kshaunish,2026-11-23T17:39:40+00:00
+T8437,I want to check the status of my prescription refill.,positive,kshaunish,2026-11-23T17:40:05+00:00
+T3090,Can you help me find a nearby pharmacy that is open now?,positive,kshaunish,2026-11-23T17:41:13+00:00
+T9523,"My headache has been getting worse, and I also have a fever.",negative,kshaunish,2026-11-23T17:41:17+00:00
+T4107,My DOB is 1990-05-15 and my pharmacy is City Pharmacy.,neutral,kshaunish,2026-11-23T17:41:19+00:00
+T7331,My knee is swollen and painful.,negative,kshaunish,2026-11-23T17:41:22+00:00
+T9373,When is the earliest I can get a physical exam at the Springfield clinic?,positive,kshaunish,2026-11-23T17:41:24+00:00
+T3793,"My DOB is August 30, 1990, and it's 10mg.",neutral,kshaunish,2026-11-23T17:41:27+00:00
+T8287,How much does the flu shot cost?,positive,kshaunish,2026-11-23T17:41:32+00:00
+T5186,My insurance plan doesn't cover this medication. Is there a generic alternative?,positive,kshaunish,2026-11-23T17:41:36+00:00
+T4538,I'm having trouble with my vision.,negative,kshaunish,2026-11-23T17:41:37+00:00
+T7667,I have a sharp pain in my lower back that started yesterday. It's making it hard to move.,negative,kshaunish,2026-11-23T17:41:41+00:00
+T9275,My policy number is XYZ789012.,neutral,kshaunish,2026-11-23T17:41:42+00:00
+T8097,Can you tell me about the flu shot side effects?,positive,kshaunish,2026-11-23T17:41:44+00:00
+T2429,I'm feeling very tired and have a slight fever.,negative,kshaunish,2026-11-23T17:42:05+00:00
+T749,"Mornings are best, preferably Tuesday or Thursday.",positive,kshaunish,2026-11-23T17:42:07+00:00
+T9784,My insurance provider is changing next month. What are the new coverage details?,positive,kshaunish,2026-11-23T17:42:10+00:00
+T6424,I need to book a dental check-up for next month.,positive,kshaunish,2026-11-23T17:42:15+00:00
+T5346,Is it safe to take ibuprofen with acetaminophen?,neutral,kshaunish,2026-11-23T17:42:18+00:00
+T2853,I think I have a fever and a sore throat.,negative,kshaunish,2026-11-23T17:42:20+00:00
+T8041,I've been having severe headaches for the past three days.,negative,kshaunish,2026-11-23T17:42:22+00:00
+T3395,I've been feeling very tired lately.,negative,kshaunish,2026-11-23T17:42:23+00:00
+T651,I have a question about my recent insurance claim for procedure XYZ.,neutral,kshaunish,2026-11-23T17:42:25+00:00
+T3206,"I have a sharp pain in my lower back, especially when I try to stand up.",negative,kshaunish,2026-11-23T17:55:16+00:00
+T230,I'm concerned about potential drug interactions with my current medications.,negative,kshaunish,2026-11-23T17:55:18+00:00
+T5252,What are the recommended daily intake for Vitamin D?,neutral,kshaunish,2026-11-23T17:55:21+00:00
+T3327,My insurance plan changed. Can you check if Dr. Smith is in-network?,positive,kshaunish,2026-11-23T17:55:24+00:00
+T7203,I need to book a dental appointment for a cleaning next month.,positive,kshaunish,2026-11-23T17:55:26+00:00
+T5496,I'm experiencing nausea and headaches.,negative,kshaunish,2026-11-23T17:55:29+00:00
+T4845,I need a refill for my prescription for Lisinopril.,neutral,kshaunish,2026-11-23T17:55:32+00:00
+T1013,I'm experiencing severe headache and dizziness. It started this morning.,negative,kshaunish,2026-11-23T17:55:35+00:00
+T8246,I want to schedule a routine check-up next month.,positive,kshaunish,2026-11-23T17:55:37+00:00
+T1195,I'm feeling very fatigued and have a persistent cough.,negative,kshaunish,2026-11-23T17:55:39+00:00
+T6219,"I'm feeling really tired lately, and I have a sore throat.",negative,kshaunish,2026-11-23T17:55:40+00:00
+T2069,"My insurance card was updated, how do I provide the new details?",neutral,kshaunish,2026-11-23T17:55:43+00:00
+T9735,I'd like to see Dr. Smith for a consultation tomorrow.,positive,kshaunish,2026-11-23T17:56:00+00:00
+T8970,I need to find out about my coverage for physical therapy.,neutral,kshaunish,2026-11-23T17:56:02+00:00
+T5596,I need to update my billing information. My old credit card has expired.,neutral,kshaunish,2026-11-23T17:56:05+00:00
+T5375,What is the dosage for Metformin 500mg?,neutral,kshaunish,2026-11-23T17:56:12+00:00
+T8252,What are the operating hours for the clinic?,neutral,kshaunish,2026-11-23T17:56:14+00:00
+T7179,My knee has been hurting after a fall yesterday.,negative,kshaunish,2026-11-23T17:56:16+00:00
+T1057,I need to check my recent lab results. Can you access them?,positive,kshaunish,2026-11-23T17:56:20+00:00
+T7897,"My ID is INS789012, and the procedure was on April 15th.",neutral,kshaunish,2026-11-23T17:56:22+00:00
+T1286,My insurance plan is not covering my recent prescription.,negative,kshaunish,2026-11-23T17:56:36+00:00
+T3532,I have a fever and body aches. What could it be?,negative,kshaunish,2026-11-23T17:56:43+00:00
+T5074,My primary care physician is Dr. Lee.,neutral,kshaunish,2026-11-23T17:56:47+00:00
+T3286,"Morning, around 9 AM would be great.",positive,kshaunish,2026-11-23T17:56:54+00:00
+T9739,Please schedule a yearly physical with Dr. Kim.,positive,kshaunish,2026-11-23T17:56:59+00:00
+T5949,"I have a sore throat and a mild cough, should I be worried?",negative,kshaunish,2026-11-23T17:57:10+00:00
+T3087,What are the side effects of Lisinopril 10mg?,neutral,kshaunish,2026-11-23T17:57:11+00:00
+T8048,My insurance provider is BlueCross. Can you check if my plan covers virtual visits?,positive,kshaunish,2026-11-23T17:57:14+00:00
+T7987,"I have a sharp pain in my lower back, especially when I move.",negative,kshaunish,2026-11-23T17:57:29+00:00
+T222,Can you help me find a dermatologist appointment near downtown Los Angeles?,positive,kshaunish,2026-11-23T17:57:32+00:00
+T6287,My DOB is 1985-07-22 and the dosage is 10mg.,neutral,kshaunish,2026-11-23T17:57:33+00:00
+T7452,I need to check my prescription refill status.,neutral,kshaunish,2026-11-23T17:57:36+00:00
+T3679,I have a sore throat and a fever of 101F.,negative,kshaunish,2026-11-23T17:57:43+00:00
+T3281,I've been having a persistent cough for a week. What could it be?,negative,kshaunish,2026-11-23T17:57:45+00:00
+T4642,Can I schedule a follow-up appointment with Dr. Anya Sharma for next Tuesday?,positive,kshaunish,2026-11-23T17:57:51+00:00
+T3737,I am feeling nauseous and have a stomach ache.,negative,kshaunish,2026-11-23T17:57:58+00:00
+T8731,I have a sore throat and a slight fever of 100.5F.,negative,kshaunish,2026-11-23T17:57:58+00:00
+T263,I need to book a dental appointment for a cleaning.,positive,kshaunish,2026-11-23T17:57:59+00:00
+T4870,"No, just the sore throat and fever.",negative,kshaunish,2026-11-23T17:58:01+00:00
+T3289,I'm experiencing severe headache and dizziness. Should I be worried?,negative,kshaunish,2026-11-23T17:58:04+00:00
+T9549,"Great, thank you! I also wanted to ask about my medication refill for Lisinopril.",positive,kshaunish,2026-11-23T17:58:20+00:00
+T1675,"500mg, one refill.",neutral,kshaunish,2026-11-23T17:58:21+00:00
+T1540,"My provider is HealthFirst, and my member ID is HF987654321.",neutral,kshaunish,2026-11-23T17:58:24+00:00
+T2931,I have a sharp pain in my chest when I breathe.,negative,kshaunish,2026-11-23T17:58:35+00:00
+T3079,"My policy number is INS987654321, and the procedure is an MRI of the knee.",neutral,kshaunish,2026-11-23T17:58:38+00:00
+T7337,Could you explain my Explanation of Benefits for claim #12345?,positive,kshaunish,2026-11-23T17:58:43+00:00
+T481,I've been experiencing severe headaches for the past week.,negative,kshaunish,2026-11-23T17:58:58+00:00
+T852,I need to book an appointment for a flu shot.,positive,kshaunish,2026-11-23T17:59:01+00:00
+T3845,I need to schedule a follow-up appointment with Dr. Evans for my annual physical.,positive,kshaunish,2026-11-23T17:59:12+00:00
+T4668,My child has a fever of 102°F and a cough. Should I be concerned?,negative,kshaunish,2026-11-23T17:59:14+00:00
+T5166,I mean September 26th.,neutral,kshaunish,2026-11-23T17:59:21+00:00
+T3117,I need to reschedule my dental cleaning appointment for August 15th.,positive,kshaunish,2026-11-23T17:59:26+00:00
+T6547,"I have a sharp pain in my lower back, it started yesterday.",negative,kshaunish,2026-11-23T17:59:27+00:00
+T3739,What is the typical recovery time for a knee replacement?,neutral,kshaunish,2026-11-23T17:59:30+00:00
+T2223,I need to book a dentist appointment.,positive,kshaunish,2026-11-23T17:59:42+00:00
+T6151,I would like to book a dental cleaning for next month.,positive,kshaunish,2026-11-23T17:59:44+00:00
+T7871,What are the side effects of the new medication I was prescribed?,neutral,kshaunish,2026-11-23T17:59:46+00:00
+T4872,My appointment is scheduled for tomorrow at 3 PM.,positive,kshaunish,2026-11-23T18:00:00+00:00
+T1397,Can you help me find a nearby dermatologist?,positive,kshaunish,2026-11-23T18:00:01+00:00
+T7453,My insurance coverage for specialist visits changed. Can you help me understand the new details?,positive,kshaunish,2026-11-23T18:00:06+00:00
+T6093,What are the recommended daily dosage for Vitamin D?,neutral,kshaunish,2026-11-23T18:00:07+00:00
+T7322,Can you help me find a doctor who specializes in cardiology?,positive,kshaunish,2026-11-23T18:00:14+00:00
+T9258,Can you tell me about the deductible for the Silver plan?,positive,kshaunish,2026-11-23T18:00:15+00:00
+T769,I'm feeling dizzy and have a headache. Is it serious?,negative,kshaunish,2026-11-23T18:00:16+00:00
+T6863,"They are usually around a 7 or 8, sometimes even a 9.",negative,kshaunish,2026-11-23T18:00:17+00:00
+T3557,I am feeling very tired and have a sore throat.,negative,kshaunish,2026-11-23T18:00:19+00:00
+T3063,It's been around 101°F constantly since yesterday.,negative,kshaunish,2026-11-23T18:00:20+00:00
+T2731,Is it possible to get a prescription for Amoxicillin online?,positive,kshaunish,2026-11-23T18:00:24+00:00
+T3559,I need to request a referral to a cardiologist.,neutral,kshaunish,2026-11-23T18:00:29+00:00
+T9206,My insurance doesn't seem to be covering my recent prescription.,negative,kshaunish,2026-11-23T18:00:34+00:00
+T8153,I want to book an appointment for a physical examination.,positive,kshaunish,2026-11-23T18:00:38+00:00
+T3694,I have a question about my insurance coverage for a recent visit.,positive,kshaunish,2026-11-23T18:00:41+00:00
+T957,What is the difference between Type 1 and Type 2 diabetes?,positive,kshaunish,2026-11-23T18:00:41+00:00
+T5819,I need to order a refill for my Amoxicillin prescription.,negative,kshaunish,2026-11-23T18:00:45+00:00
+T1398,I have a question about my insurance coverage for physical therapy.,neutral,kshaunish,2026-11-23T18:01:07+00:00
+T2277,I need to get a new prescription for my allergy medication.,neutral,kshaunish,2026-11-23T18:01:11+00:00
+T2116,I need to order more Synthroid.,neutral,kshaunish,2026-11-23T18:01:14+00:00
+T5644,Can you tell me about my medication refill status?,positive,kshaunish,2026-11-23T18:01:15+00:00
+T2012,It's Central Pharmacy in Springfield.,neutral,kshaunish,2026-11-23T18:01:17+00:00
+T4583,"It started about three days ago, around March 14th.",negative,kshaunish,2026-11-23T18:01:19+00:00
+T1968,I have a sharp pain in my left shoulder when I raise my arm.,negative,kshaunish,2026-11-23T18:01:21+00:00
+T2433,Can you tell me about the drug interactions for Warfarin?,positive,kshaunish,2026-11-23T18:01:23+00:00
+T3069,Dr. Sharma at 3 PM sounds perfect.,positive,kshaunish,2026-11-23T18:01:24+00:00
+T9300,"No, not yet. I just started it yesterday.",negative,kshaunish,2026-11-23T18:01:29+00:00
+T7046,My insurance provider is changing next year. How does this affect my coverage?,positive,kshaunish,2026-11-23T18:01:41+00:00
+T4311,I want to reschedule my appointment with Dr. John Smith from tomorrow to Friday.,positive,kshaunish,2026-11-23T18:01:50+00:00
+T2768,When is my next appointment?,positive,kshaunish,2026-11-23T18:01:50+00:00
+T4008,I have a mild fever and body aches. Should I be concerned?,negative,kshaunish,2026-11-23T18:01:54+00:00
+T4003,I need to schedule a follow-up appointment with Dr. Anya Sharma next week.,positive,kshaunish,2026-11-23T18:02:01+00:00
+T4727,My insurance claim for the recent hospital visit was denied.,negative,kshaunish,2026-11-23T18:02:13+00:00
+T598,Can you tell me about the benefits covered by my plan?,positive,kshaunish,2026-11-23T18:02:16+00:00
+T696,My throat is sore and I have a mild fever.,negative,kshaunish,2026-11-23T18:02:22+00:00
+T7307,My insurance doesn't cover this specialist. Can you check if Dr. Anya Sharma is in-network?,positive,kshaunish,2026-11-23T18:02:27+00:00
+T8608,"My headache is worsening, and I also have nausea.",negative,kshaunish,2026-11-23T18:02:29+00:00
+T6515,I'm having trouble sleeping and feel unusually tired lately.,negative,kshaunish,2026-11-23T18:02:31+00:00
+T3730,Please find a dermatologist near me.,positive,kshaunish,2026-11-23T18:02:33+00:00
+T6778,What is the dosage for my new prescription of Atorvastatin?,neutral,kshaunish,2026-11-23T18:02:41+00:00
+T3417,I have a slight rash on my arm.,negative,kshaunish,2026-11-23T18:02:44+00:00
+T4849,My child has a fever and a cough.,negative,kshaunish,2026-11-23T18:02:45+00:00
+T4520,Can I get an appointment with a dermatologist next week?,positive,kshaunish,2026-11-23T18:02:48+00:00
+T9686,Thursday at 2 PM sounds good.,positive,kshaunish,2026-11-23T18:02:53+00:00
+T5494,I need to get a prescription for Amoxicillin.,neutral,kshaunish,2026-11-23T18:02:57+00:00
+T591,I need to know my current medication dosage for high blood pressure.,neutral,kshaunish,2026-11-23T18:03:01+00:00
+T9859,I need to check the status of my recent prescription refill.,neutral,kshaunish,2026-11-23T18:03:05+00:00
+T2021,I've been having a persistent cough for a week.,negative,kshaunish,2026-11-23T18:03:06+00:00
+T3692,"Yes, please. I need the 10mg dosage.",positive,kshaunish,2026-11-23T18:03:07+00:00
+T8658,Is Ibuprofen available over the counter?,neutral,kshaunish,2026-11-23T18:03:10+00:00
+T1933,I need to reschedule my physiotherapy appointment for next Tuesday.,positive,kshaunish,2026-11-23T18:03:39+00:00
+T217,I need to check my appointment details for next week.,positive,kshaunish,2026-11-23T18:04:01+00:00
+T9518,"Yes, please. I think a consultation would be beneficial.",positive,kshaunish,2026-11-23T18:04:02+00:00
+T4657,Could you please send me a copy of my latest lab results?,positive,kshaunish,2026-11-23T18:04:04+00:00
+T1424,I need to book a follow-up appointment with Dr. Anya Sharma for next Tuesday.,positive,kshaunish,2026-11-23T18:04:10+00:00
+T7310,I'm having mild headaches and dizziness. What could this be?,negative,kshaunish,2026-11-23T18:04:11+00:00
+T9975,"Great, thanks. I also wanted to ask about my insurance coverage for a specialist visit.",positive,kshaunish,2026-11-23T18:04:12+00:00
+T1797,I need to cancel my appointment for tomorrow morning.,negative,kshaunish,2026-11-23T18:04:21+00:00
+T10079,I need to confirm if my recent blood test results are available.,neutral,kshaunish,2026-11-23T18:04:26+00:00
+T6137,What are the dosage instructions for Ibuprofen?,neutral,kshaunish,2026-11-23T18:04:28+00:00
+T858,I need to find out if my plan covers physical therapy.,negative,kshaunish,2026-11-23T18:04:34+00:00
+T6766,"Next Tuesday morning, around 9 AM if possible.",positive,kshaunish,2026-11-23T18:04:37+00:00
+T5787,I want to schedule a follow-up appointment with Dr. Smith.,positive,kshaunish,2026-11-23T18:04:43+00:00
+T1467,"I need to update my insurance information, my provider changed.",neutral,kshaunish,2026-11-23T18:04:46+00:00
+T9305,My insurance plan is changing next month. Can you tell me if my current coverage will be affected?,positive,kshaunish,2026-11-23T18:05:00+00:00
+T7637,When can I get a refill for my allergy medication?,positive,kshaunish,2026-11-23T18:05:04+00:00
+T7134,What are the side effects of Amoxicillin?,neutral,kshaunish,2026-11-23T18:05:08+00:00
+T8172,I need to order a refill for my Albuterol inhaler.,neutral,kshaunish,2026-11-23T18:05:09+00:00
+T955,I need to reschedule my dental cleaning appointment for next month.,negative,kshaunish,2026-11-23T18:05:13+00:00
+T2366,"Dr. Anya Sharma, preferably in the morning.",positive,kshaunish,2026-11-23T18:05:15+00:00
+T839,I want to request a prescription refill for Atorvastatin 20mg.,positive,kshaunish,2026-11-23T18:05:28+00:00
+T2745,My headache has been severe and is accompanied by nausea.,negative,kshaunish,2026-11-23T18:05:30+00:00
+T2159,My appointment with Dr. Smith is tomorrow at 10 AM.,neutral,kshaunish,2026-11-23T18:05:38+00:00
+T153,Is my co-pay for specialist visits covered?,positive,kshaunish,2026-11-23T18:06:28+00:00
+T8074,I lost my prescription slip.,negative,kshaunish,2026-11-23T18:06:30+00:00
+T3298,I need to reschedule my physical therapy session for next Wednesday.,negative,kshaunish,2026-11-23T18:06:41+00:00
+T4360,I need to update my primary care physician. Who should I contact?,positive,kshaunish,2026-11-23T18:07:16+00:00
+T3427,"My insurance plan changed, can you check coverage for physical therapy?",positive,kshaunish,2026-11-23T18:07:18+00:00
+T719,I have a question about my bill.,positive,kshaunish,2026-11-23T18:07:21+00:00
+T2419,Can you tell me if my prescription for Metformin has been refilled?,positive,kshaunish,2026-11-23T18:07:31+00:00
+T5276,I need to know my co-pay amount for a physical therapy session.,neutral,kshaunish,2026-11-23T18:07:36+00:00
+T626,The first week of September would be ideal.,positive,kshaunish,2026-11-23T18:07:38+00:00
+T4296,Is my prescription for Albuterol still valid?,neutral,kshaunish,2026-11-23T18:07:41+00:00
+T3609,My claim was denied. What's the process for appealing?,negative,kshaunish,2026-11-23T18:07:43+00:00
+T1153,I need to book an appointment for a physical.,positive,kshaunish,2026-11-23T18:08:16+00:00
+T228,What is the co-pay for specialist visits under my plan?,positive,kshaunish,2026-11-23T18:08:20+00:00
+T1841,I've been having this persistent cough for about a week.,negative,kshaunish,2026-11-23T18:08:22+00:00
+T5271,I'm feeling very tired and have a headache.,negative,kshaunish,2026-11-23T18:08:24+00:00
+T682,I need to refill my prescription for Lisinopril.,neutral,kshaunish,2026-11-23T18:08:27+00:00
+T7695,I have a rash on my arm that's very itchy. What could it be?,negative,kshaunish,2026-11-23T18:08:28+00:00
+T7998,My insurance coverage has changed. How can I update this information?,positive,kshaunish,2026-11-23T18:08:36+00:00
+T731,I need to reschedule my physical exam with Dr. Lee.,neutral,kshaunish,2026-11-23T18:09:03+00:00
+T3862,Can you help me find a dermatologist near downtown?,positive,kshaunish,2026-11-23T18:09:06+00:00
+T4079,My appointment with Dr. Lee is scheduled for tomorrow. Can I reschedule it for Friday?,positive,kshaunish,2026-11-23T18:09:12+00:00
+T7860,Can you help me understand my recent Explanation of Benefits?,positive,kshaunish,2026-11-23T18:09:13+00:00
+T4150,I've been experiencing persistent headaches and nausea for three days.,negative,kshaunish,2026-11-23T18:09:15+00:00
+T4356,I'm experiencing severe abdominal pain and vomiting. I need to see a doctor urgently.,negative,kshaunish,2026-11-23T18:09:18+00:00
+T6450,Is Metformin still recommended for my condition?,neutral,kshaunish,2026-11-23T18:09:24+00:00
+T9780,I would like to book a consultation regarding my recent diagnosis.,positive,kshaunish,2026-11-23T18:09:29+00:00
+T4457,I have a fever of 102°F and a sore throat.,negative,kshaunish,2026-11-23T18:09:31+00:00
+T8875,My prescription refill was denied by my insurance.,negative,kshaunish,2026-11-23T18:09:38+00:00
+T5190,What are the recommended daily steps for an adult?,neutral,kshaunish,2026-11-23T18:09:44+00:00
+T571,When is the earliest I can get a flu shot?,positive,kshaunish,2026-11-23T18:13:54+00:00
+T4020,I have a sore throat and difficulty swallowing.,negative,kshaunish,2026-11-23T18:13:55+00:00
+T283,My appointment is scheduled for next Tuesday at 3 PM.,neutral,kshaunish,2026-11-23T18:13:58+00:00
+T235,I need to find out if my preferred hospital is in-network.,positive,kshaunish,2026-11-23T18:14:05+00:00
+T1145,Can you tell me about the symptoms of the flu?,positive,kshaunish,2026-11-23T18:14:06+00:00
+T238,What are the dosage forms available for Ibuprofen?,neutral,kshaunish,2026-11-23T18:14:08+00:00
+T5795,What are the accepted payment methods for your services?,neutral,kshaunish,2026-11-23T18:14:11+00:00
+T184,What are the side effects of Metformin 500mg?,neutral,kshaunish,2026-11-23T18:14:14+00:00
+T3283,"Yes, I have a mild fever and feel a bit breathless when I walk fast.",negative,kshaunish,2026-11-23T18:14:16+00:00
+T6541,"I've been having a persistent cough for the past week, accompanied by a mild fever.",negative,kshaunish,2026-11-23T18:14:26+00:00
+T8963,I want to book an appointment with Dr. Smith next Tuesday.,positive,kshaunish,2026-11-23T18:14:37+00:00
+T3274,I need to reschedule my appointment from tomorrow.,positive,kshaunish,2026-11-23T18:14:41+00:00
+T2655,I'm having trouble breathing and a persistent cough.,negative,kshaunish,2026-11-23T18:14:47+00:00
+T3453,I think I have a urinary tract infection. I have burning when I urinate.,negative,kshaunish,2026-11-23T18:14:49+00:00
+T1298,I want to book a physical examination for my annual check-up.,positive,kshaunish,2026-11-23T18:14:55+00:00
+T7986,My insurance provider has changed. How do I update my details?,positive,kshaunish,2026-11-23T18:15:07+00:00
+T2464,I'm experiencing a persistent cough and shortness of breath.,negative,kshaunish,2026-11-23T18:15:10+00:00
+T6959,Can I book a general check-up appointment for next month?,positive,kshaunish,2026-11-23T18:15:12+00:00
+T2229,I need to reschedule my physical therapy session.,neutral,kshaunish,2026-11-23T18:15:18+00:00
+T2360,My knee has been hurting quite a bit since yesterday.,negative,kshaunish,2026-11-23T18:15:20+00:00
+T5840,My knee is swollen and painful after the fall.,negative,kshaunish,2026-11-23T18:15:22+00:00
+T7329,I want to book a dental appointment for next Tuesday.,positive,kshaunish,2026-11-23T18:15:24+00:00
+T398,Can you help me find a dermatologist near me? My insurance covers in-network providers.,positive,kshaunish,2026-11-23T18:15:29+00:00
+T3107,Tuesday afternoon would be ideal.,positive,kshaunish,2026-11-23T18:15:33+00:00
+T2687,My insurance doesn't seem to cover this medication.,negative,kshaunish,2026-11-23T18:15:52+00:00
+T4337,I'm having trouble sleeping and feeling very anxious.,negative,kshaunish,2026-11-23T18:15:54+00:00
+T3192,Can I schedule an appointment for a physical examination next month?,positive,kshaunish,2026-11-23T18:15:55+00:00
+T7217,I need to check my prescription refill status for Amoxicillin.,neutral,kshaunish,2026-11-23T18:15:57+00:00
+T938,I need to know if my new medication is covered by my insurance.,neutral,kshaunish,2026-11-23T18:16:00+00:00
+T255,Can you help me find a specialist for dermatology in Springfield?,positive,kshaunish,2026-11-23T18:16:01+00:00
+T2854,What's the co-pay for specialist visits under my plan?,neutral,kshaunish,2026-11-23T18:16:03+00:00
+T9567,My insurance coverage for the new plan.,neutral,kshaunish,2026-11-23T18:16:06+00:00
+T3986,My insurance provider is changing next month. Can you help me update my details?,positive,kshaunish,2026-11-23T18:16:08+00:00
+T3554,I'd like to book a follow-up appointment for my recent check-up.,positive,kshaunish,2026-11-23T18:16:09+00:00

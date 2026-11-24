@@ -1,0 +1,1153 @@
+model,dataset,layer,node,active,preferred_class,top_z,specificity,specialist,selectivity,mean_activation
+intent_lstm,synthetic test,lstm,0,True,insurance,2.1973,0.5493,False,,-0.2593
+intent_lstm,synthetic test,lstm,1,True,cancel_appointment,1.7076,0.4269,False,,0.08849
+intent_lstm,synthetic test,lstm,2,True,book_appointment,1.3674,0.3418,False,,0.24048
+intent_lstm,synthetic test,lstm,3,True,account_update,1.9249,0.4812,False,,0.02416
+intent_lstm,synthetic test,lstm,4,True,account_update,1.9157,0.4789,False,,0.07204
+intent_lstm,synthetic test,lstm,5,True,lab_results,2.1936,0.5484,False,,-0.11773
+intent_lstm,synthetic test,lstm,6,True,cancel_appointment,1.4027,0.3507,False,,0.10703
+intent_lstm,synthetic test,lstm,7,True,cancel_appointment,1.4095,0.3524,False,,0.01739
+intent_lstm,synthetic test,lstm,8,True,find_provider,1.4555,0.3639,False,,0.15301
+intent_lstm,synthetic test,lstm,9,True,book_appointment,1.971,0.4927,False,,-0.00134
+intent_lstm,synthetic test,lstm,10,True,medication_info,1.6749,0.4187,False,,0.01376
+intent_lstm,synthetic test,lstm,11,True,medication_info,1.4122,0.3531,False,,0.11061
+intent_lstm,synthetic test,lstm,12,True,provide_information,1.5861,0.3965,False,,-0.09584
+intent_lstm,synthetic test,lstm,13,True,account_update,2.639,0.6597,False,,-0.22077
+intent_lstm,synthetic test,lstm,14,True,reschedule_appointment,1.574,0.3935,False,,0.21494
+intent_lstm,synthetic test,lstm,15,True,find_provider,1.6236,0.4059,False,,0.09341
+intent_lstm,synthetic test,lstm,16,True,lab_results,1.109,0.2773,False,,0.02857
+intent_lstm,synthetic test,lstm,17,True,reschedule_appointment,1.2197,0.3049,False,,0.21465
+intent_lstm,synthetic test,lstm,18,True,cancel_appointment,2.041,0.5103,False,,0.08468
+intent_lstm,synthetic test,lstm,19,True,lab_results,1.7505,0.4376,False,,-0.12705
+intent_lstm,synthetic test,lstm,20,True,lab_results,1.8855,0.4714,False,,-0.23033
+intent_lstm,synthetic test,lstm,21,True,insurance,1.6832,0.4208,False,,0.01278
+intent_lstm,synthetic test,lstm,22,True,reschedule_appointment,1.7985,0.4496,False,,0.32083
+intent_lstm,synthetic test,lstm,23,True,medication_info,1.1956,0.2989,False,,0.21163
+intent_lstm,synthetic test,lstm,24,True,find_provider,2.5944,0.6486,False,,0.07147
+intent_lstm,synthetic test,lstm,25,True,insurance,1.9186,0.4797,False,,0.11004
+intent_lstm,synthetic test,lstm,26,True,lab_results,1.8067,0.4517,False,,-0.11025
+intent_lstm,synthetic test,lstm,27,True,insurance,1.4444,0.3611,False,,-0.01764
+intent_lstm,synthetic test,lstm,28,True,find_provider,1.3238,0.331,False,,-0.11328
+intent_lstm,synthetic test,lstm,29,True,reschedule_appointment,2.1484,0.5371,False,,-0.0787
+intent_lstm,synthetic test,lstm,30,True,referral,1.1707,0.2927,False,,0.15548
+intent_lstm,synthetic test,lstm,31,True,cancel_appointment,1.56,0.39,False,,0.42047
+intent_lstm,synthetic test,lstm,32,True,medication_info,1.5048,0.3762,False,,0.15705
+intent_lstm,synthetic test,lstm,33,True,prescription_refill,1.2125,0.3031,False,,0.26214
+intent_lstm,synthetic test,lstm,34,True,insurance,2.1514,0.5378,False,,-0.04469
+intent_lstm,synthetic test,lstm,35,True,clinic_info,1.6316,0.4079,False,,-0.18403
+intent_lstm,synthetic test,lstm,36,True,insurance,3.015,0.7538,True,,-0.04329
+intent_lstm,synthetic test,lstm,37,True,lab_results,2.412,0.603,False,,-0.12421
+intent_lstm,synthetic test,lstm,38,True,lab_results,2.9248,0.7312,False,,-0.09208
+intent_lstm,synthetic test,lstm,39,True,find_provider,1.521,0.3803,False,,-0.23894
+intent_lstm,synthetic test,lstm,40,True,account_update,1.529,0.3823,False,,-0.17981
+intent_lstm,synthetic test,lstm,41,True,account_update,3.081,0.7703,True,,-0.2836
+intent_lstm,synthetic test,lstm,42,True,account_update,2.4264,0.6066,False,,-0.12256
+intent_lstm,synthetic test,lstm,43,True,lab_results,2.4321,0.608,False,,0.22169
+intent_lstm,synthetic test,lstm,44,True,emergency,1.7974,0.4493,False,,-0.03005
+intent_lstm,synthetic test,lstm,45,True,lab_results,2.5085,0.6271,False,,-0.22668
+intent_lstm,synthetic test,lstm,46,True,provide_information,2.2128,0.5532,False,,-0.00058
+intent_lstm,synthetic test,lstm,47,True,referral,1.1305,0.2826,False,,0.29111
+intent_lstm,synthetic test,lstm,48,True,medication_info,1.6094,0.4023,False,,0.0742
+intent_lstm,synthetic test,lstm,49,True,medication_info,1.4824,0.3706,False,,-0.34623
+intent_lstm,synthetic test,lstm,50,True,find_provider,1.4232,0.3558,False,,0.1005
+intent_lstm,synthetic test,lstm,51,True,find_provider,1.4837,0.3709,False,,-0.00972
+intent_lstm,synthetic test,lstm,52,True,medication_info,1.4615,0.3654,False,,0.22672
+intent_lstm,synthetic test,lstm,53,True,referral,1.3653,0.3413,False,,0.06721
+intent_lstm,synthetic test,lstm,54,True,referral,2.6961,0.674,False,,0.0664
+intent_lstm,synthetic test,lstm,55,True,reschedule_appointment,1.0175,0.2544,False,,-0.01691
+intent_lstm,synthetic test,lstm,56,True,symptom_check,1.6569,0.4142,False,,0.06142
+intent_lstm,synthetic test,lstm,57,True,find_provider,2.6038,0.651,False,,-0.01805
+intent_lstm,synthetic test,lstm,58,True,account_update,1.7673,0.4418,False,,-0.08632
+intent_lstm,synthetic test,lstm,59,True,clinic_info,1.2596,0.3149,False,,0.03265
+intent_lstm,synthetic test,lstm,60,True,insurance,1.3393,0.3348,False,,-0.01547
+intent_lstm,synthetic test,lstm,61,True,reschedule_appointment,1.7874,0.4469,False,,0.17839
+intent_lstm,synthetic test,lstm,62,True,reschedule_appointment,1.6746,0.4187,False,,-0.15294
+intent_lstm,synthetic test,lstm,63,True,prescription_refill,1.7313,0.4328,False,,0.01535
+intent_lstm,synthetic test,lstm,64,True,reschedule_appointment,1.5314,0.3829,False,,0.00689
+intent_lstm,synthetic test,lstm,65,True,book_appointment,1.4858,0.3715,False,,-0.14317
+intent_lstm,synthetic test,lstm,66,True,insurance,1.8712,0.4678,False,,0.14161
+intent_lstm,synthetic test,lstm,67,True,emergency,2.0504,0.5126,False,,-0.15582
+intent_lstm,synthetic test,lstm,68,True,symptom_check,2.0425,0.5106,False,,0.04638
+intent_lstm,synthetic test,lstm,69,True,medication_info,1.3931,0.3483,False,,-0.08107
+intent_lstm,synthetic test,lstm,70,True,insurance,1.1266,0.2817,False,,0.32732
+intent_lstm,synthetic test,lstm,71,True,medication_info,1.8613,0.4653,False,,0.08961
+intent_lstm,synthetic test,lstm,72,True,account_update,1.9323,0.4831,False,,-0.15536
+intent_lstm,synthetic test,lstm,73,True,clinic_info,2.022,0.5055,False,,-0.20785
+intent_lstm,synthetic test,lstm,74,True,payment,1.2666,0.3167,False,,-0.08346
+intent_lstm,synthetic test,lstm,75,True,referral,1.2245,0.3061,False,,0.16881
+intent_lstm,synthetic test,lstm,76,True,insurance,1.8663,0.4666,False,,-0.20959
+intent_lstm,synthetic test,lstm,77,True,medication_info,1.8915,0.4729,False,,-0.24494
+intent_lstm,synthetic test,lstm,78,True,prescription_refill,2.1989,0.5497,False,,-0.00305
+intent_lstm,synthetic test,lstm,79,True,reschedule_appointment,2.8341,0.7085,False,,0.02397
+intent_lstm,synthetic test,lstm,80,True,lab_results,2.1181,0.5295,False,,-0.02654
+intent_lstm,synthetic test,lstm,81,True,referral,1.8183,0.4546,False,,0.20581
+intent_lstm,synthetic test,lstm,82,True,provide_information,2.4795,0.6199,False,,0.05433
+intent_lstm,synthetic test,lstm,83,True,cancel_appointment,0.9814,0.2454,False,,0.18909
+intent_lstm,synthetic test,lstm,84,True,referral,1.8381,0.4595,False,,0.08002
+intent_lstm,synthetic test,lstm,85,True,referral,1.4015,0.3504,False,,0.11982
+intent_lstm,synthetic test,lstm,86,True,medication_info,1.9765,0.4941,False,,0.10061
+intent_lstm,synthetic test,lstm,87,True,medication_info,1.207,0.3017,False,,0.3409
+intent_lstm,synthetic test,lstm,88,True,emergency,1.9472,0.4868,False,,0.28777
+intent_lstm,synthetic test,lstm,89,True,insurance,1.2831,0.3208,False,,-0.13991
+intent_lstm,synthetic test,lstm,90,True,lab_results,1.778,0.4445,False,,-0.07985
+intent_lstm,synthetic test,lstm,91,True,account_update,2.3281,0.582,False,,-0.14529
+intent_lstm,synthetic test,lstm,92,True,referral,1.6513,0.4128,False,,0.08555
+intent_lstm,synthetic test,lstm,93,True,find_provider,1.19,0.2975,False,,-0.23177
+intent_lstm,synthetic test,lstm,94,True,clinic_info,1.112,0.278,False,,0.27504
+intent_lstm,synthetic test,lstm,95,True,lab_results,1.9427,0.4857,False,,0.03347
+intent_lstm,synthetic test,lstm,96,True,referral,1.0937,0.2734,False,,-0.05309
+intent_lstm,synthetic test,lstm,97,True,medication_info,1.9244,0.4811,False,,-0.07547
+intent_lstm,synthetic test,lstm,98,True,cancel_appointment,1.7567,0.4392,False,,0.09867
+intent_lstm,synthetic test,lstm,99,True,prescription_refill,1.7246,0.4312,False,,0.11237
+intent_lstm,synthetic test,lstm,100,True,book_appointment,1.5343,0.3836,False,,0.09935
+intent_lstm,synthetic test,lstm,101,True,cancel_appointment,1.3782,0.3445,False,,0.27541
+intent_lstm,synthetic test,lstm,102,True,lab_results,1.3347,0.3337,False,,0.29437
+intent_lstm,synthetic test,lstm,103,True,medication_info,1.7688,0.4422,False,,-0.00947
+intent_lstm,synthetic test,lstm,104,True,account_update,1.7992,0.4498,False,,0.13303
+intent_lstm,synthetic test,lstm,105,True,provide_information,1.6667,0.4167,False,,-0.51169
+intent_lstm,synthetic test,lstm,106,True,cancel_appointment,1.7648,0.4412,False,,0.11304
+intent_lstm,synthetic test,lstm,107,True,insurance,1.8609,0.4652,False,,0.01833
+intent_lstm,synthetic test,lstm,108,True,account_update,3.0656,0.7664,True,,-0.1447
+intent_lstm,synthetic test,lstm,109,True,insurance,2.1495,0.5374,False,,0.01803
+intent_lstm,synthetic test,lstm,110,True,medication_info,2.09,0.5225,False,,-0.10725
+intent_lstm,synthetic test,lstm,111,True,medication_info,1.5302,0.3826,False,,0.10161
+intent_lstm,synthetic test,lstm,112,True,prescription_refill,1.8217,0.4554,False,,-0.19536
+intent_lstm,synthetic test,lstm,113,True,book_appointment,1.6107,0.4027,False,,-0.00973
+intent_lstm,synthetic test,lstm,114,True,clinic_info,0.7005,0.1751,False,,0.42801
+intent_lstm,synthetic test,lstm,115,True,medication_info,1.545,0.3862,False,,0.1766
+intent_lstm,synthetic test,lstm,116,True,medication_info,1.707,0.4267,False,,0.12128
+intent_lstm,synthetic test,lstm,117,True,referral,1.0503,0.2626,False,,0.13788
+intent_lstm,synthetic test,lstm,118,True,medication_info,1.6834,0.4209,False,,-0.02898
+intent_lstm,synthetic test,lstm,119,True,emergency,1.2259,0.3065,False,,0.13814
+intent_lstm,synthetic test,lstm,120,True,cancel_appointment,1.9217,0.4804,False,,0.09189
+intent_lstm,synthetic test,lstm,121,True,clinic_info,2.1719,0.543,False,,-0.14649
+intent_lstm,synthetic test,lstm,122,True,reschedule_appointment,1.7335,0.4334,False,,0.06889
+intent_lstm,synthetic test,lstm,123,True,emergency,1.5902,0.3976,False,,0.11499
+intent_lstm,synthetic test,lstm,124,True,medication_info,1.8634,0.4658,False,,-0.01757
+intent_lstm,synthetic test,lstm,125,True,find_provider,2.0592,0.5148,False,,-0.13916
+intent_lstm,synthetic test,lstm,126,True,medication_info,1.2464,0.3116,False,,-0.00789
+intent_lstm,synthetic test,lstm,127,True,account_update,3.6141,0.9035,True,,-0.03317
+intent_lstm,synthetic test,hidden_1,0,True,reschedule_appointment,2.6025,0.6506,False,0.7546,0.30674
+intent_lstm,synthetic test,hidden_1,1,True,clinic_info,2.9185,0.7296,False,0.759,0.46181
+intent_lstm,synthetic test,hidden_1,2,True,prescription_refill,1.7025,0.4256,False,0.4079,0.96952
+intent_lstm,synthetic test,hidden_1,3,True,symptom_check,1.8969,0.4742,False,0.5738,0.8787
+intent_lstm,synthetic test,hidden_1,4,True,insurance,2.2533,0.5633,False,0.6249,0.42671
+intent_lstm,synthetic test,hidden_1,5,True,emergency,2.0577,0.5144,False,0.5006,0.9785
+intent_lstm,synthetic test,hidden_1,6,True,account_update,2.6434,0.6608,False,0.7632,0.31416
+intent_lstm,synthetic test,hidden_1,7,True,prescription_refill,2.8033,0.7008,False,0.7792,0.58864
+intent_lstm,synthetic test,hidden_1,8,True,reschedule_appointment,2.0669,0.5167,False,0.6934,0.59965
+intent_lstm,synthetic test,hidden_1,9,True,provide_information,2.6281,0.657,False,0.6029,0.51392
+intent_lstm,synthetic test,hidden_1,10,True,account_update,3.6011,0.9003,True,0.9205,0.00265
+intent_lstm,synthetic test,hidden_1,11,True,find_provider,2.8969,0.7242,False,0.7735,0.1968
+intent_lstm,synthetic test,hidden_1,12,True,reschedule_appointment,3.4955,0.8739,True,0.8888,0.11723
+intent_lstm,synthetic test,hidden_1,13,True,lab_results,2.9431,0.7358,False,0.6369,0.66975
+intent_lstm,synthetic test,hidden_1,14,True,medication_info,2.372,0.593,False,0.6299,0.95147
+intent_lstm,synthetic test,hidden_1,15,True,lab_results,1.9556,0.4889,False,0.4497,0.68557
+intent_lstm,synthetic test,hidden_1,16,True,referral,2.2879,0.572,False,0.6943,0.37255
+intent_lstm,synthetic test,hidden_1,17,True,clinic_info,2.3962,0.5991,False,0.4933,0.81909
+intent_lstm,synthetic test,hidden_1,18,True,account_update,2.8856,0.7214,False,0.8814,0.05452
+intent_lstm,synthetic test,hidden_1,19,True,medication_info,2.6426,0.6607,False,0.6448,0.94017
+intent_lstm,synthetic test,hidden_1,20,True,general_health_info,3.2006,0.8001,True,0.8387,0.04878
+intent_lstm,synthetic test,hidden_1,21,True,insurance,2.0246,0.5062,False,0.5408,0.94564
+intent_lstm,synthetic test,hidden_1,22,True,reschedule_appointment,2.2094,0.5523,False,0.5259,1.506
+intent_lstm,synthetic test,hidden_1,23,True,cancel_appointment,2.1033,0.5258,False,0.5488,0.94841
+intent_lstm,synthetic test,hidden_1,24,True,prescription_refill,3.7562,0.9391,True,0.9319,0.00214
+intent_lstm,synthetic test,hidden_1,25,True,lab_results,2.0943,0.5236,False,0.6938,0.27197
+intent_lstm,synthetic test,hidden_1,26,True,referral,2.1073,0.5268,False,0.6038,0.61116
+intent_lstm,synthetic test,hidden_1,27,True,lab_results,2.9316,0.7329,False,0.7879,0.39658
+intent_lstm,synthetic test,hidden_1,28,True,cancel_appointment,2.4823,0.6206,False,0.6266,0.39175
+intent_lstm,synthetic test,hidden_1,29,True,reschedule_appointment,2.0358,0.509,False,0.575,0.6793
+intent_lstm,synthetic test,hidden_1,30,True,insurance,3.6919,0.923,True,0.8992,0.14686
+intent_lstm,synthetic test,hidden_1,31,True,referral,1.459,0.3647,False,0.3965,1.0048
+intent_lstm,synthetic test,hidden_1,32,True,account_update,2.3953,0.5988,False,0.6396,0.42502
+intent_lstm,synthetic test,hidden_1,33,True,referral,1.8276,0.4569,False,0.4616,1.27208
+intent_lstm,synthetic test,hidden_1,34,True,referral,3.2185,0.8046,True,0.7519,0.47217
+intent_lstm,synthetic test,hidden_1,35,True,lab_results,2.2855,0.5714,False,0.646,0.62809
+intent_lstm,synthetic test,hidden_1,36,True,book_appointment,2.2223,0.5556,False,0.6471,0.69138
+intent_lstm,synthetic test,hidden_1,37,True,medication_info,2.0733,0.5183,False,0.5814,1.09863
+intent_lstm,synthetic test,hidden_1,38,True,find_provider,2.0644,0.5161,False,0.6635,0.43929
+intent_lstm,synthetic test,hidden_1,39,True,emergency,1.8583,0.4646,False,0.5272,1.14324
+intent_lstm,synthetic test,hidden_1,40,True,payment,2.4902,0.6226,False,0.7693,0.21026
+intent_lstm,synthetic test,hidden_1,41,True,provide_information,1.8599,0.465,False,0.5139,0.51624
+intent_lstm,synthetic test,hidden_1,42,True,find_provider,2.0004,0.5001,False,0.6033,0.65821
+intent_lstm,synthetic test,hidden_1,43,True,cancel_appointment,2.1171,0.5293,False,0.7262,0.18961
+intent_lstm,synthetic test,hidden_1,44,True,account_update,2.2124,0.5531,False,0.6478,0.41671
+intent_lstm,synthetic test,hidden_1,45,True,reschedule_appointment,2.0237,0.5059,False,0.5702,1.04952
+intent_lstm,synthetic test,hidden_1,46,True,cancel_appointment,1.675,0.4188,False,0.542,0.73644
+intent_lstm,synthetic test,hidden_1,47,True,account_update,3.48,0.87,True,0.8791,0.05229
+intent_lstm,synthetic test,hidden_1,48,True,emergency,2.9915,0.7479,False,0.8098,0.08888
+intent_lstm,synthetic test,hidden_1,49,True,prescription_refill,2.6764,0.6691,False,0.7194,0.88844
+intent_lstm,synthetic test,hidden_1,50,True,referral,2.7133,0.6783,False,0.6405,0.96914
+intent_lstm,synthetic test,hidden_1,51,True,cancel_appointment,2.3162,0.579,False,0.554,1.33956
+intent_lstm,synthetic test,hidden_1,52,True,reschedule_appointment,1.9328,0.4832,False,0.5493,0.59428
+intent_lstm,synthetic test,hidden_1,53,True,prescription_refill,2.7718,0.693,False,0.769,0.2948
+intent_lstm,synthetic test,hidden_1,54,True,reschedule_appointment,2.0441,0.511,False,0.6648,0.42093
+intent_lstm,synthetic test,hidden_1,55,True,medication_info,2.4987,0.6247,False,0.62,0.66429
+intent_lstm,synthetic test,hidden_1,56,True,account_update,1.9369,0.4842,False,0.5822,0.47491
+intent_lstm,synthetic test,hidden_1,57,True,find_provider,2.0102,0.5025,False,0.6123,0.33654
+intent_lstm,synthetic test,hidden_1,58,True,referral,2.492,0.623,False,0.5521,1.08169
+intent_lstm,synthetic test,hidden_1,59,True,reschedule_appointment,2.7622,0.6906,False,0.6773,0.83367
+intent_lstm,synthetic test,hidden_1,60,True,insurance,1.9061,0.4765,False,0.5002,0.64432
+intent_lstm,synthetic test,hidden_1,61,True,clinic_info,3.0429,0.7607,True,0.825,0.13509
+intent_lstm,synthetic test,hidden_1,62,True,cancel_appointment,2.2435,0.5609,False,0.5819,0.92323
+intent_lstm,synthetic test,hidden_1,63,True,emergency,2.1496,0.5374,False,0.572,1.02751
+intent_lstm,synthetic test,hidden_2,0,True,provide_information,2.9187,0.7297,False,0.8723,0.18998
+intent_lstm,synthetic test,hidden_2,1,True,referral,2.1191,0.5298,False,0.526,1.73714
+intent_lstm,synthetic test,hidden_2,2,True,medication_info,2.4816,0.6204,False,0.5866,1.98008
+intent_lstm,synthetic test,hidden_2,3,True,lab_results,2.4161,0.604,False,0.6308,1.15056
+intent_lstm,synthetic test,hidden_2,4,True,referral,2.2163,0.5541,False,0.5951,0.83336
+intent_lstm,synthetic test,hidden_2,5,True,cancel_appointment,1.5165,0.3791,False,0.3914,2.19229
+intent_lstm,synthetic test,hidden_2,6,True,lab_results,2.1861,0.5465,False,0.5223,1.90019
+intent_lstm,synthetic test,hidden_2,7,True,book_appointment,1.5945,0.3986,False,0.4589,1.35996
+intent_lstm,synthetic test,hidden_2,8,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_2,9,True,emergency,2.325,0.5813,False,0.5043,2.3365
+intent_lstm,synthetic test,hidden_2,10,True,find_provider,2.1969,0.5492,False,0.6217,0.84821
+intent_lstm,synthetic test,hidden_2,11,True,account_update,2.8686,0.7171,False,0.7482,0.37751
+intent_lstm,synthetic test,hidden_2,12,True,clinic_info,1.8625,0.4656,False,0.543,0.80005
+intent_lstm,synthetic test,hidden_2,13,True,prescription_refill,2.1132,0.5283,False,0.3943,2.37325
+intent_lstm,synthetic test,hidden_2,14,True,referral,3.873,0.9682,True,0.9996,0.0119
+intent_lstm,synthetic test,hidden_2,15,True,cancel_appointment,2.3466,0.5867,False,0.5463,1.76815
+intent_lstm,synthetic test,hidden_2,16,True,reschedule_appointment,1.8404,0.4601,False,0.4637,2.24419
+intent_lstm,synthetic test,hidden_2,17,True,account_update,2.6858,0.6714,False,0.6628,0.50732
+intent_lstm,synthetic test,hidden_2,18,True,reschedule_appointment,2.5667,0.6417,False,0.7096,0.95743
+intent_lstm,synthetic test,hidden_2,19,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_2,20,True,referral,2.1815,0.5454,False,0.5534,0.8321
+intent_lstm,synthetic test,hidden_2,21,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_2,22,True,general_health_info,3.8727,0.9682,True,0.9979,0.00647
+intent_lstm,synthetic test,hidden_2,23,True,cancel_appointment,2.0165,0.5041,False,0.238,2.39288
+intent_lstm,synthetic test,hidden_2,24,True,cancel_appointment,1.643,0.4108,False,0.4481,1.3953
+intent_lstm,synthetic test,hidden_2,25,True,emergency,2.2595,0.5649,False,0.6226,0.96032
+intent_lstm,synthetic test,hidden_2,26,True,account_update,2.419,0.6047,False,0.693,0.33889
+intent_lstm,synthetic test,hidden_2,27,True,lab_results,2.1985,0.5496,False,0.6161,0.97146
+intent_lstm,synthetic test,hidden_2,28,True,medication_info,2.0947,0.5237,False,0.4616,1.90828
+intent_lstm,synthetic test,hidden_2,29,True,medication_info,2.4154,0.6039,False,0.608,1.27852
+intent_lstm,synthetic test,hidden_2,30,True,referral,1.978,0.4945,False,0.4618,2.1092
+intent_lstm,synthetic test,hidden_2,31,True,cancel_appointment,2.1251,0.5313,False,0.5896,0.72505
+intent_lstm,synthetic test,hidden_2,32,True,account_update,3.8591,0.9648,True,0.98,0.10867
+intent_lstm,synthetic test,hidden_2,33,True,lab_results,2.0178,0.5045,False,0.5598,0.95677
+intent_lstm,synthetic test,hidden_2,34,True,medication_info,3.6699,0.9175,True,0.9187,0.25619
+intent_lstm,synthetic test,hidden_2,35,True,prescription_refill,2.1595,0.5399,False,0.609,1.20181
+intent_lstm,synthetic test,hidden_2,36,True,clinic_info,1.5506,0.3876,False,0.4397,1.30286
+intent_lstm,synthetic test,hidden_2,37,True,prescription_refill,1.6872,0.4218,False,0.413,1.12662
+intent_lstm,synthetic test,hidden_2,38,True,clinic_info,2.0073,0.5018,False,0.5708,0.91085
+intent_lstm,synthetic test,hidden_2,39,True,insurance,1.8627,0.4657,False,0.4761,1.48916
+intent_lstm,synthetic test,hidden_2,40,True,clinic_info,1.9352,0.4838,False,0.4867,1.31789
+intent_lstm,synthetic test,hidden_2,41,True,referral,2.2373,0.5593,False,0.544,1.44562
+intent_lstm,synthetic test,hidden_2,42,True,account_update,2.9512,0.7378,False,0.7412,0.62246
+intent_lstm,synthetic test,hidden_2,43,True,book_appointment,1.726,0.4315,False,0.4245,1.72153
+intent_lstm,synthetic test,hidden_2,44,True,cancel_appointment,1.8481,0.462,False,0.4236,1.38364
+intent_lstm,synthetic test,hidden_2,45,True,cancel_appointment,2.0875,0.5219,False,0.6479,1.45909
+intent_lstm,synthetic test,hidden_2,46,True,prescription_refill,3.2451,0.8113,True,0.8648,0.30243
+intent_lstm,synthetic test,hidden_2,47,True,book_appointment,3.842,0.9605,True,0.9843,0.00269
+intent_lstm,synthetic test,hidden_2,48,True,prescription_refill,2.3913,0.5978,False,0.6143,0.79993
+intent_lstm,synthetic test,hidden_2,49,True,find_provider,1.4674,0.3668,False,0.4579,0.53237
+intent_lstm,synthetic test,hidden_2,50,True,lab_results,3.8153,0.9538,True,0.9656,0.0649
+intent_lstm,synthetic test,hidden_2,51,True,medication_info,2.5963,0.6491,False,0.5588,1.4594
+intent_lstm,synthetic test,hidden_2,52,True,reschedule_appointment,2.187,0.5467,False,0.4928,1.43918
+intent_lstm,synthetic test,hidden_2,53,True,referral,1.9625,0.4906,False,0.4156,2.40371
+intent_lstm,synthetic test,hidden_2,54,True,clinic_info,2.279,0.5698,False,0.5656,0.76074
+intent_lstm,synthetic test,hidden_2,55,True,medication_info,2.5399,0.635,False,0.735,0.95948
+intent_lstm,synthetic test,hidden_2,56,True,cancel_appointment,1.7045,0.4261,False,0.3932,2.08916
+intent_lstm,synthetic test,hidden_2,57,True,find_provider,2.4045,0.6011,False,0.6738,0.40216
+intent_lstm,synthetic test,hidden_2,58,True,referral,2.2885,0.5721,False,0.573,1.69617
+intent_lstm,synthetic test,hidden_2,59,True,cancel_appointment,1.9971,0.4993,False,0.5148,1.89428
+intent_lstm,synthetic test,hidden_2,60,True,general_health_info,3.8424,0.9606,True,0.9791,0.00524
+intent_lstm,synthetic test,hidden_2,61,True,prescription_refill,2.7022,0.6756,False,0.6911,1.21533
+intent_lstm,synthetic test,hidden_2,62,True,clinic_info,1.9761,0.494,False,0.6169,0.5839
+intent_lstm,synthetic test,hidden_2,63,True,lab_results,2.6494,0.6624,False,0.7786,0.26511
+intent_lstm,synthetic test,hidden_3,0,True,cancel_appointment,2.1483,0.5371,False,0.4964,3.4415
+intent_lstm,synthetic test,hidden_3,1,True,find_provider,1.7322,0.4331,False,0.4204,1.94907
+intent_lstm,synthetic test,hidden_3,2,True,find_provider,2.5,0.625,False,0.6769,0.97057
+intent_lstm,synthetic test,hidden_3,3,True,cancel_appointment,2.1913,0.5478,False,0.4584,2.67258
+intent_lstm,synthetic test,hidden_3,4,True,lab_results,2.3678,0.592,False,0.6045,1.57454
+intent_lstm,synthetic test,hidden_3,5,True,referral,2.043,0.5107,False,0.4801,2.55
+intent_lstm,synthetic test,hidden_3,6,True,reschedule_appointment,2.3523,0.5881,False,0.6535,1.0302
+intent_lstm,synthetic test,hidden_3,7,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_3,8,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_3,9,True,find_provider,1.9879,0.497,False,0.4456,1.2538
+intent_lstm,synthetic test,hidden_3,10,True,find_provider,2.0769,0.5192,False,0.5304,1.81129
+intent_lstm,synthetic test,hidden_3,11,True,clinic_info,1.5259,0.3815,False,0.4078,1.86677
+intent_lstm,synthetic test,hidden_3,12,True,medication_info,2.7937,0.6984,False,0.7219,1.70431
+intent_lstm,synthetic test,hidden_3,13,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_3,14,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_3,15,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_3,16,True,referral,2.5389,0.6347,False,0.6809,0.98324
+intent_lstm,synthetic test,hidden_3,17,True,medication_info,2.6082,0.652,False,0.6731,1.74788
+intent_lstm,synthetic test,hidden_3,18,True,emergency,1.9978,0.4994,False,0.5162,1.81983
+intent_lstm,synthetic test,hidden_3,19,True,account_update,3.8614,0.9654,True,0.9856,0.08113
+intent_lstm,synthetic test,hidden_3,20,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_3,21,True,reschedule_appointment,2.4661,0.6165,False,0.7161,0.87363
+intent_lstm,synthetic test,hidden_3,22,True,reschedule_appointment,2.2671,0.5668,False,0.7345,0.32859
+intent_lstm,synthetic test,hidden_3,23,True,referral,2.0964,0.5241,False,0.5757,1.8697
+intent_lstm,synthetic test,hidden_3,24,True,prescription_refill,1.94,0.485,False,0.5542,1.78003
+intent_lstm,synthetic test,hidden_3,25,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_3,26,True,cancel_appointment,1.7299,0.4325,False,0.4104,2.95727
+intent_lstm,synthetic test,hidden_3,27,True,insurance,1.7785,0.4446,False,0.5716,1.04313
+intent_lstm,synthetic test,hidden_3,28,True,referral,2.2163,0.5541,False,0.4738,1.96186
+intent_lstm,synthetic test,hidden_3,29,True,clinic_info,1.4031,0.3508,False,0.3546,2.46274
+intent_lstm,synthetic test,hidden_3,30,True,referral,1.7327,0.4332,False,0.3629,5.37681
+intent_lstm,synthetic test,hidden_3,31,True,prescription_refill,2.5736,0.6434,False,0.708,1.98473
+intent_lstm,synthetic test,hidden_3,32,True,reschedule_appointment,3.153,0.7883,True,0.8362,0.36824
+intent_lstm,synthetic test,hidden_3,33,True,account_update,2.3674,0.5919,False,0.6188,1.7739
+intent_lstm,synthetic test,hidden_3,34,True,prescription_refill,2.0906,0.5227,False,0.5825,1.87615
+intent_lstm,synthetic test,hidden_3,35,True,lab_results,2.7319,0.683,False,0.7001,0.66054
+intent_lstm,synthetic test,hidden_3,36,True,reschedule_appointment,1.8888,0.4722,False,0.457,3.01532
+intent_lstm,synthetic test,hidden_3,37,True,symptom_check,2.3455,0.5864,False,0.7629,0.29228
+intent_lstm,synthetic test,hidden_3,38,True,cancel_appointment,2.5844,0.6461,False,0.4208,3.86481
+intent_lstm,synthetic test,hidden_3,39,True,clinic_info,2.0465,0.5116,False,0.6014,0.97117
+intent_lstm,synthetic test,hidden_3,40,True,insurance,2.1027,0.5257,False,0.5875,0.78497
+intent_lstm,synthetic test,hidden_3,41,True,reschedule_appointment,2.4385,0.6096,False,0.6496,1.47987
+intent_lstm,synthetic test,hidden_3,42,True,book_appointment,1.5747,0.3937,False,0.4509,1.899
+intent_lstm,synthetic test,hidden_3,43,True,medication_info,1.7869,0.4467,False,0.446,3.01139
+intent_lstm,synthetic test,hidden_3,44,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_3,45,True,payment,3.3986,0.8497,True,0.9025,0.10939
+intent_lstm,synthetic test,hidden_3,46,True,reschedule_appointment,2.2406,0.5602,False,0.5048,1.59411
+intent_lstm,synthetic test,hidden_3,47,True,payment,2.7188,0.6797,False,0.7776,0.48105
+intent_lstm,synthetic test,hidden_3,48,True,emergency,3.6316,0.9079,True,0.9047,0.19907
+intent_lstm,synthetic test,hidden_3,49,True,referral,1.9968,0.4992,False,0.5243,1.82271
+intent_lstm,synthetic test,hidden_3,50,True,emergency,1.8987,0.4747,False,0.4805,2.72474
+intent_lstm,synthetic test,hidden_3,51,True,find_provider,2.3346,0.5836,False,0.7443,0.29569
+intent_lstm,synthetic test,hidden_3,52,True,referral,1.8716,0.4679,False,0.5541,1.47491
+intent_lstm,synthetic test,hidden_3,53,True,account_update,2.0876,0.5219,False,0.5979,1.76557
+intent_lstm,synthetic test,hidden_3,54,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_3,55,True,find_provider,2.1166,0.5291,False,0.5044,1.94727
+intent_lstm,synthetic test,hidden_3,56,True,cancel_appointment,2.0104,0.5026,False,0.4666,2.03492
+intent_lstm,synthetic test,hidden_3,57,True,prescription_refill,2.4579,0.6145,False,0.7008,0.50994
+intent_lstm,synthetic test,hidden_3,58,True,medication_info,2.9277,0.7319,False,0.7554,1.61076
+intent_lstm,synthetic test,hidden_3,59,True,lab_results,2.1416,0.5354,False,0.505,2.30191
+intent_lstm,synthetic test,hidden_3,60,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_3,61,True,referral,1.7608,0.4402,False,0.4385,2.36056
+intent_lstm,synthetic test,hidden_3,62,True,referral,1.7209,0.4302,False,0.4616,2.363
+intent_lstm,synthetic test,hidden_3,63,True,prescription_refill,1.8341,0.4585,False,0.5526,1.55583
+intent_lstm,synthetic test,hidden_4,0,True,reschedule_appointment,1.8542,0.4635,False,0.5092,2.32796
+intent_lstm,synthetic test,hidden_4,1,True,referral,1.9025,0.4756,False,0.4607,2.80079
+intent_lstm,synthetic test,hidden_4,2,True,symptom_check,2.2391,0.5598,False,0.6746,1.93903
+intent_lstm,synthetic test,hidden_4,3,True,reschedule_appointment,2.5029,0.6257,False,0.677,1.48134
+intent_lstm,synthetic test,hidden_4,4,True,account_update,3.2206,0.8051,True,0.8322,0.38874
+intent_lstm,synthetic test,hidden_4,5,True,reschedule_appointment,1.7997,0.4499,False,0.5317,3.54248
+intent_lstm,synthetic test,hidden_4,6,True,account_update,2.706,0.6765,False,0.637,2.03472
+intent_lstm,synthetic test,hidden_4,7,True,lab_results,3.1295,0.7824,True,0.8072,0.62939
+intent_lstm,synthetic test,hidden_4,8,True,prescription_refill,1.8094,0.4523,False,0.4177,2.92871
+intent_lstm,synthetic test,hidden_4,9,True,lab_results,2.5337,0.6334,False,0.6379,1.46521
+intent_lstm,synthetic test,hidden_4,10,True,clinic_info,2.1528,0.5382,False,0.5562,2.75765
+intent_lstm,synthetic test,hidden_4,11,True,find_provider,1.9856,0.4964,False,0.4875,2.55313
+intent_lstm,synthetic test,hidden_4,12,True,find_provider,1.7935,0.4484,False,0.5103,2.1515
+intent_lstm,synthetic test,hidden_4,13,True,medication_info,2.8837,0.7209,False,0.7023,2.16325
+intent_lstm,synthetic test,hidden_4,14,True,account_update,2.717,0.6793,False,0.8159,0.30185
+intent_lstm,synthetic test,hidden_4,15,True,prescription_refill,2.1213,0.5303,False,0.5434,2.24106
+intent_lstm,synthetic test,hidden_4,16,True,lab_results,2.3737,0.5934,False,0.6241,1.13602
+intent_lstm,synthetic test,hidden_4,17,True,prescription_refill,1.861,0.4653,False,0.4037,4.1601
+intent_lstm,synthetic test,hidden_4,18,True,prescription_refill,2.7072,0.6768,False,0.7739,0.97527
+intent_lstm,synthetic test,hidden_4,19,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_4,20,True,referral,2.4057,0.6014,False,0.7039,1.54437
+intent_lstm,synthetic test,hidden_4,21,True,medication_info,2.8129,0.7032,False,0.7342,0.81741
+intent_lstm,synthetic test,hidden_4,22,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_4,23,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_4,24,True,medication_info,1.7688,0.4422,False,0.454,4.60882
+intent_lstm,synthetic test,hidden_4,25,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_4,26,True,referral,2.7848,0.6962,False,0.6612,2.50631
+intent_lstm,synthetic test,hidden_4,27,True,medication_info,3.0609,0.7652,True,0.8616,0.55391
+intent_lstm,synthetic test,hidden_4,28,True,medication_info,1.7394,0.4348,False,0.5359,2.95909
+intent_lstm,synthetic test,hidden_4,29,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_4,30,True,account_update,1.805,0.4512,False,0.552,2.22734
+intent_lstm,synthetic test,hidden_4,31,True,referral,1.7838,0.4459,False,0.3383,4.73538
+intent_lstm,synthetic test,hidden_4,32,True,referral,1.8322,0.4581,False,0.5811,1.18595
+intent_lstm,synthetic test,hidden_4,33,True,reschedule_appointment,2.7621,0.6905,False,0.7243,1.25406
+intent_lstm,synthetic test,hidden_4,34,True,medication_info,2.0138,0.5034,False,0.4568,3.3982
+intent_lstm,synthetic test,hidden_4,35,True,cancel_appointment,2.2993,0.5748,False,0.5101,4.07237
+intent_lstm,synthetic test,hidden_4,36,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_4,37,True,cancel_appointment,2.0444,0.5111,False,0.5362,3.27482
+intent_lstm,synthetic test,hidden_4,38,True,prescription_refill,1.8114,0.4528,False,0.3857,3.98263
+intent_lstm,synthetic test,hidden_4,39,True,medication_info,2.0252,0.5063,False,0.547,3.09644
+intent_lstm,synthetic test,hidden_4,40,True,emergency,2.1398,0.5349,False,0.5692,2.69349
+intent_lstm,synthetic test,hidden_4,41,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_4,42,True,medication_info,3.4836,0.8709,True,0.8825,1.33024
+intent_lstm,synthetic test,hidden_4,43,True,find_provider,2.1054,0.5263,False,0.5214,2.14593
+intent_lstm,synthetic test,hidden_4,44,True,prescription_refill,1.7829,0.4457,False,0.4612,2.55807
+intent_lstm,synthetic test,hidden_4,45,True,cancel_appointment,2.1258,0.5315,False,0.4555,4.15318
+intent_lstm,synthetic test,hidden_4,46,True,cancel_appointment,2.3597,0.5899,False,0.6479,2.82157
+intent_lstm,synthetic test,hidden_4,47,True,referral,2.4196,0.6049,False,0.6003,2.15018
+intent_lstm,synthetic test,hidden_4,48,True,reschedule_appointment,2.2983,0.5746,False,0.68,1.69898
+intent_lstm,synthetic test,hidden_4,49,True,medication_info,1.7139,0.4285,False,0.4233,1.80883
+intent_lstm,synthetic test,hidden_4,50,True,lab_results,2.5426,0.6356,False,0.6098,1.47478
+intent_lstm,synthetic test,hidden_4,51,True,reschedule_appointment,3.0245,0.7561,True,0.7984,0.30691
+intent_lstm,synthetic test,hidden_4,52,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_4,53,False,,,,False,,0.0
+intent_lstm,synthetic test,hidden_4,54,True,emergency,1.7812,0.4453,False,0.4956,2.41664
+intent_lstm,synthetic test,hidden_4,55,True,prescription_refill,2.3231,0.5808,False,0.6424,1.53368
+intent_lstm,synthetic test,hidden_4,56,True,find_provider,1.6751,0.4188,False,0.4641,3.63431
+intent_lstm,synthetic test,hidden_4,57,True,lab_results,2.0853,0.5213,False,0.4091,4.59296
+intent_lstm,synthetic test,hidden_4,58,True,cancel_appointment,2.1991,0.5498,False,0.5796,3.44151
+intent_lstm,synthetic test,hidden_4,59,True,medication_info,3.2453,0.8113,True,0.9247,0.00032
+intent_lstm,synthetic test,hidden_4,60,True,reschedule_appointment,2.2115,0.5529,False,0.6284,1.75213
+intent_lstm,synthetic test,hidden_4,61,True,emergency,1.5563,0.3891,False,0.4057,2.68387
+intent_lstm,synthetic test,hidden_4,62,True,book_appointment,2.3961,0.599,False,0.636,2.08744
+intent_lstm,synthetic test,hidden_4,63,True,medication_info,2.0711,0.5178,False,0.5248,2.14861
+intent_lstm,real test,lstm,0,True,payment,2.0872,0.5218,False,,-0.2298
+intent_lstm,real test,lstm,1,True,cancel_appointment,1.8161,0.454,False,,0.0599
+intent_lstm,real test,lstm,2,True,cancel_appointment,1.7758,0.4439,False,,0.28567
+intent_lstm,real test,lstm,3,True,medication_info,2.2286,0.5571,False,,0.06268
+intent_lstm,real test,lstm,4,True,account_update,1.9151,0.4788,False,,0.09221
+intent_lstm,real test,lstm,5,True,other,1.8988,0.4747,False,,-0.12889
+intent_lstm,real test,lstm,6,True,cancel_appointment,1.7053,0.4263,False,,0.10691
+intent_lstm,real test,lstm,7,True,cancel_appointment,1.4322,0.3581,False,,0.09665
+intent_lstm,real test,lstm,8,True,cancel_appointment,1.405,0.3513,False,,0.12297
+intent_lstm,real test,lstm,9,True,book_appointment,2.2343,0.5586,False,,0.06387
+intent_lstm,real test,lstm,10,True,emergency,1.7845,0.4461,False,,0.01227
+intent_lstm,real test,lstm,11,True,medication_info,1.2591,0.3148,False,,0.12405
+intent_lstm,real test,lstm,12,True,account_update,1.7068,0.4267,False,,-0.06902
+intent_lstm,real test,lstm,13,True,account_update,2.6149,0.6537,False,,-0.25847
+intent_lstm,real test,lstm,14,True,lab_results,1.5789,0.3947,False,,0.248
+intent_lstm,real test,lstm,15,True,emergency,1.8723,0.4681,False,,0.15812
+intent_lstm,real test,lstm,16,True,lab_results,1.1318,0.283,False,,0.00162
+intent_lstm,real test,lstm,17,True,reschedule_appointment,1.2511,0.3128,False,,0.35118
+intent_lstm,real test,lstm,18,True,cancel_appointment,2.3493,0.5873,False,,0.05367
+intent_lstm,real test,lstm,19,True,other,1.8979,0.4745,False,,-0.07602
+intent_lstm,real test,lstm,20,True,lab_results,1.8171,0.4543,False,,-0.22242
+intent_lstm,real test,lstm,21,True,other,1.4443,0.3611,False,,0.14291
+intent_lstm,real test,lstm,22,True,reschedule_appointment,1.8305,0.4576,False,,0.23397
+intent_lstm,real test,lstm,23,True,emergency,0.9739,0.2435,False,,0.33386
+intent_lstm,real test,lstm,24,True,find_provider,2.7981,0.6995,False,,0.05557
+intent_lstm,real test,lstm,25,True,symptom_check,1.8429,0.4607,False,,0.1886
+intent_lstm,real test,lstm,26,True,other,1.6876,0.4219,False,,-0.14735
+intent_lstm,real test,lstm,27,True,payment,1.793,0.4483,False,,0.03567
+intent_lstm,real test,lstm,28,True,general_health_info,1.4582,0.3646,False,,-0.18079
+intent_lstm,real test,lstm,29,True,reschedule_appointment,2.0065,0.5016,False,,-0.0638
+intent_lstm,real test,lstm,30,True,other,1.4728,0.3682,False,,0.24978
+intent_lstm,real test,lstm,31,True,cancel_appointment,2.2272,0.5568,False,,0.43714
+intent_lstm,real test,lstm,32,True,medication_info,1.0991,0.2748,False,,0.22356
+intent_lstm,real test,lstm,33,True,other,1.5816,0.3954,False,,0.2943
+intent_lstm,real test,lstm,34,True,insurance,2.1856,0.5464,False,,-0.05175
+intent_lstm,real test,lstm,35,True,reschedule_appointment,2.0134,0.5034,False,,-0.19762
+intent_lstm,real test,lstm,36,True,insurance,2.6701,0.6675,False,,-0.02952
+intent_lstm,real test,lstm,37,True,other,2.2576,0.5644,False,,-0.12472
+intent_lstm,real test,lstm,38,True,other,2.316,0.579,False,,-0.01714
+intent_lstm,real test,lstm,39,True,find_provider,1.6625,0.4156,False,,-0.33194
+intent_lstm,real test,lstm,40,True,emergency,1.349,0.3372,False,,-0.22618
+intent_lstm,real test,lstm,41,True,account_update,2.8081,0.702,False,,-0.25586
+intent_lstm,real test,lstm,42,True,account_update,2.544,0.636,False,,-0.1702
+intent_lstm,real test,lstm,43,True,lab_results,2.4032,0.6008,False,,0.23169
+intent_lstm,real test,lstm,44,True,emergency,2.1382,0.5345,False,,-0.01291
+intent_lstm,real test,lstm,45,True,other,2.1319,0.533,False,,-0.21832
+intent_lstm,real test,lstm,46,True,account_update,3.0614,0.7654,True,,-0.02223
+intent_lstm,real test,lstm,47,True,other,1.5429,0.3857,False,,0.34314
+intent_lstm,real test,lstm,48,True,prescription_refill,1.6262,0.4065,False,,0.03953
+intent_lstm,real test,lstm,49,True,medication_info,1.889,0.4722,False,,-0.30971
+intent_lstm,real test,lstm,50,True,find_provider,1.5348,0.3837,False,,0.12676
+intent_lstm,real test,lstm,51,True,emergency,1.6351,0.4088,False,,-0.13486
+intent_lstm,real test,lstm,52,True,other,1.5429,0.3857,False,,0.35652
+intent_lstm,real test,lstm,53,True,referral,1.2221,0.3055,False,,0.12315
+intent_lstm,real test,lstm,54,True,other,2.5223,0.6306,False,,0.09397
+intent_lstm,real test,lstm,55,True,general_health_info,1.0608,0.2652,False,,0.01149
+intent_lstm,real test,lstm,56,True,emergency,1.8291,0.4573,False,,0.03392
+intent_lstm,real test,lstm,57,True,find_provider,2.1023,0.5256,False,,-0.07372
+intent_lstm,real test,lstm,58,True,account_update,2.0384,0.5096,False,,-0.08589
+intent_lstm,real test,lstm,59,True,clinic_info,1.3714,0.3429,False,,0.04641
+intent_lstm,real test,lstm,60,True,insurance,1.2701,0.3175,False,,0.06686
+intent_lstm,real test,lstm,61,True,reschedule_appointment,1.8755,0.4689,False,,0.21123
+intent_lstm,real test,lstm,62,True,account_update,1.7247,0.4312,False,,-0.17839
+intent_lstm,real test,lstm,63,True,prescription_refill,1.1226,0.2806,False,,-0.05432
+intent_lstm,real test,lstm,64,True,reschedule_appointment,1.5817,0.3954,False,,-0.00877
+intent_lstm,real test,lstm,65,True,other,1.4209,0.3552,False,,-0.27504
+intent_lstm,real test,lstm,66,True,insurance,1.5991,0.3998,False,,0.22573
+intent_lstm,real test,lstm,67,True,emergency,2.3512,0.5878,False,,-0.1867
+intent_lstm,real test,lstm,68,True,symptom_check,2.3861,0.5965,False,,0.13138
+intent_lstm,real test,lstm,69,True,medication_info,1.0604,0.2651,False,,-0.03962
+intent_lstm,real test,lstm,70,True,emergency,1.2643,0.3161,False,,0.44731
+intent_lstm,real test,lstm,71,True,other,1.5075,0.3769,False,,0.10596
+intent_lstm,real test,lstm,72,True,account_update,2.031,0.5078,False,,-0.14019
+intent_lstm,real test,lstm,73,True,clinic_info,2.285,0.5712,False,,-0.28182
+intent_lstm,real test,lstm,74,True,other,2.5235,0.6309,False,,-0.09279
+intent_lstm,real test,lstm,75,True,cancel_appointment,1.3895,0.3474,False,,0.14522
+intent_lstm,real test,lstm,76,True,insurance,1.8256,0.4564,False,,-0.18622
+intent_lstm,real test,lstm,77,True,payment,1.5981,0.3995,False,,-0.18269
+intent_lstm,real test,lstm,78,True,account_update,2.3713,0.5928,False,,-0.01902
+intent_lstm,real test,lstm,79,True,cancel_appointment,2.7432,0.6858,False,,0.00786
+intent_lstm,real test,lstm,80,True,lab_results,2.132,0.533,False,,-0.00775
+intent_lstm,real test,lstm,81,True,referral,1.3665,0.3416,False,,0.2984
+intent_lstm,real test,lstm,82,True,account_update,2.4262,0.6065,False,,0.01633
+intent_lstm,real test,lstm,83,True,emergency,1.2438,0.3109,False,,0.22308
+intent_lstm,real test,lstm,84,True,prescription_refill,1.5366,0.3842,False,,0.13448
+intent_lstm,real test,lstm,85,True,general_health_info,1.3035,0.3259,False,,0.12378
+intent_lstm,real test,lstm,86,True,medication_info,1.507,0.3768,False,,0.12399
+intent_lstm,real test,lstm,87,True,medication_info,1.1704,0.2926,False,,0.32089
+intent_lstm,real test,lstm,88,True,emergency,2.2529,0.5632,False,,0.28309
+intent_lstm,real test,lstm,89,True,insurance,1.6574,0.4144,False,,-0.16084
+intent_lstm,real test,lstm,90,True,reschedule_appointment,1.5724,0.3931,False,,-0.07558
+intent_lstm,real test,lstm,91,True,account_update,2.2718,0.5679,False,,-0.22309
+intent_lstm,real test,lstm,92,True,reschedule_appointment,1.3128,0.3282,False,,0.13678
+intent_lstm,real test,lstm,93,True,find_provider,1.0516,0.2629,False,,-0.26605
+intent_lstm,real test,lstm,94,True,reschedule_appointment,1.4002,0.35,False,,0.21266
+intent_lstm,real test,lstm,95,True,lab_results,1.8798,0.4699,False,,0.04816
+intent_lstm,real test,lstm,96,True,book_appointment,1.2217,0.3054,False,,-0.01012
+intent_lstm,real test,lstm,97,True,emergency,2.6425,0.6606,False,,-0.05594
+intent_lstm,real test,lstm,98,True,cancel_appointment,2.3079,0.577,False,,0.14109
+intent_lstm,real test,lstm,99,True,prescription_refill,1.4577,0.3644,False,,-0.02281
+intent_lstm,real test,lstm,100,True,book_appointment,1.7748,0.4437,False,,0.17087
+intent_lstm,real test,lstm,101,True,emergency,1.6273,0.4068,False,,0.29532
+intent_lstm,real test,lstm,102,True,lab_results,1.5231,0.3808,False,,0.33508
+intent_lstm,real test,lstm,103,True,emergency,1.6945,0.4236,False,,0.05946
+intent_lstm,real test,lstm,104,True,account_update,1.8556,0.4639,False,,0.14615
+intent_lstm,real test,lstm,105,True,account_update,1.7144,0.4286,False,,-0.52026
+intent_lstm,real test,lstm,106,True,emergency,2.2921,0.573,False,,0.09781
+intent_lstm,real test,lstm,107,True,lab_results,1.7357,0.4339,False,,0.02823
+intent_lstm,real test,lstm,108,True,account_update,3.5359,0.884,True,,-0.134
+intent_lstm,real test,lstm,109,True,insurance,2.0032,0.5008,False,,-0.032
+intent_lstm,real test,lstm,110,True,medication_info,1.7568,0.4392,False,,-0.08917
+intent_lstm,real test,lstm,111,True,medication_info,1.0797,0.2699,False,,0.17447
+intent_lstm,real test,lstm,112,True,prescription_refill,1.8194,0.4549,False,,-0.20931
+intent_lstm,real test,lstm,113,True,book_appointment,1.8676,0.4669,False,,-0.04556
+intent_lstm,real test,lstm,114,True,cancel_appointment,0.7261,0.1815,False,,0.3116
+intent_lstm,real test,lstm,115,True,cancel_appointment,1.056,0.264,False,,0.23711
+intent_lstm,real test,lstm,116,True,medication_info,1.4007,0.3502,False,,0.23955
+intent_lstm,real test,lstm,117,True,find_provider,1.0551,0.2638,False,,0.05143
+intent_lstm,real test,lstm,118,True,prescription_refill,1.7216,0.4304,False,,-0.00034
+intent_lstm,real test,lstm,119,True,emergency,1.5258,0.3814,False,,0.22042
+intent_lstm,real test,lstm,120,True,cancel_appointment,2.0649,0.5162,False,,0.01998
+intent_lstm,real test,lstm,121,True,clinic_info,2.2192,0.5548,False,,-0.23056
+intent_lstm,real test,lstm,122,True,reschedule_appointment,2.022,0.5055,False,,0.03686
+intent_lstm,real test,lstm,123,True,emergency,1.7545,0.4386,False,,0.17707
+intent_lstm,real test,lstm,124,True,medication_info,1.6292,0.4073,False,,0.00798
+intent_lstm,real test,lstm,125,True,find_provider,2.1801,0.545,False,,-0.16646
+intent_lstm,real test,lstm,126,True,other,1.0776,0.2694,False,,-0.01233
+intent_lstm,real test,lstm,127,True,account_update,3.3036,0.8259,True,,-0.02528
+intent_lstm,real test,hidden_1,0,True,reschedule_appointment,2.4373,0.6093,False,0.7255,0.1833
+intent_lstm,real test,hidden_1,1,True,clinic_info,2.2634,0.5659,False,0.6548,0.33958
+intent_lstm,real test,hidden_1,2,True,cancel_appointment,1.9424,0.4856,False,0.4434,0.88806
+intent_lstm,real test,hidden_1,3,True,symptom_check,1.8741,0.4685,False,0.5074,1.04201
+intent_lstm,real test,hidden_1,4,True,payment,2.7127,0.6782,False,0.6889,0.46969
+intent_lstm,real test,hidden_1,5,True,emergency,2.3974,0.5993,False,0.519,0.8912
+intent_lstm,real test,hidden_1,6,True,account_update,2.725,0.6813,False,0.7079,0.18753
+intent_lstm,real test,hidden_1,7,True,prescription_refill,2.8263,0.7066,False,0.7712,0.53546
+intent_lstm,real test,hidden_1,8,True,emergency,2.1463,0.5366,False,0.6986,0.68353
+intent_lstm,real test,hidden_1,9,True,provide_information,1.9778,0.4945,False,0.4935,0.53185
+intent_lstm,real test,hidden_1,10,True,insurance,3.9992,0.9998,True,0.9975,0.00081
+intent_lstm,real test,hidden_1,11,True,find_provider,2.8567,0.7142,False,0.7494,0.17351
+intent_lstm,real test,hidden_1,12,True,reschedule_appointment,3.5425,0.8856,True,0.8894,0.11849
+intent_lstm,real test,hidden_1,13,True,other,2.6488,0.6622,False,0.5849,0.54085
+intent_lstm,real test,hidden_1,14,True,medication_info,2.0538,0.5134,False,0.5283,1.15483
+intent_lstm,real test,hidden_1,15,True,other,2.7124,0.6781,False,0.5223,0.6514
+intent_lstm,real test,hidden_1,16,True,find_provider,2.3212,0.5803,False,0.6402,0.42775
+intent_lstm,real test,hidden_1,17,True,clinic_info,1.6036,0.4009,False,0.3454,0.79075
+intent_lstm,real test,hidden_1,18,True,account_update,2.6753,0.6688,False,0.7958,0.03797
+intent_lstm,real test,hidden_1,19,True,medication_info,2.1228,0.5307,False,0.529,1.03028
+intent_lstm,real test,hidden_1,20,True,general_health_info,3.3957,0.8489,True,0.8944,0.03433
+intent_lstm,real test,hidden_1,21,True,other,2.0133,0.5033,False,0.512,1.07903
+intent_lstm,real test,hidden_1,22,True,reschedule_appointment,2.3474,0.5869,False,0.5388,1.6129
+intent_lstm,real test,hidden_1,23,True,cancel_appointment,2.3973,0.5993,False,0.5855,1.01047
+intent_lstm,real test,hidden_1,24,True,insurance,4.0,1.0,True,1.0,0.00037
+intent_lstm,real test,hidden_1,25,True,other,2.2463,0.5616,False,0.6927,0.31376
+intent_lstm,real test,hidden_1,26,True,other,2.0892,0.5223,False,0.5503,0.78608
+intent_lstm,real test,hidden_1,27,True,lab_results,2.572,0.643,False,0.7095,0.27309
+intent_lstm,real test,hidden_1,28,True,cancel_appointment,3.0166,0.7541,True,0.6939,0.4327
+intent_lstm,real test,hidden_1,29,True,reschedule_appointment,1.9776,0.4944,False,0.5319,0.82196
+intent_lstm,real test,hidden_1,30,True,insurance,3.6068,0.9017,True,0.8753,0.21684
+intent_lstm,real test,hidden_1,31,True,other,2.2443,0.5611,False,0.4901,1.10696
+intent_lstm,real test,hidden_1,32,True,account_update,3.0326,0.7582,True,0.6575,0.30301
+intent_lstm,real test,hidden_1,33,True,medication_info,1.546,0.3865,False,0.3343,1.33916
+intent_lstm,real test,hidden_1,34,True,referral,2.3872,0.5968,False,0.6402,0.42564
+intent_lstm,real test,hidden_1,35,True,lab_results,2.0893,0.5223,False,0.5942,0.52894
+intent_lstm,real test,hidden_1,36,True,book_appointment,2.6172,0.6543,False,0.7043,0.78524
+intent_lstm,real test,hidden_1,37,True,other,1.7518,0.4379,False,0.4821,1.29623
+intent_lstm,real test,hidden_1,38,True,find_provider,2.038,0.5095,False,0.6267,0.28525
+intent_lstm,real test,hidden_1,39,True,emergency,1.8902,0.4725,False,0.5009,1.1799
+intent_lstm,real test,hidden_1,40,True,payment,2.3432,0.5858,False,0.728,0.22535
+intent_lstm,real test,hidden_1,41,True,provide_information,1.3756,0.3439,False,0.3745,0.47526
+intent_lstm,real test,hidden_1,42,True,find_provider,2.0871,0.5218,False,0.5723,0.46073
+intent_lstm,real test,hidden_1,43,True,emergency,2.3753,0.5938,False,0.7362,0.19746
+intent_lstm,real test,hidden_1,44,True,account_update,2.1681,0.542,False,0.5919,0.33861
+intent_lstm,real test,hidden_1,45,True,reschedule_appointment,2.1385,0.5346,False,0.5878,1.01081
+intent_lstm,real test,hidden_1,46,True,account_update,1.862,0.4655,False,0.5227,0.71172
+intent_lstm,real test,hidden_1,47,True,general_health_info,3.6757,0.9189,True,0.8758,0.0299
+intent_lstm,real test,hidden_1,48,True,emergency,2.5873,0.6468,False,0.7494,0.07108
+intent_lstm,real test,hidden_1,49,True,prescription_refill,2.4002,0.6001,False,0.6579,0.84105
+intent_lstm,real test,hidden_1,50,True,referral,2.5368,0.6342,False,0.5491,1.16661
+intent_lstm,real test,hidden_1,51,True,cancel_appointment,2.5177,0.6294,False,0.5714,1.55868
+intent_lstm,real test,hidden_1,52,True,reschedule_appointment,2.0113,0.5028,False,0.5455,0.59177
+intent_lstm,real test,hidden_1,53,True,prescription_refill,2.9361,0.734,False,0.786,0.3177
+intent_lstm,real test,hidden_1,54,True,other,1.7059,0.4265,False,0.5893,0.44243
+intent_lstm,real test,hidden_1,55,True,medication_info,2.062,0.5155,False,0.4959,0.69921
+intent_lstm,real test,hidden_1,56,True,account_update,2.4594,0.6148,False,0.5983,0.44477
+intent_lstm,real test,hidden_1,57,True,general_health_info,2.0099,0.5025,False,0.5577,0.28929
+intent_lstm,real test,hidden_1,58,True,referral,1.7773,0.4443,False,0.4168,1.26475
+intent_lstm,real test,hidden_1,59,True,reschedule_appointment,2.7729,0.6932,False,0.6315,0.74985
+intent_lstm,real test,hidden_1,60,True,other,1.8472,0.4618,False,0.4628,0.64645
+intent_lstm,real test,hidden_1,61,True,clinic_info,3.1309,0.7827,True,0.8149,0.04727
+intent_lstm,real test,hidden_1,62,True,cancel_appointment,2.472,0.618,False,0.6199,1.04576
+intent_lstm,real test,hidden_1,63,True,emergency,2.5847,0.6462,False,0.6117,1.19077
+intent_lstm,real test,hidden_2,0,True,account_update,3.101,0.7752,True,0.8322,0.16388
+intent_lstm,real test,hidden_2,1,True,other,2.5627,0.6407,False,0.5519,1.85237
+intent_lstm,real test,hidden_2,2,True,medication_info,2.245,0.5613,False,0.5106,2.28684
+intent_lstm,real test,hidden_2,3,True,other,2.364,0.591,False,0.6346,1.22015
+intent_lstm,real test,hidden_2,4,True,payment,1.9243,0.4811,False,0.4845,0.97269
+intent_lstm,real test,hidden_2,5,True,cancel_appointment,1.8309,0.4577,False,0.4312,2.3194
+intent_lstm,real test,hidden_2,6,True,other,2.3017,0.5754,False,0.5276,2.12477
+intent_lstm,real test,hidden_2,7,True,reschedule_appointment,1.8969,0.4742,False,0.4909,1.25133
+intent_lstm,real test,hidden_2,8,False,,,,False,,0.0
+intent_lstm,real test,hidden_2,9,True,emergency,2.5291,0.6323,False,0.5164,2.50716
+intent_lstm,real test,hidden_2,10,True,find_provider,2.2456,0.5614,False,0.5893,0.87561
+intent_lstm,real test,hidden_2,11,True,account_update,2.3364,0.5841,False,0.6542,0.37838
+intent_lstm,real test,hidden_2,12,True,clinic_info,1.76,0.44,False,0.5032,0.58952
+intent_lstm,real test,hidden_2,13,True,prescription_refill,2.1379,0.5345,False,0.376,2.3401
+intent_lstm,real test,hidden_2,14,True,referral,3.9957,0.9989,True,0.9943,0.00435
+intent_lstm,real test,hidden_2,15,True,cancel_appointment,2.5243,0.6311,False,0.5431,1.83362
+intent_lstm,real test,hidden_2,16,True,reschedule_appointment,2.1537,0.5384,False,0.4852,2.27059
+intent_lstm,real test,hidden_2,17,True,account_update,2.7937,0.6984,False,0.6302,0.34578
+intent_lstm,real test,hidden_2,18,True,reschedule_appointment,2.5099,0.6275,False,0.681,0.73675
+intent_lstm,real test,hidden_2,19,False,,,,False,,0.0
+intent_lstm,real test,hidden_2,20,True,referral,1.8522,0.4631,False,0.4965,0.87967
+intent_lstm,real test,hidden_2,21,False,,,,False,,0.0
+intent_lstm,real test,hidden_2,22,True,general_health_info,3.8808,0.9702,True,0.9422,0.0172
+intent_lstm,real test,hidden_2,23,True,cancel_appointment,2.5109,0.6277,False,0.2444,2.43561
+intent_lstm,real test,hidden_2,24,True,cancel_appointment,1.861,0.4653,False,0.4518,1.1915
+intent_lstm,real test,hidden_2,25,True,emergency,2.5596,0.6399,False,0.6306,1.04242
+intent_lstm,real test,hidden_2,26,True,account_update,2.2091,0.5523,False,0.6053,0.21761
+intent_lstm,real test,hidden_2,27,True,other,2.1339,0.5335,False,0.6121,1.18808
+intent_lstm,real test,hidden_2,28,True,medication_info,1.7743,0.4436,False,0.3601,2.24071
+intent_lstm,real test,hidden_2,29,True,prescription_refill,2.2028,0.5507,False,0.5543,1.34732
+intent_lstm,real test,hidden_2,30,True,referral,1.6465,0.4116,False,0.3653,2.43177
+intent_lstm,real test,hidden_2,31,True,cancel_appointment,2.2928,0.5732,False,0.5852,0.77703
+intent_lstm,real test,hidden_2,32,True,account_update,3.865,0.9663,True,0.9359,0.07501
+intent_lstm,real test,hidden_2,33,True,other,2.2643,0.5661,False,0.5761,1.09138
+intent_lstm,real test,hidden_2,34,True,medication_info,3.3261,0.8315,True,0.8526,0.26996
+intent_lstm,real test,hidden_2,35,True,other,2.2558,0.5639,False,0.5759,1.00831
+intent_lstm,real test,hidden_2,36,True,cancel_appointment,1.51,0.3775,False,0.3755,0.99012
+intent_lstm,real test,hidden_2,37,True,cancel_appointment,1.8553,0.4638,False,0.4018,0.92092
+intent_lstm,real test,hidden_2,38,True,other,2.0029,0.5007,False,0.521,0.69167
+intent_lstm,real test,hidden_2,39,True,insurance,2.255,0.5638,False,0.4466,1.69935
+intent_lstm,real test,hidden_2,40,True,cancel_appointment,2.0959,0.524,False,0.454,1.12245
+intent_lstm,real test,hidden_2,41,True,account_update,1.863,0.4657,False,0.4173,1.37335
+intent_lstm,real test,hidden_2,42,True,account_update,3.2649,0.8162,True,0.7295,0.5389
+intent_lstm,real test,hidden_2,43,True,book_appointment,1.7278,0.432,False,0.3639,1.9124
+intent_lstm,real test,hidden_2,44,True,cancel_appointment,2.0826,0.5207,False,0.4572,1.26693
+intent_lstm,real test,hidden_2,45,True,cancel_appointment,2.2958,0.574,False,0.6778,1.66066
+intent_lstm,real test,hidden_2,46,True,prescription_refill,3.3103,0.8276,True,0.8578,0.25965
+intent_lstm,real test,hidden_2,47,True,symptom_check,3.195,0.7987,True,0.9138,0.0002
+intent_lstm,real test,hidden_2,48,True,prescription_refill,2.3775,0.5944,False,0.5548,0.78774
+intent_lstm,real test,hidden_2,49,True,find_provider,1.5487,0.3872,False,0.4427,0.51449
+intent_lstm,real test,hidden_2,50,True,other,3.1542,0.7886,True,0.8936,0.03041
+intent_lstm,real test,hidden_2,51,True,medication_info,2.2413,0.5603,False,0.4824,1.44341
+intent_lstm,real test,hidden_2,52,True,cancel_appointment,2.3991,0.5998,False,0.5062,1.42895
+intent_lstm,real test,hidden_2,53,True,cancel_appointment,2.1253,0.5313,False,0.418,2.52764
+intent_lstm,real test,hidden_2,54,True,prescription_refill,1.8932,0.4733,False,0.4666,0.6548
+intent_lstm,real test,hidden_2,55,True,emergency,2.117,0.5293,False,0.6366,1.13767
+intent_lstm,real test,hidden_2,56,True,cancel_appointment,1.9891,0.4973,False,0.4219,2.43303
+intent_lstm,real test,hidden_2,57,True,find_provider,2.0735,0.5184,False,0.6031,0.41047
+intent_lstm,real test,hidden_2,58,True,referral,1.66,0.415,False,0.4319,1.96837
+intent_lstm,real test,hidden_2,59,True,cancel_appointment,2.2435,0.5609,False,0.5287,2.16977
+intent_lstm,real test,hidden_2,60,True,general_health_info,3.9053,0.9763,True,0.9658,0.00801
+intent_lstm,real test,hidden_2,61,True,prescription_refill,2.6365,0.6591,False,0.6573,1.32528
+intent_lstm,real test,hidden_2,62,True,account_update,2.257,0.5643,False,0.5907,0.42414
+intent_lstm,real test,hidden_2,63,True,other,2.3336,0.5834,False,0.731,0.29658
+intent_lstm,real test,hidden_3,0,True,cancel_appointment,2.3264,0.5816,False,0.5194,3.54937
+intent_lstm,real test,hidden_3,1,True,find_provider,1.6744,0.4186,False,0.3777,1.96895
+intent_lstm,real test,hidden_3,2,True,find_provider,2.6248,0.6562,False,0.6351,0.75319
+intent_lstm,real test,hidden_3,3,True,cancel_appointment,2.3801,0.595,False,0.4873,2.67956
+intent_lstm,real test,hidden_3,4,True,other,2.1357,0.5339,False,0.5535,1.25387
+intent_lstm,real test,hidden_3,5,True,other,2.5619,0.6405,False,0.5277,2.67879
+intent_lstm,real test,hidden_3,6,True,reschedule_appointment,2.2362,0.5591,False,0.6044,1.03693
+intent_lstm,real test,hidden_3,7,False,,,,False,,0.0
+intent_lstm,real test,hidden_3,8,False,,,,False,,0.0
+intent_lstm,real test,hidden_3,9,True,find_provider,1.8068,0.4517,False,0.3835,1.18198
+intent_lstm,real test,hidden_3,10,True,find_provider,1.8601,0.465,False,0.4801,1.66129
+intent_lstm,real test,hidden_3,11,True,account_update,1.4815,0.3704,False,0.3739,1.44156
+intent_lstm,real test,hidden_3,12,True,medication_info,2.5503,0.6376,False,0.6822,1.84314
+intent_lstm,real test,hidden_3,13,False,,,,False,,0.0
+intent_lstm,real test,hidden_3,14,False,,,,False,,0.0
+intent_lstm,real test,hidden_3,15,False,,,,False,,0.0
+intent_lstm,real test,hidden_3,16,True,other,2.6338,0.6584,False,0.6645,1.10293
+intent_lstm,real test,hidden_3,17,True,medication_info,2.382,0.5955,False,0.6073,2.15137
+intent_lstm,real test,hidden_3,18,True,emergency,2.1526,0.5381,False,0.5181,2.12386
+intent_lstm,real test,hidden_3,19,True,account_update,3.8224,0.9556,True,0.924,0.0588
+intent_lstm,real test,hidden_3,20,False,,,,False,,0.0
+intent_lstm,real test,hidden_3,21,True,reschedule_appointment,2.3783,0.5946,False,0.6769,0.88423
+intent_lstm,real test,hidden_3,22,True,reschedule_appointment,2.306,0.5765,False,0.7135,0.22441
+intent_lstm,real test,hidden_3,23,True,payment,1.664,0.416,False,0.4495,2.03216
+intent_lstm,real test,hidden_3,24,True,account_update,2.4832,0.6208,False,0.5682,1.41952
+intent_lstm,real test,hidden_3,25,False,,,,False,,0.0
+intent_lstm,real test,hidden_3,26,True,cancel_appointment,2.0545,0.5136,False,0.445,2.73288
+intent_lstm,real test,hidden_3,27,True,payment,1.9683,0.4921,False,0.5718,1.1163
+intent_lstm,real test,hidden_3,28,True,reschedule_appointment,1.9019,0.4755,False,0.3985,1.94203
+intent_lstm,real test,hidden_3,29,True,other,1.8843,0.4711,False,0.39,2.21275
+intent_lstm,real test,hidden_3,30,True,cancel_appointment,1.4637,0.3659,False,0.3052,6.10973
+intent_lstm,real test,hidden_3,31,True,prescription_refill,2.6738,0.6684,False,0.6843,2.1418
+intent_lstm,real test,hidden_3,32,True,reschedule_appointment,3.0061,0.7515,True,0.8008,0.26109
+intent_lstm,real test,hidden_3,33,True,account_update,2.7316,0.6829,False,0.5848,1.84375
+intent_lstm,real test,hidden_3,34,True,prescription_refill,2.0882,0.5221,False,0.531,1.83091
+intent_lstm,real test,hidden_3,35,True,other,2.4584,0.6146,False,0.6734,0.62313
+intent_lstm,real test,hidden_3,36,True,reschedule_appointment,2.2104,0.5526,False,0.4775,3.48195
+intent_lstm,real test,hidden_3,37,True,general_health_info,3.3884,0.8471,True,0.8062,0.25108
+intent_lstm,real test,hidden_3,38,True,cancel_appointment,2.8973,0.7243,False,0.4381,4.00059
+intent_lstm,real test,hidden_3,39,True,account_update,2.7556,0.6889,False,0.6329,0.63379
+intent_lstm,real test,hidden_3,40,True,other,1.9417,0.4854,False,0.5561,0.89372
+intent_lstm,real test,hidden_3,41,True,reschedule_appointment,2.5222,0.6305,False,0.6419,1.32522
+intent_lstm,real test,hidden_3,42,True,book_appointment,1.5068,0.3767,False,0.3877,2.13569
+intent_lstm,real test,hidden_3,43,True,prescription_refill,1.7163,0.4291,False,0.396,2.9612
+intent_lstm,real test,hidden_3,44,False,,,,False,,0.0
+intent_lstm,real test,hidden_3,45,True,payment,3.5375,0.8844,True,0.9134,0.10585
+intent_lstm,real test,hidden_3,46,True,reschedule_appointment,2.4337,0.6084,False,0.4906,1.79159
+intent_lstm,real test,hidden_3,47,True,payment,3.4322,0.8581,True,0.8439,0.61697
+intent_lstm,real test,hidden_3,48,True,emergency,3.8982,0.9746,True,0.9364,0.16735
+intent_lstm,real test,hidden_3,49,True,prescription_refill,2.2153,0.5538,False,0.4697,2.02575
+intent_lstm,real test,hidden_3,50,True,emergency,2.067,0.5168,False,0.496,3.04486
+intent_lstm,real test,hidden_3,51,True,emergency,2.1832,0.5458,False,0.6703,0.24182
+intent_lstm,real test,hidden_3,52,True,insurance,1.7663,0.4416,False,0.4804,1.51632
+intent_lstm,real test,hidden_3,53,True,account_update,2.57,0.6425,False,0.6,1.38433
+intent_lstm,real test,hidden_3,54,False,,,,False,,0.0
+intent_lstm,real test,hidden_3,55,True,find_provider,2.2409,0.5602,False,0.506,1.88231
+intent_lstm,real test,hidden_3,56,True,cancel_appointment,2.2622,0.5655,False,0.4751,1.8188
+intent_lstm,real test,hidden_3,57,True,prescription_refill,2.3996,0.5999,False,0.6839,0.52403
+intent_lstm,real test,hidden_3,58,True,medication_info,2.3491,0.5873,False,0.6524,1.87581
+intent_lstm,real test,hidden_3,59,True,other,2.4174,0.6043,False,0.5434,2.64432
+intent_lstm,real test,hidden_3,60,False,,,,False,,0.0
+intent_lstm,real test,hidden_3,61,True,other,2.3808,0.5952,False,0.4947,2.39708
+intent_lstm,real test,hidden_3,62,True,cancel_appointment,1.9296,0.4824,False,0.4683,2.73283
+intent_lstm,real test,hidden_3,63,True,other,2.0677,0.5169,False,0.5579,1.21099
+intent_lstm,real test,hidden_4,0,True,reschedule_appointment,1.9901,0.4975,False,0.5303,2.14784
+intent_lstm,real test,hidden_4,1,True,other,2.0862,0.5216,False,0.4455,2.94706
+intent_lstm,real test,hidden_4,2,True,symptom_check,2.3081,0.577,False,0.6499,2.43371
+intent_lstm,real test,hidden_4,3,True,reschedule_appointment,2.7136,0.6784,False,0.6922,1.70921
+intent_lstm,real test,hidden_4,4,True,account_update,3.5404,0.8851,True,0.8506,0.28268
+intent_lstm,real test,hidden_4,5,True,reschedule_appointment,1.8707,0.4677,False,0.5148,3.33406
+intent_lstm,real test,hidden_4,6,True,account_update,2.7389,0.6847,False,0.6059,2.11775
+intent_lstm,real test,hidden_4,7,True,other,2.9933,0.7483,False,0.7834,0.47622
+intent_lstm,real test,hidden_4,8,True,cancel_appointment,1.7115,0.4279,False,0.3724,2.53911
+intent_lstm,real test,hidden_4,9,True,other,2.9177,0.7294,False,0.6753,1.40666
+intent_lstm,real test,hidden_4,10,True,other,1.7319,0.433,False,0.4302,2.04843
+intent_lstm,real test,hidden_4,11,True,find_provider,2.1149,0.5287,False,0.4505,2.82895
+intent_lstm,real test,hidden_4,12,True,account_update,1.9526,0.4882,False,0.5,1.93955
+intent_lstm,real test,hidden_4,13,True,medication_info,2.5073,0.6268,False,0.6608,2.59428
+intent_lstm,real test,hidden_4,14,True,account_update,2.5752,0.6438,False,0.7831,0.29721
+intent_lstm,real test,hidden_4,15,True,prescription_refill,2.2339,0.5585,False,0.5134,2.20855
+intent_lstm,real test,hidden_4,16,True,other,1.8641,0.466,False,0.5404,1.08489
+intent_lstm,real test,hidden_4,17,True,cancel_appointment,1.8419,0.4605,False,0.3431,3.76392
+intent_lstm,real test,hidden_4,18,True,prescription_refill,2.5741,0.6435,False,0.7132,0.8577
+intent_lstm,real test,hidden_4,19,False,,,,False,,0.0
+intent_lstm,real test,hidden_4,20,True,symptom_check,2.2258,0.5564,False,0.6714,2.01426
+intent_lstm,real test,hidden_4,21,True,general_health_info,2.318,0.5795,False,0.6357,0.90128
+intent_lstm,real test,hidden_4,22,False,,,,False,,0.0
+intent_lstm,real test,hidden_4,23,False,,,,False,,0.0
+intent_lstm,real test,hidden_4,24,True,cancel_appointment,1.5399,0.385,False,0.4119,5.16055
+intent_lstm,real test,hidden_4,25,False,,,,False,,0.0
+intent_lstm,real test,hidden_4,26,True,referral,2.2205,0.5551,False,0.5245,2.95918
+intent_lstm,real test,hidden_4,27,True,medication_info,2.7985,0.6996,False,0.8313,0.76242
+intent_lstm,real test,hidden_4,28,True,other,2.1048,0.5262,False,0.5499,3.31732
+intent_lstm,real test,hidden_4,29,False,,,,False,,0.0
+intent_lstm,real test,hidden_4,30,True,account_update,2.3006,0.5751,False,0.5986,1.48736
+intent_lstm,real test,hidden_4,31,True,book_appointment,1.4258,0.3565,False,0.2484,5.0773
+intent_lstm,real test,hidden_4,32,True,symptom_check,1.6924,0.4231,False,0.5331,1.36997
+intent_lstm,real test,hidden_4,33,True,reschedule_appointment,2.8111,0.7028,False,0.7284,1.49496
+intent_lstm,real test,hidden_4,34,True,other,1.6731,0.4183,False,0.3781,3.57562
+intent_lstm,real test,hidden_4,35,True,cancel_appointment,2.5273,0.6318,False,0.5437,3.93806
+intent_lstm,real test,hidden_4,36,False,,,,False,,0.0
+intent_lstm,real test,hidden_4,37,True,cancel_appointment,2.2594,0.5649,False,0.5584,3.28182
+intent_lstm,real test,hidden_4,38,True,cancel_appointment,1.6067,0.4017,False,0.3268,3.70945
+intent_lstm,real test,hidden_4,39,True,medication_info,1.7602,0.4401,False,0.446,3.16562
+intent_lstm,real test,hidden_4,40,True,emergency,2.5163,0.6291,False,0.5941,3.13815
+intent_lstm,real test,hidden_4,41,False,,,,False,,0.0
+intent_lstm,real test,hidden_4,42,True,medication_info,3.1168,0.7792,True,0.8099,1.64382
+intent_lstm,real test,hidden_4,43,True,find_provider,2.1232,0.5308,False,0.496,2.08499
+intent_lstm,real test,hidden_4,44,True,other,1.7205,0.4301,False,0.3901,2.31807
+intent_lstm,real test,hidden_4,45,True,cancel_appointment,2.4361,0.609,False,0.4639,4.56737
+intent_lstm,real test,hidden_4,46,True,cancel_appointment,2.5015,0.6254,False,0.6543,2.94147
+intent_lstm,real test,hidden_4,47,True,referral,2.1534,0.5383,False,0.4898,2.20351
+intent_lstm,real test,hidden_4,48,True,reschedule_appointment,2.4379,0.6095,False,0.7062,1.96801
+intent_lstm,real test,hidden_4,49,True,payment,2.4969,0.6242,False,0.5105,1.78506
+intent_lstm,real test,hidden_4,50,True,other,2.3906,0.5977,False,0.6091,1.56879
+intent_lstm,real test,hidden_4,51,True,reschedule_appointment,2.7644,0.6911,False,0.7453,0.28866
+intent_lstm,real test,hidden_4,52,False,,,,False,,0.0
+intent_lstm,real test,hidden_4,53,False,,,,False,,0.0
+intent_lstm,real test,hidden_4,54,True,emergency,1.8439,0.461,False,0.4606,2.49468
+intent_lstm,real test,hidden_4,55,True,prescription_refill,2.5405,0.6351,False,0.6449,1.52541
+intent_lstm,real test,hidden_4,56,True,find_provider,1.851,0.4628,False,0.4401,3.41396
+intent_lstm,real test,hidden_4,57,True,other,2.4854,0.6213,False,0.4702,4.36707
+intent_lstm,real test,hidden_4,58,True,cancel_appointment,2.3983,0.5996,False,0.6157,4.03979
+intent_lstm,real test,hidden_4,59,True,medication_info,3.7306,0.9327,True,0.9538,0.00199
+intent_lstm,real test,hidden_4,60,True,reschedule_appointment,2.4554,0.6139,False,0.6598,2.01447
+intent_lstm,real test,hidden_4,61,True,emergency,1.9138,0.4784,False,0.4499,3.0767
+intent_lstm,real test,hidden_4,62,True,book_appointment,2.339,0.5848,False,0.6111,2.54786
+intent_lstm,real test,hidden_4,63,True,medication_info,1.6169,0.4042,False,0.4166,2.39993
+sentiment_head,synthetic test,hidden_1,0,True,negative,1.352,0.956,True,0.3091,1.81972
+sentiment_head,synthetic test,hidden_1,1,True,neutral,1.412,0.9984,True,0.7866,0.99489
+sentiment_head,synthetic test,hidden_1,2,True,positive,1.4115,0.9981,True,0.4593,1.44188
+sentiment_head,synthetic test,hidden_1,3,True,positive,1.414,0.9999,True,0.9193,2.59829
+sentiment_head,synthetic test,hidden_1,4,True,positive,1.4084,0.9959,True,0.8024,1.54421
+sentiment_head,synthetic test,hidden_1,5,True,positive,1.4029,0.992,True,0.81,1.85134
+sentiment_head,synthetic test,hidden_1,6,True,neutral,1.4073,0.9951,True,0.8477,1.19108
+sentiment_head,synthetic test,hidden_1,7,True,positive,1.411,0.9977,True,0.1709,2.04514
+sentiment_head,synthetic test,hidden_1,8,True,negative,1.4013,0.9908,True,0.8392,1.71337
+sentiment_head,synthetic test,hidden_1,9,True,neutral,1.3487,0.9537,True,0.5764,1.10204
+sentiment_head,synthetic test,hidden_1,10,True,positive,1.1515,0.8142,True,0.4275,1.60108
+sentiment_head,synthetic test,hidden_1,11,True,negative,1.2177,0.861,True,0.3781,2.24625
+sentiment_head,synthetic test,hidden_1,12,True,positive,1.1738,0.83,True,0.4951,2.00826
+sentiment_head,synthetic test,hidden_1,13,True,neutral,1.1856,0.8383,True,0.5385,1.44536
+sentiment_head,synthetic test,hidden_1,14,True,negative,1.3847,0.9792,True,0.7887,2.07697
+sentiment_head,synthetic test,hidden_1,15,True,neutral,0.8573,0.6062,False,0.3318,1.26198
+sentiment_head,synthetic test,hidden_1,16,True,neutral,0.9066,0.6411,False,0.3435,1.6753
+sentiment_head,synthetic test,hidden_1,17,True,positive,1.1856,0.8384,True,0.5143,2.60393
+sentiment_head,synthetic test,hidden_1,18,True,negative,1.284,0.9079,True,0.6462,4.17009
+sentiment_head,synthetic test,hidden_1,19,True,positive,1.3391,0.9469,True,0.5119,1.91288
+sentiment_head,synthetic test,hidden_1,20,True,negative,1.4137,0.9996,True,0.933,1.12682
+sentiment_head,synthetic test,hidden_1,21,True,neutral,1.4043,0.993,True,0.8674,1.17089
+sentiment_head,synthetic test,hidden_1,22,True,negative,1.3569,0.9595,True,0.7424,2.80598
+sentiment_head,synthetic test,hidden_1,23,True,positive,1.4141,0.9999,True,0.9302,2.60516
+sentiment_head,synthetic test,hidden_1,24,True,negative,0.9298,0.6574,False,0.4115,1.89197
+sentiment_head,synthetic test,hidden_1,25,True,positive,1.4139,0.9998,True,0.9489,3.43319
+sentiment_head,synthetic test,hidden_1,26,True,positive,1.4141,0.9999,True,0.8619,1.78077
+sentiment_head,synthetic test,hidden_1,27,True,positive,1.2876,0.9105,True,0.506,1.96447
+sentiment_head,synthetic test,hidden_1,28,True,positive,1.3115,0.9274,True,0.0654,1.33466
+sentiment_head,synthetic test,hidden_1,29,True,positive,1.4119,0.9984,True,0.9306,5.00858
+sentiment_head,synthetic test,hidden_1,30,True,positive,1.4128,0.999,True,0.9477,3.01865
+sentiment_head,synthetic test,hidden_1,31,True,positive,1.3847,0.9792,True,0.1019,1.37289
+sentiment_head,synthetic test,hidden_1,32,True,positive,1.4141,0.9999,True,0.9319,2.29347
+sentiment_head,synthetic test,hidden_1,33,True,positive,1.4124,0.9987,True,0.9272,1.90729
+sentiment_head,synthetic test,hidden_1,34,True,neutral,1.3774,0.974,True,0.7294,1.11287
+sentiment_head,synthetic test,hidden_1,35,True,negative,1.4139,0.9998,True,0.8511,1.62106
+sentiment_head,synthetic test,hidden_1,36,True,negative,1.3336,0.943,True,0.687,1.64183
+sentiment_head,synthetic test,hidden_1,37,True,neutral,1.1799,0.8343,True,0.5323,1.19897
+sentiment_head,synthetic test,hidden_1,38,True,negative,1.4066,0.9946,True,0.3942,1.69605
+sentiment_head,synthetic test,hidden_1,39,True,negative,1.3701,0.9688,True,0.745,1.0942
+sentiment_head,synthetic test,hidden_1,40,True,negative,1.4137,0.9996,True,0.9321,1.31132
+sentiment_head,synthetic test,hidden_1,41,True,neutral,1.142,0.8075,True,0.5296,1.51989
+sentiment_head,synthetic test,hidden_1,42,True,positive,1.3637,0.9643,True,0.6309,1.61162
+sentiment_head,synthetic test,hidden_1,43,True,positive,1.3985,0.9889,True,0.7496,1.48715
+sentiment_head,synthetic test,hidden_1,44,True,neutral,1.3324,0.9421,True,0.4658,2.2902
+sentiment_head,synthetic test,hidden_1,45,True,negative,1.3204,0.9337,True,0.6577,1.55434
+sentiment_head,synthetic test,hidden_1,46,True,positive,1.2524,0.8856,True,0.6118,1.89296
+sentiment_head,synthetic test,hidden_1,47,True,negative,1.1519,0.8145,True,0.1194,1.33333
+sentiment_head,synthetic test,hidden_1,48,True,neutral,1.4126,0.9989,True,0.8695,1.25344
+sentiment_head,synthetic test,hidden_1,49,True,positive,1.3852,0.9794,True,0.7585,2.61226
+sentiment_head,synthetic test,hidden_1,50,True,positive,1.3661,0.966,True,0.703,2.09291
+sentiment_head,synthetic test,hidden_1,51,True,positive,1.4106,0.9975,True,0.8733,2.35438
+sentiment_head,synthetic test,hidden_1,52,True,neutral,1.4142,1.0,True,0.7076,1.42813
+sentiment_head,synthetic test,hidden_1,53,True,neutral,1.2948,0.9155,True,0.6371,0.92778
+sentiment_head,synthetic test,hidden_1,54,True,positive,1.3529,0.9567,True,0.6589,2.51866
+sentiment_head,synthetic test,hidden_1,55,True,positive,0.8184,0.5787,False,0.332,2.23309
+sentiment_head,synthetic test,hidden_1,56,True,negative,1.4136,0.9996,True,0.8666,1.14962
+sentiment_head,synthetic test,hidden_1,57,True,positive,1.4024,0.9917,True,0.8594,4.25352
+sentiment_head,synthetic test,hidden_1,58,True,positive,1.4091,0.9964,True,0.8165,2.46859
+sentiment_head,synthetic test,hidden_1,59,True,negative,1.4142,1.0,True,0.8596,1.55283
+sentiment_head,synthetic test,hidden_1,60,True,negative,1.3589,0.9609,True,0.6853,1.96144
+sentiment_head,synthetic test,hidden_1,61,True,positive,1.3839,0.9785,True,0.5399,1.67685
+sentiment_head,synthetic test,hidden_1,62,True,neutral,1.38,0.9758,True,0.7706,1.22205
+sentiment_head,synthetic test,hidden_1,63,True,positive,1.4031,0.9921,True,0.8025,1.60134
+sentiment_head,synthetic test,hidden_2,0,True,positive,1.4142,1.0,True,0.9779,0.15282
+sentiment_head,synthetic test,hidden_2,1,True,negative,1.4142,1.0,True,0.9845,1.51171
+sentiment_head,synthetic test,hidden_2,2,True,positive,1.4141,0.9999,True,0.9626,0.90359
+sentiment_head,synthetic test,hidden_2,3,True,positive,1.4139,0.9998,True,0.9716,0.89687
+sentiment_head,synthetic test,hidden_2,4,True,negative,1.4076,0.9953,True,0.8872,1.09271
+sentiment_head,synthetic test,hidden_2,5,True,negative,1.0582,0.7483,False,0.4598,0.26198
+sentiment_head,synthetic test,hidden_2,6,True,neutral,1.414,0.9999,True,0.9729,1.0242
+sentiment_head,synthetic test,hidden_2,7,True,positive,1.4141,0.9999,True,0.9771,1.05476
+sentiment_head,synthetic test,hidden_2,8,True,neutral,1.4141,0.9999,True,0.9675,0.86709
+sentiment_head,synthetic test,hidden_2,9,True,positive,1.2249,0.8661,True,0.5821,3.61364
+sentiment_head,synthetic test,hidden_2,10,True,negative,1.4133,0.9994,True,0.9514,1.23877
+sentiment_head,synthetic test,hidden_2,11,True,negative,1.1695,0.827,True,0.5544,4.6336
+sentiment_head,synthetic test,hidden_2,12,True,negative,1.4142,1.0,True,0.9862,1.57959
+sentiment_head,synthetic test,hidden_2,13,True,negative,1.0322,0.7299,False,0.4771,5.02292
+sentiment_head,synthetic test,hidden_2,14,True,negative,1.4142,1.0,True,0.9921,1.19573
+sentiment_head,synthetic test,hidden_2,15,True,neutral,1.4136,0.9996,True,0.9539,0.73286
+sentiment_head,synthetic test,hidden_2,16,True,positive,1.3686,0.9677,True,0.7411,3.54991
+sentiment_head,synthetic test,hidden_2,17,True,negative,1.3844,0.9789,True,0.8031,3.94542
+sentiment_head,synthetic test,hidden_2,18,True,positive,1.066,0.7538,True,0.4847,3.62329
+sentiment_head,synthetic test,hidden_2,19,True,negative,1.4142,1.0,True,0.9869,0.10769
+sentiment_head,synthetic test,hidden_2,20,True,positive,0.9609,0.6795,False,0.4299,1.50332
+sentiment_head,synthetic test,hidden_2,21,True,neutral,1.4142,1.0,True,0.985,0.24906
+sentiment_head,synthetic test,hidden_2,22,True,negative,1.4141,0.9999,True,0.9778,1.66516
+sentiment_head,synthetic test,hidden_2,23,True,negative,1.4142,1.0,True,0.9971,0.79087
+sentiment_head,synthetic test,hidden_2,24,True,neutral,1.3355,0.9443,True,0.6743,1.57838
+sentiment_head,synthetic test,hidden_2,25,True,positive,1.2972,0.9172,True,0.6572,4.84963
+sentiment_head,synthetic test,hidden_2,26,True,positive,1.4131,0.9992,True,0.9538,2.9159
+sentiment_head,synthetic test,hidden_2,27,True,positive,0.8861,0.6266,False,0.3999,3.59411
+sentiment_head,synthetic test,hidden_2,28,True,neutral,1.3156,0.9303,True,0.6785,2.71156
+sentiment_head,synthetic test,hidden_2,29,True,neutral,1.4142,1.0,True,0.9739,0.66147
+sentiment_head,synthetic test,hidden_2,30,True,neutral,1.4137,0.9996,True,0.9473,0.08042
+sentiment_head,synthetic test,hidden_2,31,True,positive,1.4086,0.996,True,0.8944,3.6828
+sentiment_head,synthetic test,hidden_2,32,True,negative,0.8229,0.5819,False,0.3826,0.00186
+sentiment_head,synthetic test,hidden_2,33,True,neutral,1.412,0.9984,True,0.9235,1.06585
+sentiment_head,synthetic test,hidden_2,34,True,neutral,1.4142,1.0,True,0.9903,0.1654
+sentiment_head,synthetic test,hidden_2,35,True,positive,1.3181,0.932,True,0.6747,3.00933
+sentiment_head,synthetic test,hidden_2,36,True,negative,1.414,0.9998,True,0.9743,1.73577
+sentiment_head,synthetic test,hidden_2,37,True,neutral,1.4142,1.0,True,0.9834,1.15767
+sentiment_head,synthetic test,hidden_2,38,True,neutral,1.4142,1.0,True,0.9841,0.79213
+sentiment_head,synthetic test,hidden_2,39,True,positive,1.4138,0.9997,True,0.9387,0.0751
+sentiment_head,synthetic test,hidden_2,40,True,neutral,1.4142,1.0,True,0.9792,0.27931
+sentiment_head,synthetic test,hidden_2,41,True,positive,0.784,0.5544,False,0.3508,4.42413
+sentiment_head,synthetic test,hidden_2,42,True,negative,1.3958,0.987,True,0.8329,0.97468
+sentiment_head,synthetic test,hidden_2,43,True,negative,1.4141,0.9999,True,0.9717,1.14782
+sentiment_head,synthetic test,hidden_2,44,True,positive,1.4141,1.0,True,0.9748,0.42031
+sentiment_head,synthetic test,hidden_2,45,True,neutral,1.4137,0.9997,True,0.9644,1.11244
+sentiment_head,synthetic test,hidden_2,46,True,positive,1.4141,0.9999,True,0.9825,1.9509
+sentiment_head,synthetic test,hidden_2,47,True,positive,1.4136,0.9995,True,0.9401,2.28212
+sentiment_head,synthetic test,hidden_2,48,True,neutral,1.4007,0.9904,True,0.8519,1.18919
+sentiment_head,synthetic test,hidden_2,49,True,positive,1.4132,0.9993,True,0.695,0.02351
+sentiment_head,synthetic test,hidden_2,50,True,positive,1.1869,0.8392,True,0.5606,4.59307
+sentiment_head,synthetic test,hidden_2,51,True,neutral,1.4142,1.0,True,0.9873,0.72688
+sentiment_head,synthetic test,hidden_2,52,True,positive,1.3926,0.9847,True,0.8196,1.22979
+sentiment_head,synthetic test,hidden_2,53,True,negative,1.4098,0.9969,True,0.9007,1.7
+sentiment_head,synthetic test,hidden_2,54,True,negative,1.3695,0.9684,True,0.5054,0.01402
+sentiment_head,synthetic test,hidden_2,55,True,positive,1.4035,0.9924,True,0.8587,2.74691
+sentiment_head,synthetic test,hidden_2,56,True,neutral,1.4099,0.997,True,0.9108,0.49857
+sentiment_head,synthetic test,hidden_2,57,True,negative,1.4142,1.0,True,0.9961,1.28305
+sentiment_head,synthetic test,hidden_2,58,True,neutral,1.414,0.9998,True,0.9563,1.4333
+sentiment_head,synthetic test,hidden_2,59,True,negative,1.2931,0.9143,True,0.6581,4.35736
+sentiment_head,synthetic test,hidden_2,60,True,neutral,1.3937,0.9855,True,0.8205,2.45047
+sentiment_head,synthetic test,hidden_2,61,True,neutral,1.4107,0.9975,True,0.9034,0.2604
+sentiment_head,synthetic test,hidden_2,62,True,negative,1.3311,0.9412,True,0.7,0.83508
+sentiment_head,synthetic test,hidden_2,63,True,positive,1.4141,0.9999,True,0.9775,2.60885
+sentiment_head,customer support (out-of-domain),hidden_1,0,True,positive,1.4123,0.9987,True,0.2636,3.26059
+sentiment_head,customer support (out-of-domain),hidden_1,1,True,neutral,1.3887,0.982,True,0.5279,2.894
+sentiment_head,customer support (out-of-domain),hidden_1,2,True,negative,1.0797,0.7634,True,0.5037,0.9613
+sentiment_head,customer support (out-of-domain),hidden_1,3,True,positive,1.4141,0.9999,True,0.9733,1.75949
+sentiment_head,customer support (out-of-domain),hidden_1,4,True,positive,1.277,0.903,True,0.5119,1.00977
+sentiment_head,customer support (out-of-domain),hidden_1,5,True,positive,1.4142,1.0,True,0.9348,2.43818
+sentiment_head,customer support (out-of-domain),hidden_1,6,True,neutral,1.414,0.9999,True,0.8622,1.85902
+sentiment_head,customer support (out-of-domain),hidden_1,7,True,negative,1.2339,0.8725,True,0.4495,1.05783
+sentiment_head,customer support (out-of-domain),hidden_1,8,True,negative,1.3795,0.9754,True,0.7932,0.91583
+sentiment_head,customer support (out-of-domain),hidden_1,9,True,neutral,0.9335,0.6601,False,0.3515,2.66939
+sentiment_head,customer support (out-of-domain),hidden_1,10,True,neutral,1.0462,0.7398,False,0.2054,1.2069
+sentiment_head,customer support (out-of-domain),hidden_1,11,True,positive,1.3073,0.9244,True,0.2812,3.78108
+sentiment_head,customer support (out-of-domain),hidden_1,12,True,neutral,1.2435,0.8793,True,0.4211,1.21241
+sentiment_head,customer support (out-of-domain),hidden_1,13,True,neutral,1.3355,0.9443,True,0.7131,1.43249
+sentiment_head,customer support (out-of-domain),hidden_1,14,True,negative,1.2354,0.8735,True,0.5787,2.3313
+sentiment_head,customer support (out-of-domain),hidden_1,15,True,neutral,1.1295,0.7987,True,0.4667,2.2631
+sentiment_head,customer support (out-of-domain),hidden_1,16,True,neutral,1.0712,0.7575,True,0.4652,0.94017
+sentiment_head,customer support (out-of-domain),hidden_1,17,True,positive,1.3066,0.9239,True,0.5737,1.01279
+sentiment_head,customer support (out-of-domain),hidden_1,18,True,negative,0.8165,0.5774,False,0.3501,3.51096
+sentiment_head,customer support (out-of-domain),hidden_1,19,True,positive,1.3584,0.9605,True,0.6465,3.31856
+sentiment_head,customer support (out-of-domain),hidden_1,20,True,negative,1.414,0.9999,True,0.8223,0.85979
+sentiment_head,customer support (out-of-domain),hidden_1,21,True,neutral,1.4123,0.9986,True,0.8614,2.09603
+sentiment_head,customer support (out-of-domain),hidden_1,22,True,negative,1.237,0.8747,True,0.5663,3.92757
+sentiment_head,customer support (out-of-domain),hidden_1,23,True,positive,1.4132,0.9993,True,0.9345,1.43714
+sentiment_head,customer support (out-of-domain),hidden_1,24,True,neutral,1.103,0.7799,True,0.472,1.27122
+sentiment_head,customer support (out-of-domain),hidden_1,25,True,positive,1.4142,1.0,True,0.9903,1.89669
+sentiment_head,customer support (out-of-domain),hidden_1,26,True,positive,1.4116,0.9982,True,0.8784,1.82872
+sentiment_head,customer support (out-of-domain),hidden_1,27,True,negative,1.2539,0.8866,True,0.5834,0.6699
+sentiment_head,customer support (out-of-domain),hidden_1,28,True,neutral,1.2561,0.8882,True,0.5362,0.82986
+sentiment_head,customer support (out-of-domain),hidden_1,29,True,positive,1.4139,0.9998,True,0.9761,3.85967
+sentiment_head,customer support (out-of-domain),hidden_1,30,True,positive,1.4142,1.0,True,0.996,2.5012
+sentiment_head,customer support (out-of-domain),hidden_1,31,True,negative,0.9623,0.6805,False,0.4457,0.46859
+sentiment_head,customer support (out-of-domain),hidden_1,32,True,positive,1.4142,1.0,True,0.9901,0.95795
+sentiment_head,customer support (out-of-domain),hidden_1,33,True,positive,1.4098,0.9969,True,0.9163,1.03805
+sentiment_head,customer support (out-of-domain),hidden_1,34,True,neutral,1.2869,0.91,True,0.5934,2.28495
+sentiment_head,customer support (out-of-domain),hidden_1,35,True,negative,0.8844,0.6254,False,0.3782,0.57919
+sentiment_head,customer support (out-of-domain),hidden_1,36,True,neutral,0.9292,0.657,False,0.3296,1.26517
+sentiment_head,customer support (out-of-domain),hidden_1,37,True,neutral,1.4137,0.9996,True,0.8041,1.32324
+sentiment_head,customer support (out-of-domain),hidden_1,38,True,neutral,1.4137,0.9996,True,0.5372,0.79957
+sentiment_head,customer support (out-of-domain),hidden_1,39,True,positive,0.7847,0.5549,False,0.3178,0.88675
+sentiment_head,customer support (out-of-domain),hidden_1,40,True,negative,1.4125,0.9988,True,0.7425,1.08147
+sentiment_head,customer support (out-of-domain),hidden_1,41,True,neutral,0.9453,0.6684,False,0.4376,1.62366
+sentiment_head,customer support (out-of-domain),hidden_1,42,True,positive,1.3036,0.9218,True,0.6292,1.25557
+sentiment_head,customer support (out-of-domain),hidden_1,43,True,positive,1.4098,0.9969,True,0.7699,1.34281
+sentiment_head,customer support (out-of-domain),hidden_1,44,True,neutral,1.3485,0.9535,True,0.7327,1.63845
+sentiment_head,customer support (out-of-domain),hidden_1,45,True,positive,1.2284,0.8686,True,0.578,1.91867
+sentiment_head,customer support (out-of-domain),hidden_1,46,True,positive,1.3746,0.972,True,0.7258,1.55592
+sentiment_head,customer support (out-of-domain),hidden_1,47,True,negative,1.4064,0.9945,True,0.6285,1.21794
+sentiment_head,customer support (out-of-domain),hidden_1,48,True,neutral,1.3569,0.9594,True,0.7399,2.70158
+sentiment_head,customer support (out-of-domain),hidden_1,49,True,positive,1.3003,0.9195,True,0.6023,0.47076
+sentiment_head,customer support (out-of-domain),hidden_1,50,True,positive,1.4134,0.9994,True,0.9307,0.94235
+sentiment_head,customer support (out-of-domain),hidden_1,51,True,positive,1.4131,0.9992,True,0.9498,1.49671
+sentiment_head,customer support (out-of-domain),hidden_1,52,True,neutral,1.3739,0.9715,True,0.7802,1.88481
+sentiment_head,customer support (out-of-domain),hidden_1,53,True,neutral,1.3369,0.9453,True,0.6,1.8202
+sentiment_head,customer support (out-of-domain),hidden_1,54,True,positive,1.3657,0.9657,True,0.7023,3.39931
+sentiment_head,customer support (out-of-domain),hidden_1,55,True,positive,1.378,0.9744,True,0.7669,2.6987
+sentiment_head,customer support (out-of-domain),hidden_1,56,True,negative,1.4047,0.9933,True,0.822,0.93011
+sentiment_head,customer support (out-of-domain),hidden_1,57,True,positive,1.4112,0.9979,True,0.9018,4.48739
+sentiment_head,customer support (out-of-domain),hidden_1,58,True,positive,1.3899,0.9828,True,0.792,3.22168
+sentiment_head,customer support (out-of-domain),hidden_1,59,True,negative,1.3176,0.9317,True,0.2863,1.46659
+sentiment_head,customer support (out-of-domain),hidden_1,60,True,negative,1.2991,0.9186,True,0.6681,1.70237
+sentiment_head,customer support (out-of-domain),hidden_1,61,True,positive,1.4122,0.9986,True,0.9186,1.87297
+sentiment_head,customer support (out-of-domain),hidden_1,62,True,neutral,1.4137,0.9996,True,0.8639,1.53635
+sentiment_head,customer support (out-of-domain),hidden_1,63,True,positive,1.2346,0.873,True,0.5498,0.98413
+sentiment_head,customer support (out-of-domain),hidden_2,0,True,positive,1.4142,1.0,True,1.0,0.15668
+sentiment_head,customer support (out-of-domain),hidden_2,1,True,negative,1.4142,1.0,True,0.9994,0.75301
+sentiment_head,customer support (out-of-domain),hidden_2,2,True,positive,1.4142,1.0,True,0.9992,0.79054
+sentiment_head,customer support (out-of-domain),hidden_2,3,True,positive,1.4142,1.0,True,1.0,0.34206
+sentiment_head,customer support (out-of-domain),hidden_2,4,True,negative,1.3877,0.9813,True,0.8152,0.6653
+sentiment_head,customer support (out-of-domain),hidden_2,5,True,negative,0.9814,0.694,False,0.455,0.24322
+sentiment_head,customer support (out-of-domain),hidden_2,6,True,neutral,1.4128,0.999,True,0.9384,1.78938
+sentiment_head,customer support (out-of-domain),hidden_2,7,True,positive,1.4142,1.0,True,1.0,0.70227
+sentiment_head,customer support (out-of-domain),hidden_2,8,True,neutral,1.409,0.9963,True,0.901,1.98437
+sentiment_head,customer support (out-of-domain),hidden_2,9,True,positive,1.3895,0.9825,True,0.8204,3.15173
+sentiment_head,customer support (out-of-domain),hidden_2,10,True,negative,1.4142,1.0,True,0.9974,0.59431
+sentiment_head,customer support (out-of-domain),hidden_2,11,True,neutral,0.942,0.6661,False,0.4101,5.09965
+sentiment_head,customer support (out-of-domain),hidden_2,12,True,negative,1.4142,1.0,True,0.9961,0.66679
+sentiment_head,customer support (out-of-domain),hidden_2,13,True,neutral,1.0259,0.7254,False,0.4474,5.93814
+sentiment_head,customer support (out-of-domain),hidden_2,14,True,negative,1.4142,1.0,True,1.0,0.45298
+sentiment_head,customer support (out-of-domain),hidden_2,15,True,neutral,1.414,0.9998,True,0.9728,0.302
+sentiment_head,customer support (out-of-domain),hidden_2,16,True,positive,1.4093,0.9965,True,0.9081,2.80601
+sentiment_head,customer support (out-of-domain),hidden_2,17,True,negative,1.1663,0.8247,True,0.5245,3.51395
+sentiment_head,customer support (out-of-domain),hidden_2,18,True,positive,1.358,0.9603,True,0.7485,2.55039
+sentiment_head,customer support (out-of-domain),hidden_2,19,True,negative,1.4142,1.0,True,1.0,0.04325
+sentiment_head,customer support (out-of-domain),hidden_2,20,True,neutral,1.4128,0.999,True,0.8892,1.41911
+sentiment_head,customer support (out-of-domain),hidden_2,21,True,neutral,1.4142,1.0,True,0.9979,0.67004
+sentiment_head,customer support (out-of-domain),hidden_2,22,True,negative,1.4142,1.0,True,0.998,0.81188
+sentiment_head,customer support (out-of-domain),hidden_2,23,True,negative,1.414,0.9999,True,0.9826,0.21581
+sentiment_head,customer support (out-of-domain),hidden_2,24,True,neutral,1.4112,0.9978,True,0.66,2.40813
+sentiment_head,customer support (out-of-domain),hidden_2,25,True,positive,1.2815,0.9061,True,0.5885,5.93923
+sentiment_head,customer support (out-of-domain),hidden_2,26,True,positive,1.4135,0.9995,True,0.9637,1.80049
+sentiment_head,customer support (out-of-domain),hidden_2,27,True,positive,1.3706,0.9692,True,0.7731,3.0932
+sentiment_head,customer support (out-of-domain),hidden_2,28,True,neutral,1.3694,0.9683,True,0.7387,4.50382
+sentiment_head,customer support (out-of-domain),hidden_2,29,True,neutral,1.4137,0.9996,True,0.9557,1.49737
+sentiment_head,customer support (out-of-domain),hidden_2,30,True,negative,1.4142,1.0,True,1.0,0.00043
+sentiment_head,customer support (out-of-domain),hidden_2,31,True,positive,1.4136,0.9996,True,0.9254,2.95598
+sentiment_head,customer support (out-of-domain),hidden_2,32,False,,,,False,,0.0
+sentiment_head,customer support (out-of-domain),hidden_2,33,True,neutral,1.4097,0.9968,True,0.8932,1.88195
+sentiment_head,customer support (out-of-domain),hidden_2,34,True,neutral,1.4108,0.9976,True,0.9196,0.51984
+sentiment_head,customer support (out-of-domain),hidden_2,35,True,positive,1.1589,0.8195,True,0.4562,3.35833
+sentiment_head,customer support (out-of-domain),hidden_2,36,True,negative,1.4142,1.0,True,0.9875,0.83795
+sentiment_head,customer support (out-of-domain),hidden_2,37,True,neutral,1.4142,1.0,True,0.9903,1.7105
+sentiment_head,customer support (out-of-domain),hidden_2,38,True,neutral,1.4142,1.0,True,0.9935,1.3807
+sentiment_head,customer support (out-of-domain),hidden_2,39,False,,,,False,,0.0
+sentiment_head,customer support (out-of-domain),hidden_2,40,True,neutral,1.4142,1.0,True,0.9381,0.73012
+sentiment_head,customer support (out-of-domain),hidden_2,41,True,positive,1.3751,0.9724,True,0.7799,3.31392
+sentiment_head,customer support (out-of-domain),hidden_2,42,True,positive,0.7743,0.5475,False,0.3617,0.40114
+sentiment_head,customer support (out-of-domain),hidden_2,43,True,negative,1.4142,1.0,True,1.0,0.39854
+sentiment_head,customer support (out-of-domain),hidden_2,44,True,positive,1.4142,1.0,True,1.0,0.05051
+sentiment_head,customer support (out-of-domain),hidden_2,45,True,neutral,1.4089,0.9962,True,0.8902,2.3252
+sentiment_head,customer support (out-of-domain),hidden_2,46,True,positive,1.4142,1.0,True,0.9947,1.4139
+sentiment_head,customer support (out-of-domain),hidden_2,47,True,positive,1.4142,1.0,True,0.989,1.48661
+sentiment_head,customer support (out-of-domain),hidden_2,48,True,neutral,1.3942,0.9859,True,0.8116,2.95441
+sentiment_head,customer support (out-of-domain),hidden_2,49,False,,,,False,,0.0
+sentiment_head,customer support (out-of-domain),hidden_2,50,True,positive,1.1169,0.7898,True,0.4773,5.65881
+sentiment_head,customer support (out-of-domain),hidden_2,51,True,neutral,1.4142,1.0,True,0.9976,0.97478
+sentiment_head,customer support (out-of-domain),hidden_2,52,True,positive,1.3479,0.9531,True,0.7283,0.22382
+sentiment_head,customer support (out-of-domain),hidden_2,53,True,negative,1.4021,0.9914,True,0.8671,0.73363
+sentiment_head,customer support (out-of-domain),hidden_2,54,False,,,,False,,0.0
+sentiment_head,customer support (out-of-domain),hidden_2,55,True,positive,1.4138,0.9997,True,0.9713,2.02202
+sentiment_head,customer support (out-of-domain),hidden_2,56,True,neutral,1.4087,0.9961,True,0.871,1.26368
+sentiment_head,customer support (out-of-domain),hidden_2,57,True,negative,1.4142,1.0,True,0.9894,0.47183
+sentiment_head,customer support (out-of-domain),hidden_2,58,True,neutral,1.4131,0.9992,True,0.8286,3.48215
+sentiment_head,customer support (out-of-domain),hidden_2,59,True,negative,0.7614,0.5384,False,0.3371,5.53169
+sentiment_head,customer support (out-of-domain),hidden_2,60,True,neutral,1.403,0.992,True,0.8698,3.57137
+sentiment_head,customer support (out-of-domain),hidden_2,61,True,neutral,1.4142,1.0,True,0.9073,0.40718
+sentiment_head,customer support (out-of-domain),hidden_2,62,True,positive,1.0202,0.7214,False,0.4743,0.68678
+sentiment_head,customer support (out-of-domain),hidden_2,63,True,positive,1.4142,1.0,True,0.9999,1.47461
+action_dnn,synthetic test,hidden_1,0,True,reschedule_appt,2.5735,0.9727,True,0.8603,0.62406
+action_dnn,synthetic test,hidden_1,1,True,send_explanation_of_benefits,1.5812,0.5977,False,0.4258,0.24236
+action_dnn,synthetic test,hidden_1,2,True,reschedule_appt,1.896,0.7166,False,0.5013,0.57065
+action_dnn,synthetic test,hidden_1,3,True,reschedule_appt,1.8492,0.6989,False,0.607,0.38717
+action_dnn,synthetic test,hidden_1,4,True,get_practice_info,1.4265,0.5392,False,0.3596,0.6566
+action_dnn,synthetic test,hidden_1,5,True,reschedule_appt,1.9705,0.7448,False,0.5115,0.62198
+action_dnn,synthetic test,hidden_1,6,True,route_to_human_emergency,1.9737,0.746,False,0.5763,0.97295
+action_dnn,synthetic test,hidden_1,7,True,thank_you_message,1.8779,0.7098,False,0.6439,0.26494
+action_dnn,synthetic test,hidden_1,8,True,send_payment_link,1.3783,0.521,False,0.4377,0.36048
+action_dnn,synthetic test,hidden_1,9,True,thank_you_message,1.8785,0.71,False,0.5659,0.54614
+action_dnn,synthetic test,hidden_1,10,True,book_appt,2.1865,0.8264,True,0.6025,0.48151
+action_dnn,synthetic test,hidden_1,11,True,send_payment_link,2.138,0.8081,True,0.5702,0.683
+action_dnn,synthetic test,hidden_1,12,True,route_to_human_emergency,2.2022,0.8323,True,0.6287,0.73029
+action_dnn,synthetic test,hidden_1,13,True,get_practice_info,1.0722,0.4052,False,0.3081,0.60182
+action_dnn,synthetic test,hidden_1,14,True,get_practice_info,2.4087,0.9104,True,0.7525,0.64048
+action_dnn,synthetic test,hidden_1,15,True,book_appt,2.0114,0.7603,True,0.5388,0.59556
+action_dnn,synthetic test,hidden_1,16,True,route_to_human_emergency,1.908,0.7212,False,0.5763,0.68617
+action_dnn,synthetic test,hidden_1,17,True,get_practice_info,2.4851,0.9393,True,0.8424,0.05383
+action_dnn,synthetic test,hidden_1,18,True,reschedule_appt,1.3821,0.5224,False,0.4406,0.87484
+action_dnn,synthetic test,hidden_1,19,True,get_practice_info,1.3258,0.5011,False,0.3961,0.44736
+action_dnn,synthetic test,hidden_1,20,True,send_explanation_of_benefits,1.9586,0.7403,False,0.6834,0.18779
+action_dnn,synthetic test,hidden_1,21,True,get_practice_info,2.1402,0.8089,True,0.4432,0.75246
+action_dnn,synthetic test,hidden_1,22,True,send_explanation_of_benefits,1.3795,0.5214,False,0.4546,0.31311
+action_dnn,synthetic test,hidden_1,23,True,reschedule_appt,2.3254,0.8789,True,0.5854,0.77893
+action_dnn,synthetic test,hidden_1,24,True,route_to_human_emergency,1.6717,0.6318,False,0.448,0.601
+action_dnn,synthetic test,hidden_1,25,True,route_to_human_emergency,1.933,0.7306,False,0.6313,1.21178
+action_dnn,synthetic test,hidden_1,26,True,route_to_human_emergency,1.47,0.5556,False,0.5093,0.53914
+action_dnn,synthetic test,hidden_1,27,True,send_explanation_of_benefits,2.1531,0.8138,True,0.5871,0.40112
+action_dnn,synthetic test,hidden_1,28,True,route_to_human,2.2739,0.8595,True,0.6432,0.63026
+action_dnn,synthetic test,hidden_1,29,True,get_practice_info,1.5368,0.5808,False,0.4831,0.50055
+action_dnn,synthetic test,hidden_1,30,True,book_appt,1.3456,0.5086,False,0.4324,0.44364
+action_dnn,synthetic test,hidden_1,31,True,route_to_human,2.4865,0.9398,True,0.6599,0.35708
+action_dnn,synthetic test,hidden_1,32,True,reschedule_appt,2.2164,0.8377,True,0.7099,0.4183
+action_dnn,synthetic test,hidden_1,33,True,route_to_human,2.2247,0.8409,True,0.5683,0.92897
+action_dnn,synthetic test,hidden_1,34,True,send_payment_link,1.9013,0.7186,False,0.6637,0.26474
+action_dnn,synthetic test,hidden_1,35,True,send_explanation_of_benefits,1.6811,0.6354,False,0.4167,0.36457
+action_dnn,synthetic test,hidden_1,36,True,route_to_human_emergency,1.4856,0.5615,False,0.488,0.97844
+action_dnn,synthetic test,hidden_1,37,True,send_explanation_of_benefits,2.2651,0.8561,True,0.5343,0.64492
+action_dnn,synthetic test,hidden_1,38,True,route_to_human,1.6905,0.6389,False,0.5652,0.77749
+action_dnn,synthetic test,hidden_1,39,True,send_explanation_of_benefits,1.4766,0.5581,False,0.4536,0.49145
+action_dnn,synthetic test,hidden_1,40,True,get_practice_info,1.4052,0.5311,False,0.3924,0.55711
+action_dnn,synthetic test,hidden_1,41,True,route_to_human_emergency,2.1157,0.7997,True,0.7017,1.29531
+action_dnn,synthetic test,hidden_1,42,True,reschedule_appt,2.3421,0.8852,True,0.5998,0.88143
+action_dnn,synthetic test,hidden_1,43,True,reschedule_appt,1.4358,0.5427,False,0.3938,0.63383
+action_dnn,synthetic test,hidden_1,44,True,book_appt,2.0072,0.7586,True,0.5067,0.47142
+action_dnn,synthetic test,hidden_1,45,True,get_practice_info,1.6744,0.6329,False,0.616,0.41228
+action_dnn,synthetic test,hidden_1,46,True,thank_you_message,2.003,0.7571,True,0.4737,0.37268
+action_dnn,synthetic test,hidden_1,47,True,reschedule_appt,1.3851,0.5235,False,0.4168,0.49218
+action_dnn,synthetic test,hidden_1,48,False,,,,False,,0.0
+action_dnn,synthetic test,hidden_1,49,True,send_explanation_of_benefits,1.4676,0.5547,False,0.4475,0.79095
+action_dnn,synthetic test,hidden_1,50,True,book_appt,1.8759,0.709,False,0.4681,0.46623
+action_dnn,synthetic test,hidden_1,51,True,send_explanation_of_benefits,1.7139,0.6478,False,0.5211,0.72163
+action_dnn,synthetic test,hidden_1,52,True,send_explanation_of_benefits,1.5132,0.5719,False,0.4704,0.70527
+action_dnn,synthetic test,hidden_1,53,True,send_explanation_of_benefits,1.5792,0.5969,False,0.5784,0.34895
+action_dnn,synthetic test,hidden_1,54,True,reschedule_appt,1.627,0.6149,False,0.5286,0.5373
+action_dnn,synthetic test,hidden_1,55,True,route_to_human_emergency,2.1489,0.8122,True,0.5121,1.1908
+action_dnn,synthetic test,hidden_1,56,True,route_to_human_emergency,2.1526,0.8136,True,0.6263,0.80488
+action_dnn,synthetic test,hidden_1,57,True,reschedule_appt,1.8531,0.7004,False,0.5989,0.40917
+action_dnn,synthetic test,hidden_1,58,True,get_practice_info,1.7201,0.6502,False,0.4859,0.90964
+action_dnn,synthetic test,hidden_1,59,True,thank_you_message,2.0221,0.7643,True,0.618,0.35455
+action_dnn,synthetic test,hidden_1,60,True,reschedule_appt,1.9064,0.7205,False,0.6705,1.01286
+action_dnn,synthetic test,hidden_1,61,True,book_appt,2.5636,0.9689,True,0.8072,0.32197
+action_dnn,synthetic test,hidden_1,62,True,route_to_human_emergency,1.3755,0.5199,False,0.4023,0.68776
+action_dnn,synthetic test,hidden_1,63,True,send_payment_link,1.3645,0.5158,False,0.4347,0.72747
+action_dnn,real test,hidden_1,0,True,reschedule_appt,2.605,0.9846,True,0.8609,0.38152
+action_dnn,real test,hidden_1,1,True,book_appt,1.5268,0.5771,False,0.3878,0.55713
+action_dnn,real test,hidden_1,2,True,reschedule_appt,2.0993,0.7935,True,0.5492,0.85951
+action_dnn,real test,hidden_1,3,True,reschedule_appt,1.613,0.6096,False,0.5386,0.5375
+action_dnn,real test,hidden_1,4,True,get_practice_info,1.4602,0.5519,False,0.4384,0.7489
+action_dnn,real test,hidden_1,5,True,reschedule_appt,2.1357,0.8072,True,0.6723,0.26475
+action_dnn,real test,hidden_1,6,True,route_to_human_emergency,1.7002,0.6426,False,0.5051,0.97505
+action_dnn,real test,hidden_1,7,True,send_payment_link,1.8322,0.6925,False,0.6963,0.16882
+action_dnn,real test,hidden_1,8,True,send_payment_link,2.2643,0.8558,True,0.7178,0.27696
+action_dnn,real test,hidden_1,9,True,thank_you_message,2.2145,0.837,True,0.7501,0.55623
+action_dnn,real test,hidden_1,10,True,book_appt,1.7016,0.6431,False,0.5941,0.50811
+action_dnn,real test,hidden_1,11,True,send_payment_link,1.9988,0.7555,True,0.463,0.77234
+action_dnn,real test,hidden_1,12,True,route_to_human_emergency,2.085,0.7881,True,0.6392,0.66888
+action_dnn,real test,hidden_1,13,True,reschedule_appt,0.9901,0.3742,False,0.301,0.88238
+action_dnn,real test,hidden_1,14,True,get_practice_info,2.4136,0.9122,True,0.7348,0.42294
+action_dnn,real test,hidden_1,15,True,book_appt,1.854,0.7008,False,0.6178,0.37171
+action_dnn,real test,hidden_1,16,True,route_to_human_emergency,2.0082,0.759,True,0.5747,0.91785
+action_dnn,real test,hidden_1,17,True,get_practice_info,2.2855,0.8638,True,0.8238,0.00818
+action_dnn,real test,hidden_1,18,True,reschedule_appt,1.6316,0.6167,False,0.4904,1.08964
+action_dnn,real test,hidden_1,19,True,thank_you_message,1.4375,0.5433,False,0.4069,0.5158
+action_dnn,real test,hidden_1,20,True,send_explanation_of_benefits,1.4986,0.5664,False,0.5738,0.33438
+action_dnn,real test,hidden_1,21,True,get_practice_info,1.9274,0.7285,False,0.5207,0.36942
+action_dnn,real test,hidden_1,22,True,thank_you_message,1.6329,0.6172,False,0.5156,0.37625
+action_dnn,real test,hidden_1,23,True,reschedule_appt,2.3744,0.8974,True,0.6928,0.63465
+action_dnn,real test,hidden_1,24,True,route_to_human_emergency,1.9301,0.7295,False,0.4929,0.75477
+action_dnn,real test,hidden_1,25,True,route_to_human_emergency,1.7587,0.6647,False,0.5777,1.20035
+action_dnn,real test,hidden_1,26,True,route_to_human_emergency,2.039,0.7707,True,0.6356,0.44573
+action_dnn,real test,hidden_1,27,True,send_explanation_of_benefits,1.6905,0.6389,False,0.501,0.40195
+action_dnn,real test,hidden_1,28,True,route_to_human,2.3363,0.883,True,0.6872,0.33008
+action_dnn,real test,hidden_1,29,True,book_appt,1.5686,0.5929,False,0.5428,0.37048
+action_dnn,real test,hidden_1,30,True,book_appt,1.2896,0.4874,False,0.4637,0.27866
+action_dnn,real test,hidden_1,31,True,route_to_human,2.2131,0.8365,True,0.6829,0.18679
+action_dnn,real test,hidden_1,32,True,reschedule_appt,2.2168,0.8379,True,0.6757,0.50929
+action_dnn,real test,hidden_1,33,True,route_to_human,2.1716,0.8208,True,0.5701,0.67091
+action_dnn,real test,hidden_1,34,True,send_payment_link,1.8132,0.6853,False,0.5831,0.51707
+action_dnn,real test,hidden_1,35,True,send_explanation_of_benefits,1.3285,0.5021,False,0.2932,0.68296
+action_dnn,real test,hidden_1,36,True,route_to_human_emergency,1.5332,0.5795,False,0.5104,0.90289
+action_dnn,real test,hidden_1,37,True,send_explanation_of_benefits,1.7201,0.6502,False,0.4905,0.66354
+action_dnn,real test,hidden_1,38,True,route_to_human,2.3372,0.8834,True,0.7798,0.81568
+action_dnn,real test,hidden_1,39,True,thank_you_message,1.8048,0.6821,False,0.5707,0.5026
+action_dnn,real test,hidden_1,40,True,book_appt,1.7947,0.6783,False,0.4695,0.76335
+action_dnn,real test,hidden_1,41,True,route_to_human_emergency,1.895,0.7162,False,0.6959,1.25079
+action_dnn,real test,hidden_1,42,True,reschedule_appt,2.3429,0.8855,True,0.6389,1.10609
+action_dnn,real test,hidden_1,43,True,reschedule_appt,1.7492,0.6611,False,0.4282,0.93914
+action_dnn,real test,hidden_1,44,True,book_appt,2.0256,0.7656,True,0.593,0.62385
+action_dnn,real test,hidden_1,45,True,route_to_human_emergency,1.9003,0.7182,False,0.6699,0.27291
+action_dnn,real test,hidden_1,46,True,thank_you_message,2.2926,0.8665,True,0.6488,0.33296
+action_dnn,real test,hidden_1,47,True,thank_you_message,1.715,0.6482,False,0.5675,0.41717
+action_dnn,real test,hidden_1,48,True,route_to_human,2.6458,1.0,True,1.0,0.00133
+action_dnn,real test,hidden_1,49,True,send_payment_link,1.4008,0.5294,False,0.4377,0.82064
+action_dnn,real test,hidden_1,50,True,book_appt,1.589,0.6006,False,0.4814,0.56676
+action_dnn,real test,hidden_1,51,True,thank_you_message,1.6971,0.6415,False,0.5001,1.15056
+action_dnn,real test,hidden_1,52,True,thank_you_message,1.6929,0.6399,False,0.5395,0.87457
+action_dnn,real test,hidden_1,53,True,send_payment_link,1.5027,0.568,False,0.5561,0.5805
+action_dnn,real test,hidden_1,54,True,route_to_human_emergency,1.4813,0.5599,False,0.515,0.41243
+action_dnn,real test,hidden_1,55,True,route_to_human_emergency,2.2377,0.8458,True,0.5192,1.24874
+action_dnn,real test,hidden_1,56,True,route_to_human_emergency,2.1991,0.8312,True,0.6035,0.81767
+action_dnn,real test,hidden_1,57,True,route_to_human_emergency,1.7943,0.6782,False,0.5769,0.51568
+action_dnn,real test,hidden_1,58,True,get_practice_info,1.5303,0.5784,False,0.4607,0.56056
+action_dnn,real test,hidden_1,59,True,thank_you_message,2.2097,0.8352,True,0.7058,0.24768
+action_dnn,real test,hidden_1,60,True,reschedule_appt,1.971,0.745,False,0.7123,1.09136
+action_dnn,real test,hidden_1,61,True,book_appt,2.5465,0.9625,True,0.8622,0.3281
+action_dnn,real test,hidden_1,62,True,route_to_human_emergency,1.8868,0.7131,False,0.5047,0.73322
+action_dnn,real test,hidden_1,63,True,send_payment_link,2.0432,0.7722,True,0.6072,0.72532

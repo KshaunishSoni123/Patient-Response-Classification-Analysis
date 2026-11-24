@@ -1,0 +1,26 @@
+id,text,human_sentiment,annotator,labeled_at
+T1827,I have a question about my recent lab results. Can you explain what the elevated creatinine level means?,neutral,kshaunish,2026-11-23T21:08:15+00:00
+T9096,What are the recommended dosages for Ibuprofen for adults?,neutral,kshaunish,2026-11-23T21:08:17+00:00
+T10042,Can I reschedule my appointment with Dr. Lee for next Tuesday?,neutral,kshaunish,2026-11-23T21:08:18+00:00
+T1709,I'm feeling really anxious and can't sleep well.,neutral,kshaunish,2026-11-23T21:08:20+00:00
+T4620,I'm having trouble getting pre-authorization for a procedure.,neutral,kshaunish,2026-11-23T21:08:21+00:00
+T673,"I've been having a persistent cough for the past week, and I'm also experiencing shortness of breath.",neutral,kshaunish,2026-11-23T21:08:23+00:00
+T5449,"Tuesday afternoon, preferably around 2 PM.",neutral,kshaunish,2026-11-23T21:08:25+00:00
+T2856,My doctor recommended a physical therapy session.,neutral,kshaunish,2026-11-23T21:08:29+00:00
+T5829,Can you remind me to take my Metformin at 8 AM tomorrow?,neutral,kshaunish,2026-11-23T21:08:34+00:00
+T10057,I need to get a prescription for allergy medication.,neutral,kshaunish,2026-11-23T21:08:35+00:00
+T1167,My insurance policy number is XZ987654321.,neutral,kshaunish,2026-11-23T21:08:36+00:00
+T1808,I have a sore throat and a headache. Should I be concerned?,neutral,kshaunish,2026-11-23T21:08:38+00:00
+T3496,What are the interactions of Warfarin with Vitamin K?,neutral,kshaunish,2026-11-23T21:08:39+00:00
+T3616,I need to cancel my upcoming dermatology appointment.,neutral,kshaunish,2026-11-23T21:08:44+00:00
+T3723,I have a sore throat and a fever.,neutral,kshaunish,2026-11-23T21:08:44+00:00
+T9123,I want to book a dentist appointment for a cleaning next week.,neutral,kshaunish,2026-11-23T21:08:46+00:00
+T633,"My provider is HealthFirst, and the policy number is HF987654321.",neutral,kshaunish,2026-11-23T21:08:47+00:00
+T6406,My insurance provider changed. How do I update my information?,neutral,kshaunish,2026-11-23T21:08:49+00:00
+T3675,I've been having trouble sleeping lately.,neutral,kshaunish,2026-11-23T21:09:26+00:00
+T7032,The claim number is INS789001.,neutral,kshaunish,2026-11-23T21:09:27+00:00
+T7065,I have a sharp pain in my left shoulder.,neutral,kshaunish,2026-11-23T21:09:28+00:00
+T3340,Can you tell me about the deductible for my insurance plan?,neutral,kshaunish,2026-11-23T21:09:29+00:00
+T4288,My insurance doesn't seem to cover my recent specialist visit.,neutral,kshaunish,2026-11-23T21:09:30+00:00
+T4199,I need to cancel my appointment with Dr. Evans for tomorrow.,neutral,kshaunish,2026-11-23T21:09:31+00:00
+T6593,How can I check my insurance coverage for a specific procedure?,neutral,kshaunish,2026-11-23T21:09:33+00:00
